@@ -1,45 +1,45 @@
-import express from 'express';
+const express = require('express');
 
-import {
+const {
   getUserInfo,
   createUser,
   updateUser,
   changeAccess
-} from './controllers/users.js';
+} = require('./controllers/users.js');
 
-import {
+const {
   getSmove,
   createSmove
-} from './controllers/smove.js';
+} = require('./controllers/smove.js');
 
-import {
+const {
   createList,
   updateList,
   deleteList
-} from './controllers/lists.js';
+} = require('./controllers/lists.js');
 
-import {
+const {
   createTask,
   updateTask,
   deleteTask
-} from './controllers/tasks.js';
+} = require('./controllers/tasks.js');
 
 const router = express.Router();
 
-router.get('/:id', getUserInfo);
-router.post('/', createUser);
-router.patch('/:id', updateUser);
-router.delete('/:id/:id', changeAccess);
+router.get('/user/:id', getUserInfo);
+router.post('/user', createUser);
+router.patch('/user/:id', updateUser);
+router.patch('/user/:id/:id', changeAccess);
 
 router.get('/:id', getSmove);
 router.post('/', createSmove);
 
-router.post('/', createList);
-router.patch('/:id', updateList);
-router.delete('/:id/:id', deleteList);
+router.post('/list', createList);
+router.patch('/list/:id', updateList);
+router.delete('/list/:id', deleteList);
 
-router.post('/', createTask);
-router.patch('/:id', updateTask);
-router.delete('/:id/:id', deleteTask);
+router.post('/task', createTask);
+router.patch('/task/:id', updateTask);
+router.delete('/task/:id', deleteTask);
 
-export default router;
+module.exports = router;

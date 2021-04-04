@@ -1,180 +1,161 @@
 const exampleData = {
   someUserEmail: {
     fullname: "grabbed from google auth",
-    address: "user input upon sign up",
     zipcode: "user input upon sign up",
     accessRole: "admin or viewOnly",
-    onMoveTeamOf: ["smooveId", "smooveId"], // these are the smooveIds that they're just a contributor to, so we can validate they have access
+    onMoveTeamOf: ["smoveId", "smoveId"], // these are the smooveIds that they're just a contributor to, so we can validate they have access
     smoves: {
       1: {  // the 1 is a smooveId
-        smooveName: "someName",
+        smoveName: "someName1",
+        isCurrentSmove: true,
+        oldAddress: '123 Fake St',
+        newAddress: '456 Real St.',
+        favCompanies: [
+          {
+            companyName: "Great company 1",
+            url: "www.greatcompany1.com"
+          },
+          {
+            companyName: "Great company 2",
+            url: "www.greatcompany2.com"
+          },
+          {
+            companyName: "Great company 2",
+            url: "www.greatcompany3.com"
+          },
+        ],
         tasks: [
           {
-            taskId: 1,
-            category: "moving, packing, services, etc",
-            companies: [
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-            ],
+            name: 'task1',
+            location: 'old house',
+            startDate: '2021-04-20T09:00:00-07:00',
+            endDate: '2021-04-20T09:00:00-07:00',
             assignedTo: ["someUserEmail1", "someUserEmail2"],
-            status: "not started, in progress, complete",
-            dueDate: "date"
+            category: "moving",
+            status: "not started",
+            company: {
+              companyName: "Great company 1",
+              url: "www.greatcompany1.com"
+            }
           },
           {
-            taskId: 2,
-            category: "moving, packing, services, etc",
-            companies: [
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-            ],
+            name: 'task2',
+            location: 'old house',
+            startDate: '2021-04-21T09:00:00-07:00',
+            endDate: '2021-04-21T09:00:00-07:00',
             assignedTo: ["someUserEmail1", "someUserEmail2"],
-            status: "not started, in progress, complete",
-            dueDate: "date",
+            category: "moving",
+            status: "not started",
+            company: {
+              companyName: "Great company 1",
+              url: "www.greatcompany1.com"
+            }
           },
           {
-            taskId: 3,
-            category: "moving, packing, services, etc",
-            companies: [
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-            ],
+            name: 'task3',
+            location: 'old house',
+            startDate: '2021-04-20T09:00:00-07:00',
+            endDate: '2021-04-20T09:00:00-07:00',
             assignedTo: ["someUserEmail1", "someUserEmail2"],
-            status: "not started, in progress, complete",
-            dueDate: "date"
+            category: "moving",
+            status: "not started",
+            company: {
+              companyName: "Great company 1",
+              url: "www.greatcompany1.com"
+            }
           },
         ],
         inventory: [
           {
-            boxId: 1,
-            boxName: "gadgets",
-            roomId: 1,
-            roomName: "kitchen",
-            flags: ["fragile", "valuable", "none"],
+            boxNum: 1,
+            originRoom: 'kitchen',
+            destinationRoom: 'bathroom',
+            boxPriority: 'urgent',
             notes: "this box has some random stuff from the kitchen"
           },
           {
-            boxId: 2,
-            boxName: "plates",
-            roomId: 1,
-            roomName: "kitchen",
-            flags: ["fragile", "valuable", "none"],
+            boxNum: 2,
+            originRoom: 'kitchen',
+            destinationRoom: 'bathroom',
+            boxPriority: 'urgent',
             notes: "this box has some fragile ceramics from the kitchen"
           }
         ],
         moveTeam: ["someUserEmail1", "someUserEmail2", "someUserEmail3"] // we don't need to store more than the username because we can query the username itself to get more details
       },
       2: {
-        smooveName: "someName",
+        smoveName: "someName2",
+        isCurrentSmove: true,
+        oldAddress: '123 Fake St',
+        newAddress: '456 Real St.',
+        favCompanies: [
+          {
+            companyName: "Great company 1",
+            url: "www.greatcompany1.com"
+          },
+          {
+            companyName: "Great company 2",
+            url: "www.greatcompany2.com"
+          },
+          {
+            companyName: "Great company 2",
+            url: "www.greatcompany3.com"
+          },
+        ],
         tasks: [
           {
-            taskId: 1,
-            category: "moving, packing, services, etc",
-            companies: [
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-            ],
+            name: 'task1',
+            location: 'old house',
+            startDate: '2021-04-20T09:00:00-07:00',
+            endDate: '2021-04-20T09:00:00-07:00',
             assignedTo: ["someUserEmail1", "someUserEmail2"],
-            status: "not started, in progress, complete",
-            dueDate: "date"
+            category: "moving",
+            status: "not started",
+            company: {
+              companyName: "Great company 1",
+              url: "www.greatcompany1.com"
+            }
           },
           {
-            taskId: 2,
-            category: "moving, packing, services, etc",
-            companies: [
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-            ],
+            name: 'task2',
+            location: 'old house',
+            startDate: '2021-04-21T09:00:00-07:00',
+            endDate: '2021-04-21T09:00:00-07:00',
             assignedTo: ["someUserEmail1", "someUserEmail2"],
-            status: "not started, in progress, complete",
-            dueDate: "date",
+            category: "moving",
+            status: "not started",
+            company: {
+              companyName: "Great company 1",
+              url: "www.greatcompany1.com"
+            }
           },
           {
-            taskId: 3,
-            category: "moving, packing, services, etc",
-            companies: [
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-              {
-                companyName: "Great company",
-                url: "www.greatcompany.com"
-              },
-            ],
+            name: 'task3',
+            location: 'old house',
+            startDate: '2021-04-20T09:00:00-07:00',
+            endDate: '2021-04-20T09:00:00-07:00',
             assignedTo: ["someUserEmail1", "someUserEmail2"],
-            status: "not started, in progress, complete",
-            dueDate: "date"
+            category: "moving",
+            status: "not started",
+            company: {
+              companyName: "Great company 1",
+              url: "www.greatcompany1.com"
+            }
           },
         ],
         inventory: [
           {
-            boxId: 1,
-            boxName: "gadgets",
-            roomId: 1,
-            roomName: "kitchen",
-            flags: ["fragile", "valuable", "none"],
+            boxNum: 1,
+            originRoom: 'kitchen',
+            destinationRoom: 'bathroom',
+            boxPriority: 'urgent',
             notes: "this box has some random stuff from the kitchen"
           },
           {
-            boxId: 2,
-            boxName: "plates",
-            roomId: 1,
-            roomName: "kitchen",
-            flags: ["fragile", "valuable", "none"],
+            boxNum: 2,
+            originRoom: 'kitchen',
+            destinationRoom: 'bathroom',
+            boxPriority: 'urgent',
             notes: "this box has some fragile ceramics from the kitchen"
           }
         ],

@@ -6512,7 +6512,7 @@ var MapContainer = function MapContainer() {
 /***/ ((module) => {
 
 module.exports = {
-  GOOGLE_TOKEN: 'AIzaSyAqWGF-lESuTM-ZmSzMwNGMbe8fRTvSlok'
+  GOOGLE_TOKEN: 'AIzaSyCfxj2z5v_xU-GTayAMIklhcgiJVNLIB34'
 };
 
 /***/ }),

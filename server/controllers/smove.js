@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Smove = require('../../database/Smove.js');
+//const Smove = require('../../database/Smove.js');
 
 module.exports = {
 // this request will get all the data for one full smove, the query will be quite different

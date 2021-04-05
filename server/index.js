@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const morgan = require('morgan');
 
-const smoveRoutes = require('./routes.js');
+//const smoveRoutes = require('./routes.js');
 
 const app = express();
 const PORT = 3000;
@@ -16,7 +16,7 @@ app.use(cors());
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
 app.use(express.static(PUBLIC_DIR));
 
-app.use('/smove', smoveRoutes);
+//app.use('/smove', smoveRoutes);
 
 mongoose.connect(
   'mongodb://localhost/fetcher', {useNewUrlParser: true, useUnifiedTopology: true}

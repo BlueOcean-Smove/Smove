@@ -48,5 +48,3 @@ app.post('/business', (req, res) => {
 
 
 mongoose.set('useFindAndModify', false);
-
-mongoose.set('useFindAndModify', false);

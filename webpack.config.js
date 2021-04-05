@@ -21,13 +21,17 @@ module.exports = {
               ],
             },
           },
-          
+
         ],
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(sass|less|css)$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
       },
+      {
+        test: /\.(woff(2)?|eot|ttf)$/,
+        use: 'file-loader'
+      }
     ],
   },
   mode: 'development',

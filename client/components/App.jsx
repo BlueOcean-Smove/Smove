@@ -9,6 +9,7 @@ import Tasks from './Tasks/TaskList.jsx';
 
 // import component files to use for routes
 
+import BussinessCarousel from './BussinessCarousel';
 
 const App = () => {
   return (

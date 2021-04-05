@@ -15,20 +15,22 @@ const Login = () => {
         .then(() => {
           window.gapi.signin2.render('g-signin2', {
             'scope': 'profile email',
-            'width': 250,
-            'height': 50,
+            'width': 100,
+            'height': 30,
             'longtitle': false,
             'theme': 'dark',
             'onsuccess': onSignIn,
             // 'onfailure': this.onFailure
           })
         })
+        .catch(() = > 'could not load the google modal');
     })
   }, [])
 
   const onSignIn = (googleUser) => {
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId());
+    console.log('hi from sign in')
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.

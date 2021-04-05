@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
-  email: {
+  googleID: {
     type: String,
     required: true
   },
-  name: {
+  displayName: {
+    type: String,
+    required: true
+  },
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
     type: String,
     required: true
   },
@@ -15,23 +23,13 @@ const userSchema = mongoose.Schema({
   smoves: [
     {
       smoveName: String,
-      isCurrentSmove: {
-        type: Boolean,
-        default: true
-<<<<<<< HEAD
-      },
+      isCurrentSmove: Boolean,
       oldAddress: String,
       newAddress: String,
-      smoveDate: String,
-=======
-      oldAddress: String,
-      newAddress: String,
-      smoveDate: Date,
->>>>>>> Small changes
       favCompanies: [
         {
           companyName: String,
-          url: String
+          url: String,
         }
       ],
       tasks: [
@@ -65,4 +63,4 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports.User = User;

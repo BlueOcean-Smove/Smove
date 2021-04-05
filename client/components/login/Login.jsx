@@ -1,16 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      name: '',
-      email: '',
-      image: '',
-      userObj: {}
-    }
 
     this.onSignIn = this.onSignIn.bind(this);
   }
@@ -23,63 +15,42 @@ class Login extends React.Component {
         .then(() => {
           window.gapi.signin2.render('g-signin2', {
             'scope': 'profile email',
-            'width': 250,
-            'height': 50,
+            'width': 100,
+            'height': 30,
             'longtitle': false,
             'theme': 'dark',
             'onsuccess': this.onSignIn,
             // 'onfailure': this.onFailure
           })
         })
+        .catch(() = > 'could not load the google modal');
     })
   }
 
   onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId());
+    console.log('hi from sign in')
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-    const name = profile.getName();
-    const email = profile.getEmail();
-    const image = profile.getImageUrl()
-
-    this.setState({ name, email, image });
-
-    axios.get(`/auth/${email}`)
-      .then(({ data }) => {
-        console.log('user obj from database: ', data);
-        if (!data) {
-          axios.post(`/auth/`, {
-            name: name,
-            email: email,
-            image: image
-          })
-        } else {
-          this.setState({
-            userObj: data
-          })
-        }
-      })
-      .catch((err) => console.log('error in get /auth/:email ', err))
+    // search database for the userprofile
+    // if found
+      // load the current smove data
+      // go to Smove dashboard
+      // populate the dashboard with the current data
+    // else
+      // create a new user
+      // bring up add smove modal
+      //
+    // change login button to change user button
+    // add logout button
   }
 
   render() {
     return (
       <div>
         <div id="g-signin2" data-onsuccess={this.onSignIn}></div>
-        {!!this.state.name && (
-          <div>
-            <span id="welcome-name">
-              Welcome {this.state.name}!
-            </span>
-            <span id="welcome-email">
-              Currently signed in as {this.state.email}
-            </span>
-            <img id="welcome-img" src={this.state.image} alt="Your user profile picture" />
-          </div>
-        )}
       </div>
     )
   }

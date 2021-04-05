@@ -16,7 +16,7 @@ app.use(cors());
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
 app.use(express.static(PUBLIC_DIR));
 
-app.use('/smove', smoveRoutes);
+app.use('/', smoveRoutes);
 
 mongoose.connect(
   'mongodb://localhost/fetcher', {useNewUrlParser: true, useUnifiedTopology: true}

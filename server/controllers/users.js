@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Users= require('../../database/users.js');
+const Users= require('../../database/Users.js');
 
 module.exports = {
   getUserInfo: async (req, res) => {

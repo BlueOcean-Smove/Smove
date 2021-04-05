@@ -4,8 +4,8 @@ const exampleData = {
     zipcode: "user input upon sign up",
     accessRole: "admin or viewOnly",
     onMoveTeamOf: ["smoveId", "smoveId"], // these are the smooveIds that they're just a contributor to, so we can validate they have access
-    smoves: {
-      1: {  // the 1 is a smooveId
+    smoves: [
+      {  // the 1 is a smooveId
         smoveName: "someName1",
         isCurrentSmove: true,
         oldAddress: '123 Fake St',
@@ -83,7 +83,7 @@ const exampleData = {
         ],
         moveTeam: ["someUserEmail1", "someUserEmail2", "someUserEmail3"] // we don't need to store more than the username because we can query the username itself to get more details
       },
-      2: {
+      {
         smoveName: "someName2",
         isCurrentSmove: true,
         oldAddress: '123 Fake St',
@@ -161,6 +161,6 @@ const exampleData = {
         ],
         moveTeam: ["someUserEmail1", "someUserEmail2", "someUserEmail3"]
       },
-    }
+    ]
   }
 }

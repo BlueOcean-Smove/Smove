@@ -7,7 +7,10 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const smoveRoutes = require('./routes.js');
+<<<<<<< HEAD
 const config = require('../config.js');
+=======
+>>>>>>> reset my server/index.js to match the main
 
 const app = express();
 const PORT = 3000;

@@ -43,66 +43,21 @@ const BussinessCarousel = (props) => {
     <div>hello world</div>
     <CarouselStyle>
       <Carousel responsive={responsive} >
-        <CardStyle>
-          <Card >
-            <Card.Img variant="top" src="holder.js/100px180" />
+        {props.searchResult.map((business) =>(
+          <CardStyle>
+          <Card key={business.id}>
+            <Card.Img variant="top" src={business.image_url} />
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>{business.name}</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                {business.location.display_address}
               </Card.Text>
+              <Card.Text>{business.display_phone}</Card.Text>
+              <Card.Text>{business.rating}</Card.Text>
             </Card.Body>
           </Card>
         </CardStyle>
-        <CardStyle>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </CardStyle>
-        <CardStyle>
-          <Card >
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </CardStyle>
-        <CardStyle>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </CardStyle>
-        <CardStyle>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </CardStyle>
+        ))}
       </Carousel>
     </CarouselStyle>
     </div>
@@ -110,3 +65,55 @@ const BussinessCarousel = (props) => {
 }
 
 export default BussinessCarousel;
+// {
+//   "businesses": [
+//       {
+//           "id": "FVzl8rDPiTWEtrNEuCu-Xg",
+//           "alias": "storyville-coffee-company-seattle-9",
+//           "name": "Storyville Coffee Company",
+//           "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/nJgiyjMZ7sglAtc5wyKSLQ/o.jpg",
+//           "is_closed": false,
+//           "url": "https://www.yelp.com/biz/storyville-coffee-company-seattle-9?adjust_creative=H9ULG_dBG0pz8wf45b0HOw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=H9ULG_dBG0pz8wf45b0HOw",
+//           "review_count": 1787,
+//           "categories": [
+//               {
+//                   "alias": "coffee",
+//                   "title": "Coffee & Tea"
+//               },
+//               {
+//                   "alias": "bakeries",
+//                   "title": "Bakeries"
+//               },
+//               {
+//                   "alias": "waffles",
+//                   "title": "Waffles"
+//               }
+//           ],
+//           "rating": 4.5,
+//           "coordinates": {
+//               "latitude": 47.60895949363687,
+//               "longitude": -122.34043157053927
+//           },
+//           "transactions": [
+//               "delivery",
+//               "pickup"
+//           ],
+//           "price": "$$",
+//           "location": {
+//               "address1": "94 Pike St",
+//               "address2": "Ste 34",
+//               "address3": "",
+//               "city": "Seattle",
+//               "zip_code": "98101",
+//               "country": "US",
+//               "state": "WA",
+//               "display_address": [
+//                   "94 Pike St",
+//                   "Ste 34",
+//                   "Seattle, WA 98101"
+//               ]
+//           },
+//           "phone": "+12067805777",
+//           "display_phone": "(206) 780-5777",
+//           "distance": 1867.0194496370636
+//       },

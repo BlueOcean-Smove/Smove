@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
-const config = require('../../config.js');
+const config = require('../../../config.js');
 
 const locations = [
   {
@@ -40,7 +40,7 @@ const locations = [
   }
 ];
 
-const MapContainer = () => {
+const MapContainer = ({searchResult}) => {
 
   const [ selected, setSelected ] = useState({});
 
@@ -58,8 +58,7 @@ const MapContainer = () => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
-
-  })
+  },[])
 
   const onSelect = item => {
     setSelected(item);
@@ -70,36 +69,40 @@ const MapContainer = () => {
     width: "60%"};
 
   const defaultCenter = {
-    lat: 41.3851, lng: 2.1734
+    lat: 47.6062, lng: -122.3321
   }
+
 
   return (
      <LoadScript
        googleMapsApiKey={config.GOOGLE_TOKEN}>
         <GoogleMap
           mapContainerStyle={mapStyles}
-          zoom={13}
+          zoom={10}
           center={currentPosition.lat ? currentPosition : defaultCenter}>
           {
-            locations.map(item => {
+            searchResult.map(item => {
               return (
-              <Marker key={item.name} position={item.location} onClick={()=>onSelect(item)}
+              <Marker key={item.name} position={{lat:item.coordinates.latitude, lng:item.coordinates.longitude}} onClick={()=>onSelect(item)}
               />
               )
             })
-         }
-         {
-            selected.location &&
+          }
+          {
+            selected.coordinates ? {lat:selected.coordinates.latitude, lng:selected.coordinates.longitude}&&
             (
               <InfoWindow
-              position={selected.location}
+              position={{lat:selected.coordinates.latitude, lng:selected.coordinates.longitude}}
               clickable={true}
               onCloseClick={() => setSelected({})}
             >
-              <p>{selected.name}</p>
+              <div>
+                <p>{selected.name}</p>
+                <img src={selected.image_url} height="200" width="200"></img>
+              </div>
             </InfoWindow>
             )
-         }
+          : null}
         </GoogleMap>
      </LoadScript>
   )

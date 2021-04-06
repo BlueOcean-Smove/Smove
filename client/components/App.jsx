@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import LocalMovingServices from './LocalMovingServices';
+import LocalMovingServices from './LocalCompanies/LocalMovingServices';
 import Login from './login/Login';
 import Logout from './login/Logout';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -8,11 +8,11 @@ import Inventory from './inventory/Inventory.jsx';
 import TaskList from './Tasks/TaskList.jsx';
 import { UserDataContextProvider } from './login/Data.jsx';
 
-// import from the file below to have access to context 
+// import from the file below to have access to context
 // import { UserDataContext } from '../login/Data.jsx' <-- path to data file in login folder';
 
 // declare this within func to set userData
-// you will also need to define useContext in your import react 
+// you will also need to define useContext in your import react
 // const { userData } = useContext(UserDataContext);
 
 const App = () => {

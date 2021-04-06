@@ -11,7 +11,7 @@ const exampleData = {
         isCurrentSmove: true,
         oldAddress: '123 Fake St',
         newAddress: '456 Real St.',
-        smoveDate: "Jan 1, 2000"
+        smoveDate: "Jan 1, 2000",
         favCompanies: [
           {
             companyName: "Great company 1",
@@ -28,7 +28,7 @@ const exampleData = {
         ],
         tasks: [
           {
-            name: 'task1',
+            taskName: 'task1',
             location: 'old house',
             startDate: '2021-04-20T09:00:00-07:00',
             endDate: '2021-04-20T09:00:00-07:00',
@@ -87,10 +87,10 @@ const exampleData = {
       },
       {
         smoveName: "someName2",
-        isCurrentSmove: false,
+        isCurrentSmove: true,
         oldAddress: '123 Fake St',
         newAddress: '456 Real St.',
-        smoveDate: "Jan 1, 2000"
+        smoveDate: "Jan 1, 2000",
         favCompanies: [
           {
             companyName: "Great company 1",
@@ -167,5 +167,3 @@ const exampleData = {
     ]
   }
 }
-
-export default exampleData;

@@ -1,21 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
+const Login = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [image, setImage] = useState('');
+  const [userObj, setUserObj] = useState({});
 
-    this.state = {
-      name: '',
-      email: '',
-      image: '',
-      userObj: {}
-    }
-
-    this.onSignIn = this.onSignIn.bind(this);
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     window.gapi.load('auth2', () => {
       window.gapi.auth2.init({
         client_id: '212262246283-v6uu3qkn500rakt8i924bap5p2iqs64c.apps.googleusercontent.com'
@@ -27,14 +19,14 @@ class Login extends React.Component {
             'height': 50,
             'longtitle': false,
             'theme': 'dark',
-            'onsuccess': this.onSignIn,
+            'onsuccess': onSignIn,
             // 'onfailure': this.onFailure
           })
         })
     })
-  }
+  }, [])
 
-  onSignIn(googleUser) {
+  const onSignIn = (googleUser) => {
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId());
     console.log('Name: ' + profile.getName());
@@ -45,7 +37,9 @@ class Login extends React.Component {
     const email = profile.getEmail();
     const image = profile.getImageUrl()
 
-    this.setState({ name, email, image });
+    setName(name);
+    setEmail(email);
+    setImage(image);
 
     axios.get(`/auth/${email}`)
       .then(({ data }) => {
@@ -57,32 +51,28 @@ class Login extends React.Component {
             image: image
           })
         } else {
-          this.setState({
-            userObj: data
-          })
+          setUserObj(data)
         }
       })
       .catch((err) => console.log('error in get /auth/:email ', err))
   }
 
-  render() {
-    return (
-      <div>
-        <div id="g-signin2" data-onsuccess={this.onSignIn}></div>
-        {!!this.state.name && (
-          <div>
-            <span id="welcome-name">
-              Welcome {this.state.name}!
-            </span>
-            <span id="welcome-email">
-              Currently signed in as {this.state.email}
-            </span>
-            <img id="welcome-img" src={this.state.image} alt="Your user profile picture" />
-          </div>
-        )}
-      </div>
-    )
-  }
+  return (
+    <div>
+      <div id="g-signin2" data-onsuccess={onSignIn}></div>
+      {!!name && (
+        <div>
+          <span id="welcome-name">
+            Welcome {name}!
+          </span>
+          <span id="welcome-email">
+            Currently signed in as {email}
+          </span>
+          <img id="welcome-img" src={image} alt="Your user profile picture" />
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default Login;

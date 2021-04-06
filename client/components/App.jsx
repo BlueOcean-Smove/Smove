@@ -11,10 +11,9 @@ import Tasks from './Tasks/TaskList.jsx';
 const App = () => {
   return (
     <div>
-      <h1>Hello World!</h1>
-      <Login />
       <BrowserRouter>
       <Header />
+      <Login />
       {/* <Route exact path="/" component={ Add in your component file } />
       <Route exact path="/TaskList" component={ Add in your component file } /> */}
       <Route exact path="/Inventory" component={Inventory} />

@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Login from './login/Login';
 import Logout from './login/Logout';
-<<<<<<< HEAD
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header.jsx';
 import Inventory from './inventory/Inventory.jsx';
 import Tasks from './Tasks/TaskList.jsx';
-=======
-// import { BrowserRouter, Route } from 'react-router-dom';
-// import Header from './Header.jsx';
->>>>>>> Small changes
 
 // import component files to use for routes
 
@@ -22,7 +17,6 @@ const App = () => {
       <Logout />
       <BrowserRouter>
       <Header />
-<<<<<<< HEAD
       {/* <Route exact path="/" component={ Add in your component file } />
       <Route exact path="/TaskList" component={ Add in your component file } /> */}
       <Route exact path="/Inventory" component={Inventory} />
@@ -33,15 +27,6 @@ const App = () => {
       <Route exact path="/LocalMovingServices" component={ Add in your component file } />
       <Route exact path="/Login" component={ Add in your component file } /> */}
       </BrowserRouter>
-=======
-      <Route exact path="/Dashboard" component={ Add in your component file } />
-      <Route exact path="/TaskList" component={ Add in your component file } />
-      <Route exact path="/Inventory" component={ Add in your component file } />
-      <Route exact path="/LocalMovingServices" component={ Add in your component file } />
-      <Route exact path="/Login" component={ Add in your component file } />
-      </BrowserRouter> */}
-      <Logout />
->>>>>>> Small changes
     </div>
   )
 }

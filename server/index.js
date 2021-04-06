@@ -23,7 +23,7 @@ app.use('/', smoveRoutes);
 const options = {
   url: 'https://api.yelp.com/v3/businesses/',
   headers: {
-    Authorization: config.YELP_TOKEN,
+    Authorization: config.YELP_TOKEN
   }
 }
 
@@ -40,7 +40,7 @@ mongoose.connect(
 app.post('/business', (req, res) => {
    const {term, location} = req.body;
   axios.get(`${options.url}search?term=${term}&location=${location}&limit=10&radius=40000`, options)
-  .then(data=>res.send(data.datAIzaSyC1XHAEphFc1ORhgE1P1rmh3l2W_iJ8BP0a))
+  .then(data=>res.send(data.data))
   .catch(()=>res.sendStatus(500))
  })
 

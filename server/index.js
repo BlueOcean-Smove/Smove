@@ -17,12 +17,12 @@ app.use(cors());
 
 const { OAuth2 } = google.auth
 const oAuth2Client = new OAuth2(
-  '212262246283-v6uu3qkn500rakt8i924bap5p2iqs64c.apps.googleusercontent.com',
-  'bVqdeYzUs8Y_-DFyE11bOBsb'
+  config.CLIENT_ID,
+  config.CLIENT_SECRET,
 )
   
 oAuth2Client.setCredentials({
-  refresh_token: '1//04Ssgxld-lRZ0CgYIARAAGAQSNwF-L9Irj2degdZGhqZuCnq6o1lfLq_wsUj6quMHuXGP5lqgLtS6FzR31ZbthZz8EG3wbck6oCQ'
+  refresh_token: config.REFRESH_TOKEN
 })
 const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
 app.post('/api/newEvent', (req, res) => {

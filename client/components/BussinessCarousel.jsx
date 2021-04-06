@@ -13,7 +13,7 @@ const CardStyle = styled.div`
 `;
 
 const CarouselStyle = styled.div`
-  width: 70%;
+  width: 60%;
   justify-self: center;
 `;
 

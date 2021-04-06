@@ -80,6 +80,7 @@ const options = {
   }
 }
 
+// connect to the Mongo Database
 mongoose.connect(
   'mongodb://localhost/fetcher', {useNewUrlParser: true, useUnifiedTopology: true}
 )

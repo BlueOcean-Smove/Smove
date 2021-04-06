@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Badge from 'react-bootstrap/Badge';
+import BussinessCard from './BussinessCard';
+
+//* * Styles * *//
 
 const CardStyle = styled.div`
   display: inline-block;
@@ -15,6 +19,8 @@ const CarouselStyle = styled.div`
   width: 60%;
   justify-self: center;
 `;
+
+//* * Responsive Var needed for Carousel * *//
 
 const responsive = {
   superLargeDesktop: {
@@ -35,26 +41,15 @@ const responsive = {
   }
 };
 
+//* * Functionality * *//
+
 const BussinessCarousel = (props) => {
   return (
     <div>
     <CarouselStyle>
       <Carousel responsive={responsive} >
         {props.searchResult.map((business) =>(
-          <CardStyle key={business.id}>
-          <Card border="dark">
-            <Card.Img variant="top" style={{height: 210+'px'}} src={business.image_url} />
-            <Card.Body>
-              <Card.Title>{business.name}</Card.Title>
-              <Card.Text>
-                {business.location.display_address}
-              </Card.Text>
-              <Card.Text>{business.display_phone}</Card.Text>
-              <a href={business.url} target="_blank">Website</a>
-              <Card.Text>{business.rating}</Card.Text>
-            </Card.Body>
-          </Card>
-        </CardStyle>
+          <BussinessCard data={business} />
         ))}
       </Carousel>
     </CarouselStyle>

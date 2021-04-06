@@ -28,7 +28,7 @@ const exampleData = {
         ],
         tasks: [
           {
-            taskName: 'task1',
+            name: 'task1',
             location: 'old house',
             startDate: '2021-04-20T09:00:00-07:00',
             endDate: '2021-04-20T09:00:00-07:00',

@@ -18,16 +18,10 @@ const userSchema = mongoose.Schema({
       isCurrentSmove: {
         type: Boolean,
         default: true
-<<<<<<< HEAD
       },
       oldAddress: String,
       newAddress: String,
       smoveDate: String,
-=======
-      oldAddress: String,
-      newAddress: String,
-      smoveDate: Date,
->>>>>>> Small changes
       favCompanies: [
         {
           companyName: String,

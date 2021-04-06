@@ -7,8 +7,7 @@ import 'react-multi-carousel/lib/styles.css';
 const CardStyle = styled.div`
   display: inline-block;
   width: 18rem;
-  height: 18rem;
-  border: solid 3px black;
+  height: 28rem;
   margin: 15px;
 `;
 
@@ -42,15 +41,16 @@ const BussinessCarousel = (props) => {
     <CarouselStyle>
       <Carousel responsive={responsive} >
         {props.searchResult.map((business) =>(
-          <CardStyle>
-          <Card key={business.id}>
-            <Card.Img variant="top" src={business.image_url} />
+          <CardStyle key={business.id}>
+          <Card border="dark">
+            <Card.Img variant="top" style={{height: 210+'px'}} src={business.image_url} />
             <Card.Body>
               <Card.Title>{business.name}</Card.Title>
               <Card.Text>
                 {business.location.display_address}
               </Card.Text>
               <Card.Text>{business.display_phone}</Card.Text>
+              <a href={business.url} target="_blank">Website</a>
               <Card.Text>{business.rating}</Card.Text>
             </Card.Body>
           </Card>

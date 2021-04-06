@@ -3,3 +3,4 @@ config.js
 bundle.js.map
 bundle.js
 /coverage
+package-lock.json

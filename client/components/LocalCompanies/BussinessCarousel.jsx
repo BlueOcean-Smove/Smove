@@ -1,19 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Card from 'react-bootstrap/Card';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Badge from 'react-bootstrap/Badge';
 import BussinessCard from './BussinessCard';
 
 //* * Styles * *//
-
-const CardStyle = styled.div`
-  display: inline-block;
-  width: 18rem;
-  height: 28rem;
-  margin: 15px;
-`;
 
 const CarouselStyle = styled.div`
   width: 60%;

@@ -1,21 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from 'react-bootstrap/Card';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import BussinessCard from './BussinessCard';
 
-const CardStyle = styled.div`
-  display: inline-block;
-  width: 18rem;
-  height: 18rem;
-  border: solid 3px black;
-  margin: 15px;
-`;
+//* * Styles * *//
 
 const CarouselStyle = styled.div`
   width: 60%;
   justify-self: center;
 `;
+
+//* * Responsive Var needed for Carousel * *//
 
 const responsive = {
   superLargeDesktop: {
@@ -36,25 +32,15 @@ const responsive = {
   }
 };
 
+//* * Functionality * *//
+
 const BussinessCarousel = (props) => {
   return (
     <div>
     <CarouselStyle>
       <Carousel responsive={responsive} >
         {props.searchResult.map((business) =>(
-          <CardStyle>
-          <Card key={business.id}>
-            <Card.Img variant="top" src={business.image_url} />
-            <Card.Body>
-              <Card.Title>{business.name}</Card.Title>
-              <Card.Text>
-                {business.location.display_address}
-              </Card.Text>
-              <Card.Text>{business.display_phone}</Card.Text>
-              <Card.Text>{business.rating}</Card.Text>
-            </Card.Body>
-          </Card>
-        </CardStyle>
+          <BussinessCard data={business} />
         ))}
       </Carousel>
     </CarouselStyle>

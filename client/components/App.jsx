@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Login from './Login';
-import React from 'react';
+import Login from './login/Login';
 // import { BrowserRouter, Route } from 'react-router-dom';
 // import Header from './Header.jsx';
 
@@ -14,7 +13,7 @@ const App = () => {
       <Login />
       {/* <BrowserRouter>
       <Header />
-      <Route exact path="/" component={ Add in your component file } /> 
+      <Route exact path="/" component={ Add in your component file } />
       <Route exact path="/TaskList" component={ Add in your component file } />
       <Route exact path="/Inventory" component={ Add in your component file } />
       <Route exact path="/LocalMovingServices" component={ Add in your component file } />

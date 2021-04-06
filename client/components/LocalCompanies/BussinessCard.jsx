@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
+import StarRatings from 'react-star-ratings';
+
 
 const CardStyle = styled.div`
   display: inline-block;
   width: 18rem;
-  height: 28rem;
+  height: 30rem;
   margin: 15px;
 `;
 
@@ -35,7 +37,14 @@ const BussinessCard = ({ data }) => {
           </Card.Text>
           <Card.Text>{data.display_phone}</Card.Text>
           <a href={data.url} target="_blank">Website</a>
-          <Card.Text>{data.rating}</Card.Text>
+          <StarRatings
+          rating={data.rating}
+          starRatedColor="yellow"
+          numberOfStars={5}
+          name='rating'
+          starDimension= "30px"
+          starSpacing = "5px"
+        />
         </Card.Body>
       </Card>
     </CardStyle>

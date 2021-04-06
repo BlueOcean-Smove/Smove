@@ -5,6 +5,12 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal'
 
 const CreateInventory = () => {
+    //Saving state for POST obj
+    const [boxNumber, setBoxNumber] = useState(null);
+    const [originRoom, setOriginRoom] = useState('');
+    const [destinationRoom, setDestinationRoom] = useState('');
+    const [priorityLevel, setPriorityLevel] = useState('');
+    const [notes, setNotes] = useState('');
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -19,6 +25,7 @@ const CreateInventory = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
+                        {/* MISSING BOX NUMBER */}
                         <Form.Group controlId="formOriginRoom">
                             <Form.Label>Origin Room</Form.Label>
                             <Form.Control type="text" placeholder="Enter Origin Room Name" />

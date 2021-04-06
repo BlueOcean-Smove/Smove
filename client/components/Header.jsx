@@ -28,7 +28,6 @@ const Header = () => {
 
 export default Header;
 
-
 //OG Format
 {/* <div>
   <h1>Smove</h1>

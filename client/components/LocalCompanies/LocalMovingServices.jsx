@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import MapContainer from './MapContainer';
+import BussinessCarousel from './BussinessCarousel';
 import axios from 'axios';
 
 
@@ -22,7 +23,7 @@ const BusinessMap = () => {
 
     axios.post('/business', currentSearch)
     .then(data=>setSearchResult(data.data.businesses))
-    .catch(()=>res.send())
+    .catch(()=>res.send(500))
     //event.target.reset();
     //console.log(searchResult);
   }
@@ -36,7 +37,7 @@ const BusinessMap = () => {
         <button>SEARCH</button>
       </form>
       <MapContainer searchResult={searchResult}/>
-
+      <BussinessCarousel searchResult={searchResult}/>
       </div>
   )
 }

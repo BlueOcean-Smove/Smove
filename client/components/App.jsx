@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LocalMovingServices from './LocalMovingServices';
+import LocalMovingServices from './LocalCompanies/LocalMovingServices';
 import Login from './login/Login';
 import Logout from './login/Logout';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -8,7 +8,6 @@ import Inventory from './inventory/Inventory.jsx';
 import Tasks from './Tasks/TaskList.jsx';
 
 // import component files to use for routes
-
 
 const App = () => {
   return (

@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react';
+import Card from 'react-bootstrap/Card';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 const config = require('../../../config.js');
 
@@ -83,7 +84,7 @@ const MapContainer = ({searchResult}) => {
           {
             searchResult.map(item => {
               return (
-              <Marker key={item.name} position={{lat:item.coordinates.latitude, lng:item.coordinates.longitude}} onClick={()=>onSelect(item)}
+              <Marker icon="https://img.icons8.com/office/30/000000/marker.png" key={item.name} position={{lat:item.coordinates.latitude, lng:item.coordinates.longitude}} onMouseOver={()=>onSelect(item)}
               />
               )
             })
@@ -92,12 +93,13 @@ const MapContainer = ({searchResult}) => {
             selected.coordinates ? {lat:selected.coordinates.latitude, lng:selected.coordinates.longitude}&&
             (
               <InfoWindow
+              options={{maxWidth: 230}}
               position={{lat:selected.coordinates.latitude, lng:selected.coordinates.longitude}}
               clickable={true}
               onCloseClick={() => setSelected({})}
             >
               <div>
-                <p>{selected.name}</p>
+                <Card.Title>{selected.name}</Card.Title>
                 <img src={selected.image_url} height="200" width="200"></img>
               </div>
             </InfoWindow>

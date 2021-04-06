@@ -59,10 +59,4 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-<<<<<<< HEAD
-module.exports.User = User;
-||||||| constructed merge base
-module.exports.Users = Users;
-=======
 module.exports = User;
->>>>>>> login auth logic and database access complete. test-data minor changes

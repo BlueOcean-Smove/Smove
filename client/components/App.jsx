@@ -30,7 +30,7 @@ const App = () => {
       {/* <Route exact path="/Login" component={ Add in your component file } /> */}
       </BrowserRouter>
     </div>
-  )
-}
+  );
+};
 
 export default App;

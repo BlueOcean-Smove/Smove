@@ -9,8 +9,8 @@ const {
 
 const router = express.Router();
 
-router.get('/user/:id', getUserInfo);
-router.post('/user', createUser);
+router.get('/auth/:email', getUserInfo);
+router.post('/auth/', createUser);
 router.patch('/user/:id', updateUser);
 router.patch('/user/:id/:id', changeAccess);
 

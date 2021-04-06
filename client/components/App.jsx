@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Login from './Login';
+import Login from './login/Login';
+import Logout from './login/Logout';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header.jsx';
 import Inventory from './inventory/Inventory.jsx';
@@ -14,6 +15,7 @@ const App = () => {
       <BrowserRouter>
       <Header />
       <Login />
+      <Logout />
       {/* <Route exact path="/" component={ Add in your component file } />
       <Route exact path="/TaskList" component={ Add in your component file } /> */}
       <Route exact path="/Inventory" component={Inventory} />

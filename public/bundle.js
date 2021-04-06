@@ -9939,7 +9939,7 @@ var Logout = function Logout() {
 /*!*****************************!*\
   !*** ./client/test-data.js ***!
   \*****************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 var exampleData = {
   someUserEmail: {

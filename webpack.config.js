@@ -21,12 +21,11 @@ module.exports = {
               ],
             },
           },
-
         ],
       },
       {
-        test: /\.(sass|less|css)$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        test: /\.(css)$/i,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(woff(2)?|eot|ttf)$/,

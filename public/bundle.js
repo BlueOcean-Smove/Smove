@@ -9424,33 +9424,68 @@ var responsive = {
 var BussinessCarousel = function BussinessCarousel(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, "hello world"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(CarouselStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_multi_carousel__WEBPACK_IMPORTED_MODULE_2__.default, {
     responsive: responsive
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(CardStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Img, {
-    variant: "top",
-    src: "holder.js/100px180"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Title, null, "Card Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(CardStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Img, {
-    variant: "top",
-    src: "holder.js/100px180"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Title, null, "Card Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(CardStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Img, {
-    variant: "top",
-    src: "holder.js/100px180"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Title, null, "Card Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(CardStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default, {
-    style: {
-      width: '18rem'
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Img, {
-    variant: "top",
-    src: "holder.js/100px180"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Title, null, "Card Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(CardStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default, {
-    style: {
-      width: '18rem'
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Img, {
-    variant: "top",
-    src: "holder.js/100px180"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Title, null, "Card Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))))));
+  }, props.searchResult.map(function (business) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(CardStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default, {
+      key: business.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Img, {
+      variant: "top",
+      src: business.image_url
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Title, null, business.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Text, null, business.location.display_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Text, null, business.display_phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__.default.Text, null, business.rating))));
+  }))));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BussinessCarousel);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BussinessCarousel); // {
+//   "businesses": [
+//       {
+//           "id": "FVzl8rDPiTWEtrNEuCu-Xg",
+//           "alias": "storyville-coffee-company-seattle-9",
+//           "name": "Storyville Coffee Company",
+//           "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/nJgiyjMZ7sglAtc5wyKSLQ/o.jpg",
+//           "is_closed": false,
+//           "url": "https://www.yelp.com/biz/storyville-coffee-company-seattle-9?adjust_creative=H9ULG_dBG0pz8wf45b0HOw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=H9ULG_dBG0pz8wf45b0HOw",
+//           "review_count": 1787,
+//           "categories": [
+//               {
+//                   "alias": "coffee",
+//                   "title": "Coffee & Tea"
+//               },
+//               {
+//                   "alias": "bakeries",
+//                   "title": "Bakeries"
+//               },
+//               {
+//                   "alias": "waffles",
+//                   "title": "Waffles"
+//               }
+//           ],
+//           "rating": 4.5,
+//           "coordinates": {
+//               "latitude": 47.60895949363687,
+//               "longitude": -122.34043157053927
+//           },
+//           "transactions": [
+//               "delivery",
+//               "pickup"
+//           ],
+//           "price": "$$",
+//           "location": {
+//               "address1": "94 Pike St",
+//               "address2": "Ste 34",
+//               "address3": "",
+//               "city": "Seattle",
+//               "zip_code": "98101",
+//               "country": "US",
+//               "state": "WA",
+//               "display_address": [
+//                   "94 Pike St",
+//                   "Ste 34",
+//                   "Seattle, WA 98101"
+//               ]
+//           },
+//           "phone": "+12067805777",
+//           "display_phone": "(206) 780-5777",
+//           "distance": 1867.0194496370636
+//       },
 
 /***/ }),
 
@@ -9469,14 +9504,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _MapContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MapContainer */ "./client/components/MapContainer.jsx");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _LocalCompanies_BussinessCarousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LocalCompanies/BussinessCarousel */ "./client/components/LocalCompanies/BussinessCarousel.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -9500,7 +9537,7 @@ var BusinessMap = function BusinessMap() {
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault(); // console.log(currentSearch);
 
-    axios__WEBPACK_IMPORTED_MODULE_4___default().post('/business', currentSearch).then(function (data) {
+    axios__WEBPACK_IMPORTED_MODULE_5___default().post('/business', currentSearch).then(function (data) {
       return setSearchResult(data.data.businesses);
     })["catch"](function () {
       return res.send();
@@ -9522,6 +9559,8 @@ var BusinessMap = function BusinessMap() {
     name: "location",
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("button", null, "SEARCH")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_MapContainer__WEBPACK_IMPORTED_MODULE_3__.default, {
+    searchResult: searchResult
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_LocalCompanies_BussinessCarousel__WEBPACK_IMPORTED_MODULE_4__.default, {
     searchResult: searchResult
   }));
 };
@@ -10107,9 +10146,12 @@ var exampleData = {
 /*!*******************!*\
   !*** ./config.js ***!
   \*******************/
-/***/ (() => {
+/***/ ((module) => {
 
-
+module.exports = {
+  YELP_TOKEN: '0Ev9nIqyob6VdM2NBlMk0lEztkSBV0oZDdolHckTXTLUcB4pwAbqa9XplBLVnb_xpXM20mE7twq6u2eRaD_vI374BcMeYpWg3B23HKr5bYVLt3WqMRTpYvylbW9sYHYx',
+  GOOGLE_TOKEN: 'AIzaSyBVcz3TUfIy-VPFZPy7363ld4YR7tsIWnU'
+};
 
 /***/ }),
 

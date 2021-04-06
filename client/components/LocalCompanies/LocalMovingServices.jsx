@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import MapContainer from './MapContainer';
-import BussinessCarousel from './LocalCompanies/BussinessCarousel';
+import BussinessCarousel from './BussinessCarousel';
 import axios from 'axios';
 
 
@@ -23,9 +23,9 @@ const BusinessMap = () => {
 
     axios.post('/business', currentSearch)
     .then(data=>setSearchResult(data.data.businesses))
-    .catch(()=>res.send())
-    event.target.reset();
-    console.log(searchResult);
+    .catch(()=>res.send(500))
+    //event.target.reset();
+    //console.log(searchResult);
   }
 
   return (

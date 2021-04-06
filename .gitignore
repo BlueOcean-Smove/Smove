@@ -1,6 +1,7 @@
 /node_modules
 config.js
 bundle.js.map
+package-lock.json
 bundle.js
 /coverage
 package-lock.json

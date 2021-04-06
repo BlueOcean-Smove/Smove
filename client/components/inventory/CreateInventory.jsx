@@ -30,7 +30,7 @@ const CreateInventory = () => {
                             <Form.Text className="text-muted">Examples: Kitchen, Office, Living Room, etc.</Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formPrioritySelect">
-                            <Form.Label>Priority Level</Form.Label>
+                            <Form.Label>Box Priority Level</Form.Label>
                             <Form.Control as="select">
                                 <option>Normal</option>
                                 <option>Urgent</option>

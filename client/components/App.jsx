@@ -10,8 +10,6 @@ import BussinessCarousel from './LocalCompanies/BussinessCarousel';
 
 // import component files to use for routes
 
-import BussinessCarousel from './BussinessCarousel';
-
 const App = () => {
   return (
     <div>

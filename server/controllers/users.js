@@ -27,11 +27,13 @@ module.exports = {
 
   updateUser: async (req, res) => {
     const { email } = req.params;
-    const user = req.body;
-    if(!mongoose.Types.ObjectId.isValid(email)) {
-      return res.status(404).send('No user with that email');
-    }
-    const updatedUser = await Tasks.findByIdAndUpdate(email, { ...user, _id }, { new: true });
+    const newSmovesArray = req.body.data;
+
+    const filter = {email: email};
+    const update = {smoves: newSmovesArray};
+    const updatedUser = await Users.findOneAndUpdate(filter, update, {
+      new: true
+    });
     res.json(updatedUser);
   },
 

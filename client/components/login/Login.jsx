@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import { UserDataContext } from './Data.jsx';
 
 const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
   const [userObj, setUserObj] = useState({});
+  const { userData, setUserData } = useContext(UserDataContext);
 
   useEffect(() => {
     window.gapi.load('auth2', () => {
@@ -52,10 +54,12 @@ const Login = () => {
           })
         } else {
           setUserObj(data)
+          setUserData(data)
         }
       })
       .catch((err) => console.log('error in get /auth/:email ', err))
   }
+
 
   return (
     <div>

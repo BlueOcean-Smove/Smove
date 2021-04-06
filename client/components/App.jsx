@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Login from './Login';
+import Login from './login/Login';
+import Logout from './login/Logout';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header.jsx';
 import Inventory from './inventory/Inventory.jsx';
@@ -13,6 +14,7 @@ const App = () => {
     <div>
       <h1>Hello World!</h1>
       <Login />
+      <Logout />
       <BrowserRouter>
       <Header />
       {/* <Route exact path="/" component={ Add in your component file } />

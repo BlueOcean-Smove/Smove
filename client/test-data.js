@@ -1,11 +1,13 @@
 const exampleData = {
   someUserEmail: {
-    fullname: "grabbed from google auth",
-    zipcode: "user input upon sign up",
-    accessRole: "admin or viewOnly",
-    onMoveTeamOf: ["smoveId", "smoveId"], // these are the smooveIds that they're just a contributor to, so we can validate they have access
+    displayName: 'JHold',
+    firstName: 'Jesse',
+    lastName: 'Smith',
+    image: 'sampleimage.png',
+    zipcode: 98100,
+    onSmoveTeam: ["someName1", "someName2"], // these are the smooveIds that they're just a contributor to, so we can validate they have access
     smoves: [
-      {  // the 1 is a smooveId
+      {
         smoveName: "someName1",
         isCurrentSmove: true,
         oldAddress: '123 Fake St',
@@ -26,7 +28,7 @@ const exampleData = {
         ],
         tasks: [
           {
-            name: 'task1',
+            taskName: 'task1',
             location: 'old house',
             startDate: '2021-04-20T09:00:00-07:00',
             endDate: '2021-04-20T09:00:00-07:00',

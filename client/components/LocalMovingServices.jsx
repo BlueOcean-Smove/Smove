@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import MapContainer from './MapContainer';
+import BussinessCarousel from './LocalCompanies/BussinessCarousel';
 import axios from 'axios';
 
 
@@ -36,7 +37,7 @@ const BusinessMap = () => {
         <button>SEARCH</button>
       </form>
       <MapContainer searchResult={searchResult}/>
-
+      <BussinessCarousel searchResult={searchResult}/>
       </div>
   )
 }

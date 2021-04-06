@@ -1,19 +1,11 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
-  googleID: {
+  email: {
     type: String,
     required: true
   },
-  displayName: {
-    type: String,
-    required: true
-  },
-  firstName: {
-    type: String,
-    required: true
-  },
-  lastName: {
+  name: {
     type: String,
     required: true
   },
@@ -23,13 +15,17 @@ const userSchema = mongoose.Schema({
   smoves: [
     {
       smoveName: String,
-      isCurrentSmove: Boolean,
+      isCurrentSmove: {
+        type: Boolean,
+        default: true
+      },
       oldAddress: String,
       newAddress: String,
+      smoveDate: String,
       favCompanies: [
         {
           companyName: String,
-          url: String,
+          url: String
         }
       ],
       tasks: [
@@ -63,4 +59,10 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+<<<<<<< HEAD
 module.exports.User = User;
+||||||| constructed merge base
+module.exports.Users = Users;
+=======
+module.exports = User;
+>>>>>>> login auth logic and database access complete. test-data minor changes

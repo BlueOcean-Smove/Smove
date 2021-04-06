@@ -1,17 +1,17 @@
 const exampleData = {
   someUserEmail: {
-    displayName: 'JHold',
-    firstName: 'Jesse',
-    lastName: 'Smith',
+    email: 'JHold@google.com',
+    name: 'Jesse Smith',
     image: 'sampleimage.png',
     zipcode: 98100,
-    onSmoveTeam: ["someName1", "someName2"], // these are the smooveIds that they're just a contributor to, so we can validate they have access
+    onSmoveTeam: ["someName1", "someName2"],
     smoves: [
       {
         smoveName: "someName1",
         isCurrentSmove: true,
         oldAddress: '123 Fake St',
         newAddress: '456 Real St.',
+        smoveDate: "Jan 1, 2000"
         favCompanies: [
           {
             companyName: "Great company 1",
@@ -83,13 +83,14 @@ const exampleData = {
             notes: "this box has some fragile ceramics from the kitchen"
           }
         ],
-        moveTeam: ["someUserEmail1", "someUserEmail2", "someUserEmail3"] // we don't need to store more than the username because we can query the username itself to get more details
+        moveTeam: ["someUserEmail1", "someUserEmail2", "someUserEmail3"]
       },
       {
         smoveName: "someName2",
         isCurrentSmove: false,
         oldAddress: '123 Fake St',
         newAddress: '456 Real St.',
+        smoveDate: "Jan 1, 2000"
         favCompanies: [
           {
             companyName: "Great company 1",

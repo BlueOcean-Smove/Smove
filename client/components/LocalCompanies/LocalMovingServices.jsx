@@ -23,9 +23,7 @@ const BusinessMap = () => {
 
     axios.post('/business', currentSearch)
     .then(data=>setSearchResult(data.data.businesses))
-    .catch(()=>res.send(500))
-    //event.target.reset();
-    //console.log(searchResult);
+    .catch((error)=>console.log(error))
   }
 
   return (

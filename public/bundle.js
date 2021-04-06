@@ -46395,6 +46395,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _css_loader_dist_cjs_js_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../css-loader/dist/cjs.js!./bootstrap.min.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/bootstrap/dist/css/bootstrap.min.css");
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> configured carousel to display accurately.  moved carousel public files
 
 var options = {};
 
@@ -46751,7 +46755,10 @@ module.exports = function (list, options) {
 =======
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/
+<<<<<<< HEAD
 >>>>>>> Implemented a working carousel
+=======
+>>>>>>> configured carousel to display accurately.  moved carousel public files
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
@@ -46781,6 +46788,7 @@ module.exports = function (list, options) {
 /******/ 		};
 /******/ 	})();
 <<<<<<< HEAD
+<<<<<<< HEAD
 /******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
@@ -46797,6 +46805,9 @@ module.exports = function (list, options) {
 =======
 /******/
 >>>>>>> Implemented a working carousel
+=======
+/******/
+>>>>>>> configured carousel to display accurately.  moved carousel public files
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -46812,6 +46823,7 @@ module.exports = function (list, options) {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
+<<<<<<< HEAD
 <<<<<<< HEAD
 /******/
 /******/ 	/* webpack/runtime/publicPath */
@@ -46837,6 +46849,9 @@ module.exports = function (list, options) {
 =======
 /******/
 >>>>>>> Implemented a working carousel
+=======
+/******/
+>>>>>>> configured carousel to display accurately.  moved carousel public files
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.

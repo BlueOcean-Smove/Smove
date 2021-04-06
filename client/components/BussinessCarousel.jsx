@@ -9,6 +9,12 @@ const CardStyle = styled.div`
   width: 18rem;
   height: 18rem;
   border: solid 3px black;
+  margin: 15px;
+`;
+
+const CarouselStyle = styled.div`
+  width: 70%;
+  justify-self: center;
 `;
 
 const responsive = {
@@ -35,68 +41,70 @@ const BussinessCarousel = (props) => {
   return (
     <div>
     <div>hello world</div>
-    <Carousel responsive={responsive} style="display: inline-block;">
-    <CardStyle>
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    </CardStyle>
-    <CardStyle>
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    </CardStyle>
-    <CardStyle>
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    </CardStyle>
-    <CardStyle>
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    </CardStyle>
-    <CardStyle>
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    </CardStyle>
-    </Carousel>
+    <CarouselStyle>
+      <Carousel responsive={responsive} >
+        <CardStyle>
+          <Card >
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </CardStyle>
+        <CardStyle>
+          <Card>
+            <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </CardStyle>
+        <CardStyle>
+          <Card >
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </CardStyle>
+        <CardStyle>
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </CardStyle>
+        <CardStyle>
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </CardStyle>
+      </Carousel>
+    </CarouselStyle>
     </div>
   )
 }

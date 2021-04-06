@@ -15,7 +15,7 @@ const CreateInventory = () => {
             <Button variant="primary" onClick={handleShow}>Add to Inventory</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add New Inventory Box to List</Modal.Title>
+                    <Modal.Title>Add New Inventory Box  to List</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>

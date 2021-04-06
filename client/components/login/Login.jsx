@@ -56,10 +56,12 @@ class Login extends React.Component {
             email: email,
             image: image
           })
+          // call function to open modal (or something) to fill in old address, new address, smove date, smove name, zipcode
         } else {
           this.setState({
             userObj: data
           })
+          // pass this up to toplevel for everyone else
         }
       })
       .catch((err) => console.log('error in get /auth/:email ', err))

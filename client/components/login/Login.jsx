@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { UserDataContext } from './Data.jsx';
+import InfoModal from './Modal';
+import Profile from './Profile';
 
 const Login = () => {
   const [name, setName] = useState('');
@@ -8,6 +10,8 @@ const Login = () => {
   const [image, setImage] = useState('');
   const [userObj, setUserObj] = useState({});
   const { userData, setUserData } = useContext(UserDataContext);
+  const [showModal, setShowModal] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   useEffect(() => {
     window.gapi.load('auth2', () => {
@@ -30,10 +34,6 @@ const Login = () => {
 
   const onSignIn = (googleUser) => {
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId());
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
     const name = profile.getName();
     const email = profile.getEmail();
@@ -46,7 +46,7 @@ const Login = () => {
     axios.get(`/auth/${email}`)
       .then(({ data }) => {
         console.log('user obj from database: ', data);
-        if (!data) {
+        if (!data || !data.name) {
           axios.post(`/auth/`, {
             name: name,
             email: email,
@@ -56,6 +56,7 @@ const Login = () => {
           setUserObj(data)
           setUserData(data)
         }
+        setShowProfile(true);
       })
       .catch((err) => console.log('error in get /auth/:email ', err))
   }
@@ -63,7 +64,6 @@ const Login = () => {
 
   return (
     <div>
-      <div id="g-signin2" data-onsuccess={onSignIn}></div>
       {!!name && (
         <div>
           <span id="welcome-name">
@@ -73,7 +73,12 @@ const Login = () => {
             Currently signed in as {email}
           </span>
           <img id="welcome-img" src={image} alt="Your user profile picture" />
+          <span>Smooooove is the best!!!!!! Lots of text</span>
         </div>
+      )}
+      <div id="g-signin2" data-onsuccess={onSignIn}></div>
+      {showProfile && (
+        <Profile smovesArr={userObj.smoves} />
       )}
     </div>
   )

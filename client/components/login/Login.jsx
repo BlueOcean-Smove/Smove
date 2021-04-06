@@ -23,7 +23,7 @@ const Login = () => {
             // 'onfailure': this.onFailure
           })
         })
-        .catch(() = > 'could not load the google modal');
+        .catch(() => console.log('could not load the google modal'));
     })
   }, [])
 

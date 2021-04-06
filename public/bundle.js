@@ -9285,10 +9285,10 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./client/components/Header.jsx":
-/*!**************************************!*\
-  !*** ./client/components/Header.jsx ***!
-  \**************************************/
+/***/ "./client/components/LocalCompanies/BussinessCarousel.jsx":
+/*!****************************************************************!*\
+  !*** ./client/components/LocalCompanies/BussinessCarousel.jsx ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9939,7 +9939,7 @@ var Logout = function Logout() {
 /*!*****************************!*\
   !*** ./client/test-data.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
 var exampleData = {
   someUserEmail: {

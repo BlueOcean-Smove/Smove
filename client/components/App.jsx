@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header.jsx';
 import Inventory from './inventory/Inventory.jsx';
 import Tasks from './Tasks/TaskList.jsx';
+import BussinessCarousel from './LocalCompanies/BussinessCarousel';
 
 // import component files to use for routes
 
@@ -28,7 +29,7 @@ const App = () => {
       {/* <Route exact path="/Login" component={ Add in your component file } /> */}
       </BrowserRouter>
     </div>
-  );
-};
+  )
+}
 
 export default App;

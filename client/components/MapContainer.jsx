@@ -96,7 +96,10 @@ const MapContainer = ({searchResult}) => {
               clickable={true}
               onCloseClick={() => setSelected({})}
             >
-              <p>{selected.name}</p>
+              <div>
+                <p>{selected.name}</p>
+                <img src={selected.image_url} height="200" width="200"></img>
+              </div>
             </InfoWindow>
             )
           : null}

@@ -1,6 +1,6 @@
 const exampleData = {
   someUserEmail: {
-    email: 'JHold@google.com',
+    email: 'JHold@gmail.com',
     name: 'Jesse Smith',
     image: 'sampleimage.png',
     zipcode: 98100,

@@ -2,6 +2,6 @@
 config.js
 bundle.js.map
 package-lock.json
-/public/bundle.js
+bundle.js
 /coverage
 package-lock.json

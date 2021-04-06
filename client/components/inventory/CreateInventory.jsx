@@ -28,17 +28,17 @@ const CreateInventory = () => {
                         {/* MISSING BOX NUMBER */}
                         <Form.Group controlId="formOriginRoom">
                             <Form.Label>Origin Room</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Origin Room Name" />
+                            <Form.Control type="text" placeholder="Enter Origin Room Name" onChange={(event) => setOriginRoom(event.target.value)}/>
                             <Form.Text className="text-muted">Examples: Kitchen, Office, Living Room, etc.</Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formDestinationRoom">
                             <Form.Label>Destination Room</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Destination Room Name" />
+                            <Form.Control type="text" placeholder="Enter Destination Room Name" onChange={(event) => setDestinationRoom(event.target.value)}/>
                             <Form.Text className="text-muted">Examples: Kitchen, Office, Living Room, etc.</Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formPrioritySelect">
                             <Form.Label>Box Priority Level</Form.Label>
-                            <Form.Control as="select">
+                            <Form.Control as="select" onChange={(event) => setPriorityLevel(event.target.value)}>
                                 <option>Normal</option>
                                 <option>Urgent</option>
                                 <option>Low</option>
@@ -46,7 +46,7 @@ const CreateInventory = () => {
                         </Form.Group>
                         <Form.Group controlId="formNotes">
                             <Form.Label>Additional Notes</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Notes" />
+                            <Form.Control type="text" placeholder="Enter Notes" onChange={(event) => setNotes(event.target.value)}/>
                             <Form.Text className="text-muted">Examples: Fragile, Contains Silverware, etc.</Form.Text>
                         </Form.Group>
                     </Form>

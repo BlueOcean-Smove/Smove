@@ -672,7 +672,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /*!*****************************!*\
   !*** ./client/test-data.js ***!
   \*****************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("var exampleData = {\n  someUserEmail: {\n    email: 'JHold@google.com',\n    name: 'Jesse Smith',\n    image: 'sampleimage.png',\n    zipcode: 98100,\n    onSmoveTeam: [\"someName1\", \"someName2\"],\n    smoves: [{\n      smoveName: \"someName1\",\n      isCurrentSmove: true,\n      oldAddress: '123 Fake St',\n      newAddress: '456 Real St.',\n      smoveDate: \"Jan 1, 2000\",\n      favCompanies: [{\n        companyName: \"Great company 1\",\n        url: \"www.greatcompany1.com\"\n      }, {\n        companyName: \"Great company 2\",\n        url: \"www.greatcompany2.com\"\n      }, {\n        companyName: \"Great company 2\",\n        url: \"www.greatcompany3.com\"\n      }],\n      tasks: [{\n        taskName: 'task1',\n        location: 'old house',\n        startDate: '2021-04-20T09:00:00-07:00',\n        endDate: '2021-04-20T09:00:00-07:00',\n        assignedTo: [\"someUserEmail1\", \"someUserEmail2\"],\n        category: \"moving\",\n        status: \"not started\",\n        company: {\n          companyName: \"Great company 1\",\n          url: \"www.greatcompany1.com\"\n        }\n      }, {\n        name: 'task2',\n        location: 'old house',\n        startDate: '2021-04-21T09:00:00-07:00',\n        endDate: '2021-04-21T09:00:00-07:00',\n        assignedTo: [\"someUserEmail1\", \"someUserEmail2\"],\n        category: \"moving\",\n        status: \"not started\",\n        company: {\n          companyName: \"Great company 1\",\n          url: \"www.greatcompany1.com\"\n        }\n      }, {\n        name: 'task3',\n        location: 'old house',\n        startDate: '2021-04-20T09:00:00-07:00',\n        endDate: '2021-04-20T09:00:00-07:00',\n        assignedTo: [\"someUserEmail1\", \"someUserEmail2\"],\n        category: \"moving\",\n        status: \"not started\",\n        company: {\n          companyName: \"Great company 1\",\n          url: \"www.greatcompany1.com\"\n        }\n      }],\n      inventory: [{\n        boxNum: 1,\n        originRoom: 'kitchen',\n        destinationRoom: 'bathroom',\n        boxPriority: 'urgent',\n        notes: \"this box has some random stuff from the kitchen\"\n      }, {\n        boxNum: 2,\n        originRoom: 'kitchen',\n        destinationRoom: 'bathroom',\n        boxPriority: 'urgent',\n        notes: \"this box has some fragile ceramics from the kitchen\"\n      }],\n      moveTeam: [\"someUserEmail1\", \"someUserEmail2\", \"someUserEmail3\"]\n    }, {\n      smoveName: \"someName2\",\n      isCurrentSmove: true,\n      oldAddress: '123 Fake St',\n      newAddress: '456 Real St.',\n      smoveDate: \"Jan 1, 2000\",\n      favCompanies: [{\n        companyName: \"Great company 1\",\n        url: \"www.greatcompany1.com\"\n      }, {\n        companyName: \"Great company 2\",\n        url: \"www.greatcompany2.com\"\n      }, {\n        companyName: \"Great company 2\",\n        url: \"www.greatcompany3.com\"\n      }],\n      tasks: [{\n        name: 'task1',\n        location: 'old house',\n        startDate: '2021-04-20T09:00:00-07:00',\n        endDate: '2021-04-20T09:00:00-07:00',\n        assignedTo: [\"someUserEmail1\", \"someUserEmail2\"],\n        category: \"moving\",\n        status: \"not started\",\n        company: {\n          companyName: \"Great company 1\",\n          url: \"www.greatcompany1.com\"\n        }\n      }, {\n        name: 'task2',\n        location: 'old house',\n        startDate: '2021-04-21T09:00:00-07:00',\n        endDate: '2021-04-21T09:00:00-07:00',\n        assignedTo: [\"someUserEmail1\", \"someUserEmail2\"],\n        category: \"moving\",\n        status: \"not started\",\n        company: {\n          companyName: \"Great company 1\",\n          url: \"www.greatcompany1.com\"\n        }\n      }, {\n        name: 'task3',\n        location: 'old house',\n        startDate: '2021-04-20T09:00:00-07:00',\n        endDate: '2021-04-20T09:00:00-07:00',\n        assignedTo: [\"someUserEmail1\", \"someUserEmail2\"],\n        category: \"moving\",\n        status: \"not started\",\n        company: {\n          companyName: \"Great company 1\",\n          url: \"www.greatcompany1.com\"\n        }\n      }],\n      inventory: [{\n        boxNum: 1,\n        originRoom: 'kitchen',\n        destinationRoom: 'bathroom',\n        boxPriority: 'urgent',\n        notes: \"this box has some random stuff from the kitchen\"\n      }, {\n        boxNum: 2,\n        originRoom: 'kitchen',\n        destinationRoom: 'bathroom',\n        boxPriority: 'urgent',\n        notes: \"this box has some fragile ceramics from the kitchen\"\n      }],\n      moveTeam: [\"someUserEmail1\", \"someUserEmail2\", \"someUserEmail3\"]\n    }]\n  }\n};\n\n//# sourceURL=webpack://Smove/./client/test-data.js?");
 
@@ -2095,7 +2095,7 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -2109,14 +2109,14 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -2129,7 +2129,7 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -2141,7 +2141,7 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -2153,12 +2153,12 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -2169,7 +2169,7 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
 /******/ 		var scriptUrl;
@@ -2189,13 +2189,13 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
 /******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./client/index.js");
-/******/ 	
+/******/
 /******/ })()
 ;

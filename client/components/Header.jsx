@@ -44,7 +44,7 @@ export default Header;
   </Link>
   <Link to="/LocalMovingServices">
     <h1>Local Moving Services</h1>
-  </Link> 
+  </Link>
   <Link to="/Login">
     <h1>Login</h1>
   </Link>*/}

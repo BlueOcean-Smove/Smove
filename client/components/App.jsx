@@ -31,9 +31,9 @@ const App = () => {
           {/* <Route exact path="/LocalMovingServices" component={ Add in your component file } />
           {/* <Route exact path="/" component={ Add in your component file } /> */}
           <Route exact path="/TaskList" component={TaskList} />
-          {/* <Route exact path="/Inventory" component={ Add in your component file } />
-          <Route exact path="/LocalMovingServices" component={ Add in your component file } />
-          <Route exact path="/Login" component={ Add in your component file } /> */}
+          {/* <Route exact path="/Inventory" component={ Add in your component file } /> */}
+          <Route exact path="/LocalMovingServices" component={LocalMovingServices} />
+          {/* <Route exact path="/Login" component={ Add in your component file } /> */}
         </BrowserRouter>
       </UserDataContextProvider>
     </div>

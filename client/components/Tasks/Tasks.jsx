@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserDataContext } from '../login/Data.jsx';
 
 const Tasks = ({task}) => {
   const [selected, setSelected] = useState(false);
   const [complete, setComplete] = useState(false);
-  console.log(task);
+
+  const { userData } = useContext(UserDataContext);
 
 //   const assignedUsers = () => {
 //     if (task.assignedTo.length !== 0 ) {

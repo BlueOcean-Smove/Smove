@@ -41,11 +41,10 @@ app.post('/business', (req, res) => {
    const {term, location} = req.body;
   axios.get(`${options.url}search?term=${term}&location=${location}&limit=10&radius=40000`, options)
   .then(data=>res.send(data.data))
-  .catch(()=>res.send(500))
+  .catch(()=>res.sendStatus(500))
  })
 
 //========================================
 
 
 mongoose.set('useFindAndModify', false);
-

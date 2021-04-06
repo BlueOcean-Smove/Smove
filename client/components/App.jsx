@@ -9,7 +9,6 @@ import Tasks from './Tasks/TaskList.jsx';
 
 // import component files to use for routes
 
-
 const App = () => {
   return (
     <div>

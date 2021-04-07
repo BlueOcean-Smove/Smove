@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { UserDataContext } from '../Data.jsx';
 import axios from 'axios';
+import _, { where } from 'underscore';
+import { UserDataContext } from '../Data.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,24 +9,41 @@ import Modal from 'react-bootstrap/Modal';
 
 
 const CreateInventory = () => {
-    //Saving state for POST obj
-    const [userData, setUserData] = useContext(UserDataContext);
+    //userData import
+    const { userData, setUserData } = useContext(UserDataContext);
+    //Modal info state
     const [boxNumber, setBoxNumber] = useState(null);
     const [originRoom, setOriginRoom] = useState('');
     const [destinationRoom, setDestinationRoom] = useState('');
     const [priorityLevel, setPriorityLevel] = useState('');
     const [notes, setNotes] = useState('');
+    //Display modal state
     const [show, setShow] = useState(false);
+    //can submit status
+    const [isComplete, setIsComplete] = useState(true);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
 
-    const inventoryPost = () => {
-        //push new inventory object into userData.smoves.inventory 
-        axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-        .then(({ data }) => console.log('new team member added: ', data))
-        .catch((err) => console.log('error in patch request to add user: ', err))
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if(!originRoom || !destinationRoom || !priorityLevel || !notes) {
+            setIsComplete(false);
+        } else {
+            let newInventoryArr = _.where(userDate.smoves, {isCurrentSmove: true})
+            newInventoryArr.push({
+                boxNum: Number, //fix this
+                originRoom: originRoom,
+                destinationRoom: destinationRoom,
+                boxPriority: priorityLevel,
+                notes: notes,
+              });
+            //push new inventory object into userData.smoves.inventory 
+            axios.patch(`/user/${userData.email}`, {data: userData.smoves})
+            .then(({ data }) => console.log('new team member added: ', data))
+            .catch((err) => console.log('error in patch request to add user: ', err))
+        }
     }
 
     return (
@@ -62,10 +80,11 @@ const CreateInventory = () => {
                             <Form.Text className="text-muted">Examples: Fragile, Contains Silverware, etc.</Form.Text>
                         </Form.Group>
                     </Form>
+                    {!isComplete && <span id="warning">Please complete all the fields before submit</span>}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-                    <Button variant="primary" onClick={handleClose}>Save New Inventory Box</Button>
+                    <Button variant="primary" onClick={handleSubmit}>Save New Inventory Box</Button>
                 </Modal.Footer>
             </Modal>
         </React.Fragment>

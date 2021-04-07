@@ -88,7 +88,7 @@ const Profile = ({ smovesArr }) => {
       if (smove.isCurrentSmove) {
         setCurrentSmove(smove);
       } else {
-        newOtherSmoves = otherSmoves;
+        let newOtherSmoves = otherSmoves;
         newOtherSmoves.push({smoveName: smove.smoveName, moveTeam: smove.smoveTeam});
         setOtherSmoves(newOtherSmoves);
       }

@@ -26,10 +26,10 @@ const CreateInventory = () => {
     const handleShow = () => setShow(true);
 
     const largestBoxNum = () => {
-        let currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
+        const currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
         console.log('current smove array: ', currentSmoveArr[0])
         // let currentInventoryArr = currentSmoveArr[0];
-        return '1'
+        return 
 
     }
     
@@ -39,8 +39,8 @@ const CreateInventory = () => {
     //     if(!originRoom || !destinationRoom || !priorityLevel || !notes) {
     //         setIsComplete(false);
     //     } else {
-    //         let currentSmoveArr = _.where(userDate.smoves, {isCurrentSmove: true});
-    //         let currentInventoryArr = currentSmoveArr[0];
+    //         const currentSmoveArr = _.where(userDate.smoves, {isCurrentSmove: true});
+    //         const currentInventoryArr = currentSmoveArr[0];
     //         currentInventoryArr.push({
     //             boxNum: Number, //fix this
     //             originRoom: originRoom,

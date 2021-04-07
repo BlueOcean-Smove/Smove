@@ -1,11 +1,15 @@
 import React, { useState, useContext } from 'react';
+import { UserDataContext } from '../Data.jsx';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+
 
 const CreateInventory = () => {
     //Saving state for POST obj
+    const [userData, setUserData] = useContext(UserDataContext);
     const [boxNumber, setBoxNumber] = useState(null);
     const [originRoom, setOriginRoom] = useState('');
     const [destinationRoom, setDestinationRoom] = useState('');
@@ -16,12 +20,19 @@ const CreateInventory = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const inventoryPost = () => {
+        //push new inventory object into userData.smoves.inventory 
+        axios.patch(`/user/${userData.email}`, {data: userData.smoves})
+        .then(({ data }) => console.log('new team member added: ', data))
+        .catch((err) => console.log('error in patch request to add user: ', err))
+    }
+
     return (
         <React.Fragment>
-            <Button variant="primary" onClick={handleShow}>Add to Inventory</Button>
+            <Button variant="primary" onClick={handleShow}>Add Box to Inventory</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add New Inventory Box  to List</Modal.Title>
+                    <Modal.Title>Add New Box to Inventory List</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>

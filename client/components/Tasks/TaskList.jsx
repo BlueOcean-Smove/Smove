@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import exampleData from '../../test-data.json';
 import Tasks from './Tasks.jsx';
 import Calendar from './Calendar';
+import AddTasks from './AddTasks';
 
 const TaskList = () => {
   const [sampleData, setSampleData] = useState(exampleData.smoves);
@@ -23,6 +24,7 @@ const TaskList = () => {
           <Tasks key={idx} task={task} />
         )}
         <Calendar />
+        <AddTasks />
       </div>
     </div>
     

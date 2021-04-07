@@ -23,8 +23,8 @@ const BusinessMap = () => {
    // console.log(currentSearch);
 
     axios.post('/business', currentSearch)
-    .then(data=>setSearchResult(data.data.businesses))
-    .catch((error)=>console.log(error))
+      .then(data=>setSearchResult(data.data.businesses))
+      .catch((error)=>console.log(error))
   }
 
   return (

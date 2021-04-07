@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import InfoModal from './Modal';
 import SmoveTable from './SmoveTable';
-import { UserDataContext } from '../Data.jsx';
+import { UserDataContext } from '../Data';
 
 const Profile = ({ smovesArr }) => {
   const [showModal, setShowModal] = useState(false);
@@ -74,7 +74,7 @@ const Profile = ({ smovesArr }) => {
           ADD
         </button>
       </div>
-      <SmoveTable />
+      {smovesArr.length && <SmoveTable />}
     </div>
   )
 }

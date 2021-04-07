@@ -1,7 +1,13 @@
 import React, { useState , useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import StarRatings from 'react-star-ratings';
 const config = require('../../../config.js');
+import styled from 'styled-components';
+
+const MapStars = styled.span`
+  margin: 5px;
+`;
 
 const locations = [
   {
@@ -79,7 +85,7 @@ const MapContainer = ({searchResult}) => {
        googleMapsApiKey={config.GOOGLE_TOKEN}>
         <GoogleMap
           mapContainerStyle={mapStyles}
-          zoom={10}
+          zoom={9}
           center={currentPosition.lat ? currentPosition : defaultCenter}>
           {
             searchResult.map(item => {
@@ -99,8 +105,17 @@ const MapContainer = ({searchResult}) => {
               onCloseClick={() => setSelected({})}
             >
               <div>
-                <Card.Title>{selected.name}</Card.Title>
                 <img src={selected.image_url} height="200" width="200"></img>
+                <Card.Title>{selected.name}</Card.Title>
+                <StarRatings
+                  rating={selected.rating}
+                  starRatedColor="#FE5F55"
+                  numberOfStars={5}
+                  name='rating'
+                  starDimension= "20px"
+                  starSpacing = "1px"
+                />
+                <MapStars>{selected.review_count}</MapStars>
               </div>
             </InfoWindow>
             )

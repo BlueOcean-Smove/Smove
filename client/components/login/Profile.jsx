@@ -125,47 +125,6 @@ const Profile = ({ smovesArr }) => {
   return (
     <div>
       {showModal && <InfoModal showModal={showModal} setShowModal={setShowModal} />}
-<<<<<<< HEAD
-      <figure>
-        <img id="oldhouse" className="profile-pic" src={img1} alt="icon of old home" />
-        {!!currentSmove && <figcaption>{currentSmove.oldAddress}</figcaption>}
-      </figure>
-      <span id="arrow">&#62;</span>
-      <figure>
-        <img id="newhouse" className="profile-pic" src={img2} alt="icon of new home" />
-        {!!currentSmove && <figcaption>{currentSmove.newAddress}</figcaption>}
-      </figure>
-      <div>
-        <label>
-          Add team member's email to Smove:
-          <input type="text" name="add" onChange={handleChange}/>
-        </label>
-        <button id="addteam" onClick={handleClick}>
-          ADD
-        </button>
-      </div>
-      {smovesArr.length && <SmoveTable />}
-||||||| constructed merge base
-      <figure>
-        <img id="oldhouse" src={img1} alt="icon of old home" />
-        {!!currentSmove && <figcaption>{currentSmove.oldAddress}</figcaption>}
-      </figure>
-      <span id="arrow">&#62;</span>
-      <figure>
-        <img id="newhouse" src={img2} alt="icon of new home" />
-        {!!currentSmove && <figcaption>{currentSmove.newAddress}</figcaption>}
-      </figure>
-      <div>
-        <label>
-          Add team member's email to Smove:
-          <input type="text" name="add" onChange={handleChange}/>
-        </label>
-        <button id="addteam" onClick={handleClick}>
-          ADD
-        </button>
-      </div>
-      <SmoveTable />
-=======
       <CurrentSmoveTitle>YOUR CURRENT SMOVE</CurrentSmoveTitle>
       {!!currentSmove ? (
         <>
@@ -197,7 +156,6 @@ const Profile = ({ smovesArr }) => {
       <Divider />
       <SmoveButton id="newsmove" onClick={() => setShowModal(true)}>Create New Smove</SmoveButton>
       <SmoveTable />
->>>>>>> added isCurrentSmove logic upon adding smove, updated profile route, styling
     </div>
   )
 }

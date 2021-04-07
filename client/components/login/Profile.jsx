@@ -2,7 +2,77 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import InfoModal from './Modal';
 import SmoveTable from './SmoveTable';
-import { UserDataContext } from '../Data';
+import { UserDataContext } from '../Data.jsx';
+import styled from 'styled-components';
+
+const CurrentSmoveTitle = styled.h3`
+  font-size: 1em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  color: darkgray;
+`
+const CurrentSmoveName = styled.h3`
+  font-size: 2em;
+  margin-left: 100px;
+  margin-bottom: 20px;
+`
+const CurrentSmoveWrapper = styled.div`
+  display: flex;
+`
+const SmoveButton = styled.button`
+  display: block;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 100px;
+  border-style: solid;
+  border-color: darkgray;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  &:hover{
+    background-color: darkgray;
+    color: white;
+  }
+`
+const HomeImage = styled.img`
+  height: 200px;
+  width: 200px;
+  border-style: solid;
+  border-weight: 1px;
+  border-radius: 50px;
+  border-color: white;
+  object-fit: cover;
+  display: inline-block;
+`
+const HomeFigCaption = styled.figcaption`
+  text-align: center;
+`
+const Arrow = styled.h3`
+  font-size: 3em;
+  display: inline-flex;
+  align-items: center;
+`
+const Figure = styled.figure`
+  display: inline-block;
+  margin-left: 100px;
+  margin-right: 100px;
+`
+const Divider = styled.hr`
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: darkgray;
+  margin-left: 100px;
+  margin-right: 100px;
+`
+const SmovesWrapper = styled.div`
+  margin-left: 100px;
+  margin-top: 40px;
+  display: block;
+`
 
 const Profile = ({ smovesArr }) => {
   const [showModal, setShowModal] = useState(false);
@@ -54,8 +124,8 @@ const Profile = ({ smovesArr }) => {
 
   return (
     <div>
-      <button id="newsmove" onClick={() => setShowModal(true)}>Create New Smove</button>
       {showModal && <InfoModal showModal={showModal} setShowModal={setShowModal} />}
+<<<<<<< HEAD
       <figure>
         <img id="oldhouse" className="profile-pic" src={img1} alt="icon of old home" />
         {!!currentSmove && <figcaption>{currentSmove.oldAddress}</figcaption>}
@@ -75,6 +145,59 @@ const Profile = ({ smovesArr }) => {
         </button>
       </div>
       {smovesArr.length && <SmoveTable />}
+||||||| constructed merge base
+      <figure>
+        <img id="oldhouse" src={img1} alt="icon of old home" />
+        {!!currentSmove && <figcaption>{currentSmove.oldAddress}</figcaption>}
+      </figure>
+      <span id="arrow">&#62;</span>
+      <figure>
+        <img id="newhouse" src={img2} alt="icon of new home" />
+        {!!currentSmove && <figcaption>{currentSmove.newAddress}</figcaption>}
+      </figure>
+      <div>
+        <label>
+          Add team member's email to Smove:
+          <input type="text" name="add" onChange={handleChange}/>
+        </label>
+        <button id="addteam" onClick={handleClick}>
+          ADD
+        </button>
+      </div>
+      <SmoveTable />
+=======
+      <CurrentSmoveTitle>YOUR CURRENT SMOVE</CurrentSmoveTitle>
+      {!!currentSmove ? (
+        <>
+          <CurrentSmoveName>{currentSmove.smoveName}</CurrentSmoveName>
+          <CurrentSmoveWrapper>
+            <Figure>
+              <HomeImage id="oldhouse" src={img1} alt="icon of old home" />
+              {!!currentSmove && <HomeFigCaption>{currentSmove.oldAddress}</HomeFigCaption>}
+            </Figure>
+            <Arrow id="arrow">&#8680;</Arrow>
+            <Figure>
+              <HomeImage id="newhouse" src={img2} alt="icon of new home" />
+              {!!currentSmove && <HomeFigCaption>{currentSmove.newAddress}</HomeFigCaption>}
+            </Figure>
+          </CurrentSmoveWrapper>
+          <SmovesWrapper>
+            <label>
+              Add team member's email to current Smove:
+              <input type="text" name="add" onChange={handleChange}/>
+            </label>
+            <button id="addteam" onClick={handleClick}>
+              ADD
+            </button>
+          </SmovesWrapper>
+        </>
+      ) : (
+        <SmovesWrapper>You do not have any Smoves to display. Create one below!</SmovesWrapper>
+      )}
+      <Divider />
+      <SmoveButton id="newsmove" onClick={() => setShowModal(true)}>Create New Smove</SmoveButton>
+      <SmoveTable />
+>>>>>>> added isCurrentSmove logic upon adding smove, updated profile route, styling
     </div>
   )
 }

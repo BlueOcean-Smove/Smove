@@ -26,6 +26,7 @@ oAuth2Client.setCredentials({
 })
 const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
 
+//Post to the Google Calendar API
 app.post('/api/newEvent', (req, res) => {
   const { body } = req;
   const { summary, location, description, eventStartTime, eventEndTime} = body;

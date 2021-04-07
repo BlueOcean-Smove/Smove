@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { UserDataContext } from './Data.jsx';
+import { UserDataContext } from '../Data.jsx';
 import axios from 'axios';
 
 const InfoModal = ({ showModal, setShowModal }) => {

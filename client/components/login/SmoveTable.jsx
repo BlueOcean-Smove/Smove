@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UserDataContext } from './Data.jsx';
+import { UserDataContext } from '../Data.jsx';
 
 const SmoveTable = ( sm) => {
   const { userData, setUserData } = useContext(UserDataContext);

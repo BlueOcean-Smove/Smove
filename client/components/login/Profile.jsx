@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import InfoModal from './Modal';
 import SmoveTable from './SmoveTable';
-import { UserDataContext } from '../Data.jsx';
+import { UserDataContext } from '../Data';
 
 const Profile = ({ smovesArr }) => {
   const [showModal, setShowModal] = useState(false);
@@ -57,12 +57,12 @@ const Profile = ({ smovesArr }) => {
       <button id="newsmove" onClick={() => setShowModal(true)}>Create New Smove</button>
       {showModal && <InfoModal showModal={showModal} setShowModal={setShowModal} />}
       <figure>
-        <img id="oldhouse" src={img1} alt="icon of old home" />
+        <img id="oldhouse" className="profile-pic" src={img1} alt="icon of old home" />
         {!!currentSmove && <figcaption>{currentSmove.oldAddress}</figcaption>}
       </figure>
       <span id="arrow">&#62;</span>
       <figure>
-        <img id="newhouse" src={img2} alt="icon of new home" />
+        <img id="newhouse" className="profile-pic" src={img2} alt="icon of new home" />
         {!!currentSmove && <figcaption>{currentSmove.newAddress}</figcaption>}
       </figure>
       <div>
@@ -74,7 +74,7 @@ const Profile = ({ smovesArr }) => {
           ADD
         </button>
       </div>
-      <SmoveTable />
+      {smovesArr.length && <SmoveTable />}
     </div>
   )
 }

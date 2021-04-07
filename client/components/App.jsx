@@ -3,10 +3,10 @@ import LocalMovingServices from './LocalCompanies/LocalMovingServices';
 import Login from './login/Login';
 import Logout from './login/Logout';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Header from './Header.jsx';
-import Inventory from './inventory/Inventory.jsx';
-import TaskList from './Tasks/TaskList.jsx';
-import { UserDataContextProvider } from './Data.jsx';
+import Header from './Header';
+import Inventory from './inventory/Inventory';
+import TaskList from './Tasks/TaskList';
+import { UserDataContextProvider } from './Data';
 
 // import from the file below to have access to context
 // import { UserDataContext } from '../login/Data.jsx' <-- path to data file in login folder';

@@ -80,8 +80,9 @@ const options = {
   }
 }
 
+// connect to the Mongo Database
 mongoose.connect(
-  'mongodb://localhost/fetcher', {useNewUrlParser: true, useUnifiedTopology: true}
+  config.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}
 )
   .then(()=> app.listen(PORT, () => {
     console.log(`listening with mongoose on port ${PORT}`);

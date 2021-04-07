@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { UserDataContext } from './Data.jsx';
+import { UserDataContext } from '../Data.jsx';
 import InfoModal from './Modal';
 import Profile from './Profile';
 

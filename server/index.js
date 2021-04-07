@@ -25,17 +25,22 @@ oAuth2Client.setCredentials({
   refresh_token: config.REFRESH_TOKEN
 })
 const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
+
 app.post('/api/newEvent', (req, res) => {
-  const eventStartTime = new Date();
-  eventStartTime.setDate(eventStartTime.getDay() + 2);
+  const { body } = req;
+  const { summary, location, description, eventStartTime, eventEndTime} = body;
+  // eventEndTime = new Date(eventEndTime).setMinutes(59);
   
-  const eventEndTime = new Date();
-  eventEndTime.setDate(eventEndTime.getDay() + 2);
-  eventEndTime.setMinutes(eventEndTime.getMinutes() + 45);
+  // const eventStartTime = new Date();
+  // eventStartTime.setDate(eventStartTime.getDay() + 2);
+  // const eventEndTime = new Date();
+  // eventEndTime.setDate(eventEndTime.getDay() + 2);
+  // console.log(eventStartTime, eventEndTime);
+  //2021-04-05T03:21:50.797Z
   const event = {
-    summary: 'Meet with Dave',
-    location: '295 California St, San Francisco, CA 94111',
-    description: 'Meeting with David to talk about moving!',
+    summary: summary,
+    location: location,
+    description: description,
     start: {
       dateTime: eventStartTime,
       timeZone: 'America/Denver'
@@ -47,6 +52,7 @@ app.post('/api/newEvent', (req, res) => {
     colorId: 1
   };
 
+  console.log(event);
   calendar.freebusy.query({
     resource: {
       timeMin: eventStartTime,

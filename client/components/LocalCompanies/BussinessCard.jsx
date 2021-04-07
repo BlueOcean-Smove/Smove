@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import StarRatings from 'react-star-ratings';
+import axios from 'axios';
+import { UserDataContext } from '../Data.jsx';
 
 
 const CardStyle = styled.div`
@@ -15,6 +17,8 @@ const CardStyle = styled.div`
 const BussinessCard = ({ data }) => {
   //* * States * *//
   const [buttonColor, setButtonColor] = useState('secondary');
+  const { userData, setUserData } = useContext(UserDataContext);
+  console.log(userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies.filter(company => company.companyName !== data.name));
 
   //* * onClick handler * *//
   const handleSubmit = (event) => {
@@ -24,7 +28,20 @@ const BussinessCard = ({ data }) => {
     } else {
       setButtonColor('secondary');
     }
+
+    const searchTerm = userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies;
+
+    if (searchTerm.filter(company => company.companyName === data.name).length === 0) {
+      searchTerm.push({ companyName: data.name, url: data.url });
+    } else {
+      userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies = searchTerm.filter(company => company.companyName !== data.name);
+    }
+
+    axios.patch(`/user/${userData.email}`, {data: userData.smoves})
+      .then((data) => console.log('FavCompany successfully updated: ', data))
+      .catch((err) => console.log(err));
   }
+
   return(
     <CardStyle key={data.id}>
       <Card border="dark" style={{height: 500 + 'px'}}>

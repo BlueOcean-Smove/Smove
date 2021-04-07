@@ -81,7 +81,6 @@ const options = {
 }
 
 // connect to the Mongo Database
-console.log(config.MONGO_URI);
 mongoose.connect(
   config.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}
 )

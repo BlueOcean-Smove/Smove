@@ -9,6 +9,7 @@ const InfoModal = ({ showModal, setShowModal }) => {
   const [currentAddress, setCurrentAddress] = useState('');
   const [newAddress, setNewAddress] = useState('');
   const [date, setDate] = useState('');
+  const [name, setName] = useState('');
   const { userData, setUserData } = useContext(UserDataContext);
   const [isComplete, setIsComplete] = useState(true);
 
@@ -21,6 +22,8 @@ const InfoModal = ({ showModal, setShowModal }) => {
       setNewAddress(event.target.value);
     } else if (event.target.name === 'date') {
       setDate(event.target.value)
+    } else if (event.target.name === 'name') {
+      setName(event.target.value)
     }
   }
 
@@ -30,13 +33,12 @@ const InfoModal = ({ showModal, setShowModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShowModal(false);
-
     if (!currentAddress || !newAddress || !date) {
       setIsComplete(false);
     } else {
       let newSmovesArray = userData.smoves;
       newSmovesArray.push({
+        smoveName: name,
         oldAddress: currentAddress,
         newAddress: newAddress,
         smoveDate: date,
@@ -45,6 +47,8 @@ const InfoModal = ({ showModal, setShowModal }) => {
       axios.patch(`/user/${userData.email}`, {data: newSmovesArray})
         .then(({ data }) => console.log('new smove added: ', data))
         .catch((err) => console.log('error in patch request to create new smove: ', err))
+
+      setShowModal(false);
     }
   }
   return (
@@ -55,6 +59,10 @@ const InfoModal = ({ showModal, setShowModal }) => {
         </Modal.Header>
         <Modal.Body>Add some details about your upcoming Smove
           <form>
+            <label>
+              Smove Name:
+              <input type="text" name="name" onChange={handleChange}/>
+            </label>
             <label>
               Current Address:
               <input type="text" name="current" onChange={handleChange}/>

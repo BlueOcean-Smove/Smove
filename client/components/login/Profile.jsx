@@ -87,10 +87,10 @@ const Profile = ({ smovesArr }) => {
     smovesArr.forEach((smove) => {
       if (smove.isCurrentSmove) {
         setCurrentSmove(smove);
-      } else {
-        newOtherSmoves = otherSmoves;
-        newOtherSmoves.push({smoveName: smove.smoveName, moveTeam: smove.smoveTeam});
-        setOtherSmoves(newOtherSmoves);
+      // } else {
+      //   let newOtherSmoves = otherSmoves;
+      //   newOtherSmoves.push({smoveName: smove.smoveName, moveTeam: smove.smoveTeam});
+      //   setOtherSmoves(newOtherSmoves);
       }
     })
   }

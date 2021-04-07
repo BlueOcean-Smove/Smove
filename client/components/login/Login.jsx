@@ -61,7 +61,6 @@ const Login = () => {
       .catch((err) => console.log('error in get /auth/:email ', err))
   }
 
-
   return (
     <div>
       {!!name && (

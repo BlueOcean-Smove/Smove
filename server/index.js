@@ -92,10 +92,10 @@ mongoose.connect(
 //=======Yelp API Call==================
 
 app.post('/business', (req, res) => {
-  const {term, location} = req.body;
-  axios.get(`${options.url}search?term=${term}&location=${location}&limit=10&radius=40000`, options)
-    .then(data=>res.send(data.data))
-    .catch(()=>res.sendStatus(500))
+   const {term, location, sort_by} = req.body;
+  axios.get(`${options.url}search?term=${term}&location=${location}&limit=10&radius=40000&sort_by=${sort_by}`, options)
+  .then(data=>res.send(data.data))
+  .catch(()=>res.sendStatus(500))
  })
 
 //========================================

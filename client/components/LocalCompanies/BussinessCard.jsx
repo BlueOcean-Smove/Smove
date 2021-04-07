@@ -18,7 +18,6 @@ const BussinessCard = ({ data }) => {
   //* * States * *//
   const [buttonColor, setButtonColor] = useState('secondary');
   const { userData, setUserData } = useContext(UserDataContext);
-  console.log(userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies.filter(company => company.companyName !== data.name));
 
   //* * onClick handler * *//
   const handleSubmit = (event) => {

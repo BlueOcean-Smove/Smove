@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 
+
 const BusinessMap = () => {
 
   const [currentSearch, setCurrentSearch] = useState({});
@@ -31,7 +32,7 @@ const BusinessMap = () => {
       <h2>Search for Business </h2>
       <form className="search-service" onSubmit={handleSubmit}>
         <input type="text" name="term" placeholder="moving, mover..." onChange={handleChange}></input>
-        <input type="text" name="location" onChange={handleChange}></input>
+        <input type="text" name="location" placeholder="Zip code" onChange={handleChange}></input>
         <button>SEARCH</button>
       </form>
       <MapContainer searchResult={searchResult}/>

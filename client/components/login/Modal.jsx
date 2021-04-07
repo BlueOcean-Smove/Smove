@@ -37,6 +37,10 @@ const InfoModal = ({ showModal, setShowModal }) => {
       setIsComplete(false);
     } else {
       let newSmovesArray = userData.smoves;
+      newSmovesArray.forEach((smove) => {
+        smove.isCurrentSmove = false;
+      })
+
       newSmovesArray.push({
         smoveName: name,
         oldAddress: currentAddress,

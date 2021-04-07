@@ -3,6 +3,40 @@ import axios from 'axios';
 import { UserDataContext } from '../Data.jsx';
 import InfoModal from './Modal';
 import Profile from './Profile';
+import styled from 'styled-components';
+
+const IntroWrapper = styled.div`
+  margin-left: 100px;
+  margin-top: 20px;
+  display: block;
+`
+const LoginButtonDiv = styled.div`
+  margin-top: 20px;
+  margin-left: 100px;
+  display: block;
+`
+const ProfilePic = styled.img`
+  height: 63px;
+  width: 63px;
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: darkgray;
+  margin-right: 20px;
+  float: left;
+`
+const WelcomeMessage = styled.p`
+  display: block;
+`
+const Divider = styled.hr`
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: darkgray;
+  margin-left: 100px;
+  margin-right: 100px;
+`
 
 const Login = () => {
   const [name, setName] = useState('');
@@ -61,24 +95,34 @@ const Login = () => {
       .catch((err) => console.log('error in get /auth/:email ', err))
   }
 
-
   return (
     <div>
-      {!!name && (
-        <div>
-          <span id="welcome-name">
-            Welcome {name}!
-          </span>
-          <span id="welcome-email">
-            Currently signed in as {email}
-          </span>
-          <img id="welcome-img" src={image} alt="Your user profile picture" />
-          <span>Smooooove is the best!!!!!! Lots of text</span>
-        </div>
+      <IntroWrapper>
+        {!name && (
+          <WelcomeMessage id="welcome-no-name">
+            Welcome GUEST. Please sign in!
+          </WelcomeMessage>
+        )}
+        {!!name && (
+          <>
+            <ProfilePic id="welcome-img" src={image} alt="Your user profile picture" />
+            <WelcomeMessage id="welcome-name">
+              Welcome {name}!
+            </WelcomeMessage>
+            <WelcomeMessage id="welcome-email">
+              Currently signed in as {email}
+            </WelcomeMessage>
+          </>
+        )}
+      </IntroWrapper>
+      {!showProfile && (
+        <LoginButtonDiv id="g-signin2"></LoginButtonDiv>
       )}
-      <div id="g-signin2"></div>
       {showProfile && (
-        <Profile smovesArr={userObj.smoves} />
+        <>
+          <Divider />
+          <Profile smovesArr={userObj.smoves} />
+        </>
       )}
     </div>
   )

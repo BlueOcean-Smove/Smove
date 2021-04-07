@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar'
+import Logout from './login/Logout'
 
 const Header = () => {
   return (
@@ -12,14 +13,13 @@ const Header = () => {
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>Smove</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link><Link to="/"><div>User Profile</div></Link></Nav.Link>
+          <Nav.Link><Link to="/"><div>Profile</div></Link></Nav.Link>
           <Nav.Link><Link to="/TaskList"><div>Task List</div></Link></Nav.Link>
           <Nav.Link><Link to="/Inventory"><div>Inventory</div></Link></Nav.Link>
           <Nav.Link><Link to="/LocalMovingServices"><div>Local Moving Services</div></Link></Nav.Link>
-          <Nav.Link><Link to="/Login"><div>Login</div></Link></Nav.Link>
         </Nav>
         <Form inline>
-          <Button variant="outline-info">Login DOES NOT ATM</Button>
+          <Logout />
         </Form>
       </Navbar>
     </React.Fragment>

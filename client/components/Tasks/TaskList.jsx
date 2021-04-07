@@ -1,29 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import exampleData from '../../test-data.json';
 import Tasks from './Tasks.jsx';
 import Calendar from './Calendar';
+import AddTasks from './AddTasks';
+import { UserDataContext } from '../Data.jsx';
 
 const TaskList = () => {
   const [sampleData, setSampleData] = useState(exampleData.smoves);
-
-  const currentSmove = () => {
-    for (let i = 0; i < sampleData.length; i++) {
-      if (sampleData[i].isCurrentSmove) {
-        setSampleData(sampleData[i].tasks);
-      }
-    }
-  }
-  
-  currentSmove();
+  const { userData, setUserData } = useContext(UserDataContext);
   
   return (
     <div>
       Your Task List Items 
       <div>
-        {sampleData.map((task, idx) => 
+        {userData.smoves.filter(smove => smove.isCurrentSmove)[0].tasks.map((task, idx) => 
           <Tasks key={idx} task={task} />
         )}
         <Calendar />
+        <AddTasks />
       </div>
     </div>
     

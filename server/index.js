@@ -25,17 +25,15 @@ oAuth2Client.setCredentials({
   refresh_token: config.REFRESH_TOKEN
 })
 const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
-app.post('/api/newEvent', (req, res) => {
-  const eventStartTime = new Date();
-  eventStartTime.setDate(eventStartTime.getDay() + 2);
 
-  const eventEndTime = new Date();
-  eventEndTime.setDate(eventEndTime.getDay() + 2);
-  eventEndTime.setMinutes(eventEndTime.getMinutes() + 45);
+app.post('/api/newEvent', (req, res) => {
+  const { body } = req;
+  const { summary, location, description, eventStartTime, eventEndTime} = body;
+
   const event = {
-    summary: 'Meet with Dave',
-    location: '295 California St, San Francisco, CA 94111',
-    description: 'Meeting with David to talk about moving!',
+    summary: summary,
+    location: location,
+    description: description,
     start: {
       dateTime: eventStartTime,
       timeZone: 'America/Denver'

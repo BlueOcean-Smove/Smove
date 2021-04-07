@@ -86,7 +86,7 @@ const MapContainer = ({searchResult}) => {
        googleMapsApiKey={config.GOOGLE_TOKEN}>
         <GoogleMap
           mapContainerStyle={mapStyles}
-          zoom={11}
+          zoom={12}
           center={currentPosition.lat ? currentPosition : defaultCenter}>
           {
             searchResult.map(item => {

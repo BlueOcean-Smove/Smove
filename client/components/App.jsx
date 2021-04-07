@@ -6,7 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header.jsx';
 import Inventory from './inventory/Inventory.jsx';
 import TaskList from './Tasks/TaskList.jsx';
-import { UserDataContextProvider } from './login/Data.jsx';
+import { UserDataContextProvider } from './Data.jsx';
 
 // import from the file below to have access to context
 // import { UserDataContext } from '../login/Data.jsx' <-- path to data file in login folder';

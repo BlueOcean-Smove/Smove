@@ -29,6 +29,7 @@ const CreateInventory = () => {
         let currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
         console.log('current smove array: ', currentSmoveArr[0])
         // let currentInventoryArr = currentSmoveArr[0];
+        return '1'
 
     }
     
@@ -64,7 +65,7 @@ const CreateInventory = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <div>Box Number: {largestBoxNum}</div>
+                        <div>Box Number: {largestBoxNum()}</div>
                         <Form.Group controlId="formOriginRoom">
                             <Form.Label>Origin Room</Form.Label>
                             <Form.Control type="text" placeholder="Enter Origin Room Name" onChange={(event) => setOriginRoom(event.target.value)}/>

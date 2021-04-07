@@ -76,7 +76,7 @@ const Login = () => {
           <span>Smooooove is the best!!!!!! Lots of text</span>
         </div>
       )}
-      <div id="g-signin2" data-onsuccess={onSignIn}></div>
+      <div id="g-signin2"></div>
       {showProfile && (
         <Profile smovesArr={userObj.smoves} />
       )}

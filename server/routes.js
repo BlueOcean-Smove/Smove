@@ -1,5 +1,6 @@
 const express = require('express');
 
+// get controllers for the routes
 const {
   getUserInfo,
   createUser,
@@ -8,6 +9,7 @@ const {
 
 const router = express.Router();
 
+// set the routes for database access
 router.get('/auth/:email', getUserInfo);
 router.post('/auth/', createUser);
 router.patch('/user/:email', updateUser);

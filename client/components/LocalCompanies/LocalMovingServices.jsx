@@ -35,10 +35,10 @@ const BusinessMap = () => {
         <input type="text" name="location" placeholder="Zip code" onChange={handleChange}></input>
         <label>Sort by</label>
         <select name="sort_by" onChange={handleChange}>
-          <option value="distance">distance</option>
-          <option value="best_match">best match</option>
-          <option value="rating">rating</option>
-          <option value="review_count">reviews</option>
+          <option value="distance">Distance</option>
+          <option value="best_match">Best Match</option>
+          <option value="rating">Rating</option>
+          <option value="review_count">R`eviews</option>
 
         </select>
         <button>SEARCH</button>

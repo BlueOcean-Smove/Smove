@@ -19,6 +19,7 @@ const CreateInventory = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
 
     const inventoryPost = () => {
         //push new inventory object into userData.smoves.inventory 

@@ -13,7 +13,20 @@ height: 1000px;
 width: 100%;
 `;
 
-const EditTasks = ({rerenderCalendar, rerenderData, show, handleClose, taskNameEdit, locationEdit, startDateEdit, endDateEdit, assignedToEdit, statusEdit, companyEdit, categoryEdit}) => {
+const EditTasks = ({
+  rerenderCalendar, 
+  rerenderData, 
+  show, 
+  handleClose, 
+  taskNameEdit, 
+  locationEdit, 
+  startDateEdit, 
+  endDateEdit, 
+  assignedToEdit, 
+  statusEdit, 
+  companyEdit, 
+  categoryEdit
+}) => {
   const { userData, setUserData } = useContext(UserDataContext);
   const [taskName, setTaskName] = useState(taskNameEdit);
   const [oldName, setOldName] = useState(taskNameEdit);

@@ -10,16 +10,17 @@ import Table from 'react-bootstrap/Table';
 const TaskList = () => {
   const [sampleData, setSampleData] = useState(exampleData.smoves);
   const { userData, setUserData } = useContext(UserDataContext);
-  const [currentCalendar, setCurrentCalendar] = useState(<iframe src="https://calendar.google.com/calendar/embed?src=blueoceansmove%40gmail.com&ctz=America%2FLos_Angeles" style={{border: 0, width:"800px", height:"600px", frameborder:"0", scrolling:"no"}}></iframe>)
+  
 
   //rerenders the data on the task list
   const rerenderData = (data) => {
     setUserData(data);
   }
 
+
   //was supposed to rerender the Calendar, but this is currently not doing anything
   const rerenderCalendar = () => {
-    setCurrentCalendar(<iframe src="https://calendar.google.com/calendar/embed?src=blueoceansmove%40gmail.com&ctz=America%2FLos_Angeles" style={{border: 0, width:"800px", height:"600px", frameborder:"0", scrolling:"no"}}></iframe>);
+    setCurrentCalendar();
   }
 
   const currentSmoveFromDb = userData.smoves.filter(smove => smove.isCurrentSmove)[0]
@@ -67,7 +68,7 @@ const TaskList = () => {
               ) : null}
           </tbody>
         </Table>
-        <Calendar currentCalendar={currentCalendar} />
+        <Calendar />
         <AddTasks rerenderCalendar={rerenderCalendar} rerenderData={rerenderData}/>
       </div>
     </div>

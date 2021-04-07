@@ -8,7 +8,7 @@ import StarRatings from 'react-star-ratings';
 const CardStyle = styled.div`
   display: inline-block;
   width: 18rem;
-  height: 30rem;
+  height: 550px;
   margin: 15px;
 `;
 
@@ -27,7 +27,7 @@ const BussinessCard = ({ data }) => {
   }
   return(
     <CardStyle key={data.id}>
-      <Card border="dark">
+      <Card border="dark" style={{height: 500 + 'px'}}>
         <Card.Img variant="top" style={{height: 210+'px'}} src={data.image_url} />
         <Card.Body>
           <Card.Title>{data.name}</Card.Title>

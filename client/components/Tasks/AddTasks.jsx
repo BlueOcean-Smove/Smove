@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -7,43 +6,82 @@ import Modal from 'react-bootstrap/Modal'
 import DatePicker from "react-datepicker";
 import styled from 'styled-components';
 import "react-datepicker/dist/react-datepicker.css";
-
+import axios from 'axios';
+import { UserDataContext } from '../Data.jsx';
 const CalendarStyle = styled.div`
-  height: 1000px;
-  width: 100%;
+height: 1000px;
+width: 100%;
 `;
 
 const AddTasks = () => {
-  
+  const { userData, setUserData } = useContext(UserDataContext);
   const [show, setShow] = useState(false);
   const [taskName, setTaskName] = useState('');
   const [location, setLocation] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [taskDesignation, setTaskDesignation] = useState([]);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState('Not started');
   const [company, setCompany] = useState('');
   const [category, setCategory] = useState('');
 
-  const handleChange = ({target}) => {
-    const { value, name } = target;
-    console.log(value);
-    if (name === 'taskName') {
-      setTaskName(value);
-    } else if (name === 'location') {
-      setLocation(value)
-    } else if (name === 'taskDesignation') {
-      setTaskDesignation(value)
-    } else if (name === 'status') {
-      setStatus(value)
-    } else if (name === 'company') {
-      setCompany(value)
-    } else if (name === 'category') {
-      setCategory(value)
-    }
-  }
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const clearForm = () => {
+    setTaskDesignation([]);
+    setTaskName('');
+    setLocation('')
+    setStatus('Not started');
+    setCompany('');
+    setCategory('');
+  }
+
+  // console.log('User Data Outside', userData);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newCalendarEvent = {
+      summary: taskName,
+      location: location,
+      description: taskName,
+      eventStartTime: startDate,
+      eventEndTime: endDate,
+    };
+
+    const newTask = {
+      name: taskName,
+      location: location,
+      startDate: startDate,
+      endDate: endDate,
+      assignedTo: taskDesignation,
+      category: category,
+      status: status,
+      company: {
+        company: company,
+        url: 'www.google.com'
+      },
+    }
+
+    
+    if (userData.smoves.length === 0) {
+      console.log('No current smoves!');
+    } else {
+      userData.smoves.filter(smove => smove.isCurrentSmove)[0].tasks.push(newTask);
+    }
+
+    axios.patch(`/user/${userData.email}`, {data: userData.smoves})
+      .then(({ data }) => console.log('new task added: ', data))
+      .then(() => {
+        axios.post('/api/newEvent', newCalendarEvent)
+          .then(() => handleClose())
+          .then(() => clearForm())
+          .catch((err) => console.log('error: ', err));
+      })
+      .catch((err) => console.log('error in patch request to add task: ', err));
+
+  }
+
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -56,7 +94,7 @@ const AddTasks = () => {
           </Modal.Header>
           <Modal.Body>
 
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formTaskName">
                 <Form.Label>Task Name</Form.Label>
                 <Form.Control value={taskName} name={taskName} onChange={({target}) => setTaskName(target.value)} type="text" placeholder="Move boxes"/>
@@ -82,7 +120,7 @@ const AddTasks = () => {
 
               <Form.Group controlId="taskDesignation">
                 <Form.Label>Who's doing this?</Form.Label>
-                <Form.Control type="text" name={taskDesignation} onChange={({target}) => setTaskDesignation(target.value)} placeholder="Me"/>
+                <Form.Control required="required" type="text" name={taskDesignation} onChange={({target}) => setTaskDesignation([target.value])} placeholder="Me"/>
               </Form.Group>
               <Form.Group controlId="status">
                 <Form.Label>Status</Form.Label>
@@ -116,7 +154,7 @@ const AddTasks = () => {
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={handleSubmit}>
               Add
             </Button>
           </Modal.Footer>

@@ -25,8 +25,13 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
   const [company, setCompany] = useState('');
   const [category, setCategory] = useState('Moving');
 
+  //closes the modal
   const handleClose = () => setShow(false);
+
+  //shows the modal
   const handleShow = () => setShow(true);
+
+  //clears the form upon submission of an added task
   const clearForm = () => {
     setTaskDesignation([]);
     setTaskName('');
@@ -36,8 +41,7 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
     setCategory('');
   }
 
-  // console.log('User Data Outside', userData);
-
+  //submits a new task
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCalendarEvent = {

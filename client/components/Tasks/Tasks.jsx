@@ -45,7 +45,7 @@ const Tasks = ({task}) => {
               {moment(task.endDate).format("MMMM Do YYYY, h:mm:ss a")}
             </td>
             <td>
-              {task.assignedTo.map((user, idx) => 
+              {task.assignedTo.map((user, idx) =>
                 <div key={idx}>
                   {user}
                 </div>

@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const BusinessMap = () => {
 
-  const [currentSearch, setCurrentSearch] = useState({});
+  const [currentSearch, setCurrentSearch] = useState({location:'seattle',sort_by:'distance'});
   const [searchResult, setSearchResult] = useState([]);
 
   const handleChange = (event) => {
@@ -33,6 +33,14 @@ const BusinessMap = () => {
       <form className="search-service" onSubmit={handleSubmit}>
         <input type="text" name="term" placeholder="moving, mover..." onChange={handleChange}></input>
         <input type="text" name="location" placeholder="Zip code" onChange={handleChange}></input>
+        <label>Sort by</label>
+        <select name="sort_by" onChange={handleChange}>
+          <option value="distance">distance</option>
+          <option value="best_match">best match</option>
+          <option value="rating">rating</option>
+          <option value="review_count">reviews</option>
+
+        </select>
         <button>SEARCH</button>
       </form>
       <MapContainer searchResult={searchResult}/>

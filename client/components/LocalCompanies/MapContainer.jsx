@@ -53,6 +53,7 @@ const MapContainer = ({searchResult}) => {
 
   const [ currentPosition, setCurrentPosition ] = useState({});
 
+
   const success = (position) => {
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
@@ -85,12 +86,12 @@ const MapContainer = ({searchResult}) => {
        googleMapsApiKey={config.GOOGLE_TOKEN}>
         <GoogleMap
           mapContainerStyle={mapStyles}
-          zoom={9}
+          zoom={11}
           center={currentPosition.lat ? currentPosition : defaultCenter}>
           {
             searchResult.map(item => {
               return (
-              <Marker icon="https://img.icons8.com/office/30/000000/marker.png" key={item.name} position={{lat:item.coordinates.latitude, lng:item.coordinates.longitude}} onMouseOver={()=>onSelect(item)}
+              <Marker icon="https://img.icons8.com/office/40/000000/marker.png" key={item.name} position={{lat:item.coordinates.latitude, lng:item.coordinates.longitude}} onMouseOver={()=>onSelect(item)}
               />
               )
             })
@@ -103,6 +104,7 @@ const MapContainer = ({searchResult}) => {
               position={{lat:selected.coordinates.latitude, lng:selected.coordinates.longitude}}
               clickable={true}
               onCloseClick={() => setSelected({})}
+
             >
               <div>
                 <img src={selected.image_url} height="200" width="200"></img>

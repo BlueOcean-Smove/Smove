@@ -20,7 +20,7 @@ const oAuth2Client = new OAuth2(
   config.CLIENT_ID,
   config.CLIENT_SECRET,
 )
-  
+
 oAuth2Client.setCredentials({
   refresh_token: config.REFRESH_TOKEN
 })
@@ -28,7 +28,7 @@ const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
 app.post('/api/newEvent', (req, res) => {
   const eventStartTime = new Date();
   eventStartTime.setDate(eventStartTime.getDay() + 2);
-  
+
   const eventEndTime = new Date();
   eventEndTime.setDate(eventEndTime.getDay() + 2);
   eventEndTime.setMinutes(eventEndTime.getMinutes() + 45);
@@ -54,7 +54,7 @@ app.post('/api/newEvent', (req, res) => {
       timeZone: 'America/Denver',
       items: [{ id: 'primary' }],
     }
-  }, 
+  },
   (err, res) => {
     if (err) return console.error('Free Busy Query Error: ', err)
 
@@ -93,8 +93,8 @@ mongoose.connect(
 //=======Yelp API Call==================
 
 app.post('/business', (req, res) => {
-   const {term, location} = req.body;
-  axios.get(`${options.url}search?term=${term}&location=${location}&limit=10&radius=40000`, options)
+   const {term, location, sort_by} = req.body;
+  axios.get(`${options.url}search?term=${term}&location=${location}&limit=10&radius=40000&sort_by=${sort_by}`, options)
   .then(data=>res.send(data.data))
   .catch(()=>res.sendStatus(500))
  })

@@ -29,14 +29,7 @@ const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
 app.post('/api/newEvent', (req, res) => {
   const { body } = req;
   const { summary, location, description, eventStartTime, eventEndTime} = body;
-  // eventEndTime = new Date(eventEndTime).setMinutes(59);
   
-  // const eventStartTime = new Date();
-  // eventStartTime.setDate(eventStartTime.getDay() + 2);
-  // const eventEndTime = new Date();
-  // eventEndTime.setDate(eventEndTime.getDay() + 2);
-  // console.log(eventStartTime, eventEndTime);
-  //2021-04-05T03:21:50.797Z
   const event = {
     summary: summary,
     location: location,
@@ -52,7 +45,6 @@ app.post('/api/newEvent', (req, res) => {
     colorId: 1
   };
 
-  console.log(event);
   calendar.freebusy.query({
     resource: {
       timeMin: eventStartTime,

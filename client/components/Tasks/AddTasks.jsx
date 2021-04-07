@@ -64,10 +64,9 @@ const AddTasks = () => {
 
     
     if (userData.smoves.length === 0) {
-      console.log(userData);
+      console.log('No current smoves!');
     } else {
       userData.smoves.filter(smove => smove.isCurrentSmove)[0].tasks.push(newTask);
-      console.log(userData);
     }
 
     axios.patch(`/user/${userData.email}`, {data: userData.smoves})

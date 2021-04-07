@@ -55,7 +55,7 @@ const Login = () => {
         .then(() => {
           window.gapi.signin2.render('g-signin2', {
             'scope': 'profile email',
-            'width': 250,
+            'width': 150,
             'height': 50,
             'longtitle': false,
             'theme': 'dark',

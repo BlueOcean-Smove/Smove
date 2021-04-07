@@ -24,27 +24,36 @@ const CreateInventory = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const largestBoxNum = () => {
+        let currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
+        console.log('current smove array: ', currentSmoveArr[0])
+        // let currentInventoryArr = currentSmoveArr[0];
+
+    }
     
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if(!originRoom || !destinationRoom || !priorityLevel || !notes) {
-            setIsComplete(false);
-        } else {
-            let newInventoryArr = _.where(userDate.smoves, {isCurrentSmove: true})
-            newInventoryArr.push({
-                boxNum: Number, //fix this
-                originRoom: originRoom,
-                destinationRoom: destinationRoom,
-                boxPriority: priorityLevel,
-                notes: notes,
-              });
-            //push new inventory object into userData.smoves.inventory 
-            axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-            .then(({ data }) => console.log('new team member added: ', data))
-            .catch((err) => console.log('error in patch request to add user: ', err))
-        }
-    }
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     if(!originRoom || !destinationRoom || !priorityLevel || !notes) {
+    //         setIsComplete(false);
+    //     } else {
+    //         let currentSmoveArr = _.where(userDate.smoves, {isCurrentSmove: true});
+    //         let currentInventoryArr = currentSmoveArr[0];
+    //         currentInventoryArr.push({
+    //             boxNum: Number, //fix this
+    //             originRoom: originRoom,
+    //             destinationRoom: destinationRoom,
+    //             boxPriority: priorityLevel,
+    //             notes: notes,
+    //           });
+    //           console.log()
+    //         //push new inventory object into userData.smoves.inventory 
+    //         // axios.patch(`/user/${userData.email}`, {data: userData.smoves})
+    //         // .then(({ data }) => console.log('new team member added: ', data))
+    //         // .catch((err) => console.log('error in patch request to add user: ', err))
+    //     }
+    // }
 
     return (
         <React.Fragment>
@@ -55,7 +64,7 @@ const CreateInventory = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        {/* MISSING BOX NUMBER */}
+                        <div>Box Number: {largestBoxNum}</div>
                         <Form.Group controlId="formOriginRoom">
                             <Form.Label>Origin Room</Form.Label>
                             <Form.Control type="text" placeholder="Enter Origin Room Name" onChange={(event) => setOriginRoom(event.target.value)}/>
@@ -84,7 +93,7 @@ const CreateInventory = () => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-                    <Button variant="primary" onClick={handleSubmit}>Save New Inventory Box</Button>
+                    {/* <Button variant="primary" onClick={handleSubmit}>Save New Inventory Box</Button> */}
                 </Modal.Footer>
             </Modal>
         </React.Fragment>

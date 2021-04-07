@@ -13,7 +13,7 @@ height: 1000px;
 width: 100%;
 `;
 
-const AddTasks = () => {
+const AddTasks = ({rerenderCalendar, rerenderData}) => {
   const { userData, setUserData } = useContext(UserDataContext);
   const [show, setShow] = useState(false);
   const [taskName, setTaskName] = useState('');
@@ -23,7 +23,7 @@ const AddTasks = () => {
   const [taskDesignation, setTaskDesignation] = useState([]);
   const [status, setStatus] = useState('Not started');
   const [company, setCompany] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Moving');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -49,7 +49,7 @@ const AddTasks = () => {
     };
 
     const newTask = {
-      name: taskName,
+      taskName: taskName,
       location: location,
       startDate: startDate,
       endDate: endDate,
@@ -57,11 +57,10 @@ const AddTasks = () => {
       category: category,
       status: status,
       company: {
-        company: company,
+        companyName: company,
         url: 'www.google.com'
       },
     }
-
     
     if (userData.smoves.length === 0) {
       console.log('No current smoves!');
@@ -70,13 +69,20 @@ const AddTasks = () => {
     }
 
     axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-      .then(({ data }) => console.log('new task added: ', data))
+      .then(({ data }) => {
+        console.log('new task added: ', data)
+        rerenderData(data);
+      })
       .then(() => {
         axios.post('/api/newEvent', newCalendarEvent)
-          .then(() => handleClose())
-          .then(() => clearForm())
-          .catch((err) => console.log('error: ', err));
+          .then(() => {
+            console.log('Successully posted a new Event to the Calendar')
+          })
+          .catch((err) => console.log('error: ', err))
       })
+      .then(() => handleClose())
+      .then(() => clearForm())
+      .then(() => rerenderCalendar())
       .catch((err) => console.log('error in patch request to add task: ', err));
 
   }
@@ -125,8 +131,8 @@ const AddTasks = () => {
               <Form.Group controlId="status">
                 <Form.Label>Status</Form.Label>
                 <Form.Control as="select" name={status} onChange={({target}) => setStatus(target.value)}>
-                  <option value="notStarted">Not started</option>
-                  <option value="inProgress">In Progress</option>
+                  <option value="Not started">Not started</option>
+                  <option value="In progress">In Progress</option>
                   <option value="Complete">Complete</option>
                 </Form.Control>
               </Form.Group>

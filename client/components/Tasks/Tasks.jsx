@@ -1,69 +1,58 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 import moment from 'moment';
 import { FaTrashAlt } from 'react-icons/fa';
+import { UserDataContext } from '../Data.jsx';
 
-const Tasks = ({task}) => {
+const Tasks = ({task, deleteTask, editTask}) => {
+  const { taskName, location, startDate, endDate, assignedTo, category, status, company } = task;
   const [selected, setSelected] = useState(false);
-
+  const { userData, setUserData } = useContext(UserDataContext);
   const selectedTask = (task) => {
     setSelected(!selected);
   }
 
   return (
-    <div>
-      <Table bordered hover>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Users</th>
-            <th>Company</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
+    <>
+
           <tr>
             <td>
               <Form.Check aria-label="option 2" onClick={selectedTask} />
             </td>
             <td>
-              {task.taskName}
+              {taskName}
             </td>
             <td>
-              {task.location}
+              {location}
             </td>
             <td>
-              {moment(task.startDate).format("MMMM Do YYYY, h:mm:ss a")}
+              {moment(startDate).format("MMMM Do YYYY, h:mm:ss a")}
             </td>
             <td>
-              {moment(task.endDate).format("MMMM Do YYYY, h:mm:ss a")}
+              {moment(endDate).format("MMMM Do YYYY, h:mm:ss a")}
             </td>
             <td>
-              {task.assignedTo.map((user, idx) =>
+              {assignedTo.map((user, idx) => 
                 <div key={idx}>
                   {user}
                 </div>
               )}
             </td>
             <td>
-              <a href={task.company.url} rel="external" target="_self" target="_blank">{task.company.companyName}</a>
+              <a href={company.url} rel="external" target="_self" target="_blank">{company.companyName}</a>
             </td>
             <td>
-              {task.status}
+              {status}
             </td>
             <td>
-              <FaTrashAlt />
+              <FaTrashAlt onClick={() => deleteTask(taskName, assignedTo)}/>
+              {/* <AiFillEdit /> */}
+              {/* <Button onClick={editTask} >Edit</Button> */}
             </td>
           </tr>
-        </tbody>
-      </Table>
-    </div>
+    </>
   )
 }
 

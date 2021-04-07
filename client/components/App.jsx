@@ -22,8 +22,7 @@ const App = () => {
       <UserDataContextProvider>
         <BrowserRouter>
           <Header />
-          <Login />
-          <Logout />
+          <Route exact path="/" component={Login} />
           {/* <Route exact path="/" component={ Add in your component file } />
           <Route exact path="/TaskList" component={ Add in your component file } /> */}
           <Route exact path="/Inventory" component={Inventory} />

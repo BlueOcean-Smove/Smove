@@ -19,8 +19,21 @@ const InventoryTable = () => {
   const inventoryFromDb = currentSmoveFromDb.inventory;
   console.log('current smove inventory: ', inventoryFromDb);
 
-
-
+  const deleteBox = (boxNum, assignedTo) => {
+    for (let i = 0; i < userData.smoves.length; i++) {
+      let currentSmove = userData.smoves[i];
+      if (currentSmove.isCurrentSmove) {
+        currentSmove.inventory = currentSmove.inventory.filter(singleBox => singleBox.boxNum !== boxNum)
+        axios.patch(`/user/${userData.email}`, {data: userData.smoves})
+          .then(({ data }) => {
+            console.log('Box Deleted: ', data);
+            return data;
+          })
+          .then((data) => setUserData(data))
+          .catch((err) => console.log('Error deleting a task', err));
+      }
+    }
+  }
 
     return (
         <React.Fragment>
@@ -32,13 +45,16 @@ const InventoryTable = () => {
                     <th>Destination Room</th>
                     <th>Box Priority</th>
                     <th>Notes</th>
+                    <th>Edit/Delete Box</th>
                 </tr>
             </thead>
             <tbody>
                 {inventoryFromDb ? inventoryFromDb.map((box, idx) => (
                     <InventoryTableRow 
                       key={box.boxNum + idx}
-                    
+                      box={box}
+                      rerenderData={rerenderData}
+                      deleteBox={deleteBox} 
                     />
                 )) : null}
             </tbody>

@@ -6,19 +6,9 @@ import { UserDataContext } from '../client/components/Data.jsx';
 import sampleData from '../client/test-data.js';
 
 const sampleUserData={
-  userData:{
-    email:'aa',
-    image:'aa',
-    name: 'aa',
-    smoves:[
-      {
-        isCurrentSmove: true
-      }
-    ]
-},
+  userData:sampleData,
 setUserData: jest.fn()
 };
-
 
 describe('Profile', () => {
   test('show YOUR CURRENT SMOVE text:', () => {

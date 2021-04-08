@@ -3,24 +3,15 @@ import ReactDOM from 'react-dom';
 import { render, cleanup, fireEvent, screen } from '@testing-library/react';
 import Tasks from '../client/components/Tasks/Tasks';
 import { UserDataContext } from '../client/components/Data.jsx';
-
+import sampleData from '../client/test-data.js';
 
 const sampleUserData={
-  userData:{
-    email:'aa',
-    image:'aa',
-    name: 'aa',
-    smoves:[
-      {
-        isCurrentSmove: true
-      }
-    ]
-},
+  userData:sampleData,
 setUserData: jest.fn()
 };
 
-const sampleTask={
 
+const sampleTask={
   task:
     {
         taskName: 'task1',
@@ -39,12 +30,6 @@ const sampleTask={
   editTask: jest.fn(),
   rerenderData: jest.fn()
 }
-
-// deleteTask = jest.fn()
-// const editTask=jest.fn()
-// const rerenderData=jest.fn()
-
-
 
 describe('Tasks', () => {
   test('renders Task Table:', () => {

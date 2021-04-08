@@ -26,6 +26,12 @@ oAuth2Client.setCredentials({
 })
 const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
 
+axios.get(`https://www.googleapis.com/auth/calendar`)
+  .then((data) => console.log(data))
+  .catch(err => console.log('Error retrieving the calendar info', err));
+  
+
+
 //Post to the Google Calendar API
 app.post('/api/newEvent', (req, res) => {
   const { body } = req;

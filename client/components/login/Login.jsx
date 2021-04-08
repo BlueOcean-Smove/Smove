@@ -46,6 +46,7 @@ const Login = () => {
   const { userData, setUserData } = useContext(UserDataContext);
   const [showModal, setShowModal] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [userLoginNoSmoves, setUserLoginNoSmoves] = useState(false);
 
   useEffect(() => {
     window.gapi.load('auth2', () => {
@@ -86,6 +87,13 @@ const Login = () => {
             email: email,
             image: image
           })
+            .then(({ data }) => {
+              console.log('user obj from database after post: ', data);
+              setUserObj(data)
+              setUserData(data)
+              window.location.reload(false);
+            })
+            .catch((err) => console.log('error in posting data: ', err))
         } else {
           setUserObj(data)
           setUserData(data)

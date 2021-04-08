@@ -79,13 +79,13 @@ const Profile = ({ smovesArr }) => {
   const [currentSmove, setCurrentSmove] = useState(null);
   const [otherSmoves, setOtherSmoves] = useState([]);
   const [teamEmail, setTeamEmail] = useState('');
-  // const [newSmoveToggle, setNewSmoveToggle] = useState(true);
+  const [newSmoveToggle, setNewSmoveToggle] = useState(true);
   const { userData, setUserData } = useContext(UserDataContext);
   const img1 = "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&ixid=MXwxM[…]0by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=701&q=80";
   const img2 = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/brewster-mcleod-architects-1486154143.jpg?crop=1.00xw:1.00xh;0,0&resize=980:*";
 
   const findCurrentSmove = () => {
-    smovesArr.forEach((smove) => {
+    userData.smoves.forEach((smove) => {
       if (smove.isCurrentSmove) {
         setCurrentSmove(smove);
       // } else {
@@ -99,6 +99,7 @@ const Profile = ({ smovesArr }) => {
 
   const handleChange = (event) => {
     setTeamEmail(event.target.value);
+    console.log('team email: ', teamEmail)
   }
 
   const handleClick = () => {
@@ -110,8 +111,9 @@ const Profile = ({ smovesArr }) => {
           })
         }
       })
-      .then (() => {
+      .then(() => {
         userData.smoves.forEach((smove) => {
+          console.log('userdata smove: ', smove)
           if (smove.isCurrentSmove) {
             smove.moveTeam.push(teamEmail)
           };
@@ -120,6 +122,7 @@ const Profile = ({ smovesArr }) => {
           .then(({ data }) => console.log('new team member added: ', data))
           .catch((err) => console.log('error in patch request to add user: ', err))
       })
+      .then(() => setNewSmoveToggle(!newSmoveToggle))
       .catch((err) => console.log('error in get /auth/:email ', err))
   }
 
@@ -156,7 +159,7 @@ const Profile = ({ smovesArr }) => {
       )}
       <Divider />
       <SmoveButton id="newsmove" onClick={() => setShowModal(true)}>Create New Smove</SmoveButton>
-      <SmoveTable />
+      <SmoveTable smoves={newSmoveToggle} />
     </div>
   )
 }

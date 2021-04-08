@@ -37,7 +37,6 @@ const CreateInventory = () => {
         } else {
             let largestNum = 0;
             for (var i = 0; i < currentInventoryArr.length; i++) {
-                console.log(currentInventoryArr[i])
                 if (currentInventoryArr[i].boxNum > largestNum) {
                     largestNum = currentInventoryArr[i].boxNum;
                 }

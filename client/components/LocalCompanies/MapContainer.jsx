@@ -68,7 +68,7 @@ const MapContainer = ({searchResult}) => {
               onCloseClick={() => setSelected({})}
 
             >
-              <div class="???">
+              <div>
                 <img src={selected.image_url} height="200" width="200"></img>
                 <Card.Title>{selected.name}</Card.Title>
                 <StarRatings

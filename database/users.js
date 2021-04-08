@@ -5,10 +5,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  name: {
-    type: String,
-    required: true
-  },
+  name: String,
   image: String,
   zipcode: Number,
   onSmoveTeam: [String],

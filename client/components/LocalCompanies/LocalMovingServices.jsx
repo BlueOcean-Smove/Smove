@@ -5,7 +5,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const BussinessStyle = styled.div`
-
+  height: 100%;
 `;
 
 const BusinessMap = () => {

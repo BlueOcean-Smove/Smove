@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+import EditInventory from './EditInventory.jsx';
 
 
 const InventoryTableRow = ({ box, rerenderData, deleteBox }) => {
     const [show, setShow] = useState(false);
 
 
-      //closes the edit task modal
-  const handleClose = () => setShow(false);
+    //closes the edit task modal
+    const handleClose = () => setShow(false);
 
-  //opens the edit task modal
-  const handleShow = () => setShow(true);
+    //opens the edit task modal
+    const handleShow = () => setShow(true);
+
     return (
         <>
         <tr data-testid="inventoryRow">
@@ -31,20 +33,21 @@ const InventoryTableRow = ({ box, rerenderData, deleteBox }) => {
           </td>
           <td>
             <FaEdit onClick={handleShow}/>
-            <FaTrashAlt onClick={() => deleteTask(box.boxNum)}/>
-            {/* <EditTasks
-            //   rerenderData={rerenderData}
-            //   taskNameEdit={taskName}
-            //   locationEdit={location}
-            //   startDateEdit={startDate}
-            //   endDateEdit={endDate}
-            //   assignedToEdit={assignedTo}
-            //   statusEdit={status}
-            //   companyEdit={company}
-            //   categoryEdit={category}
-            //   handleClose={handleClose}
-            //   show={show}
-            /> */}
+            <FaTrashAlt onClick={() => deleteBox(box.boxNum)}/>
+            <EditInventory
+                box={box}
+                handleClose={handleClose}
+                show={show}
+            />
+            {/* {setShow 
+                ? (<EditInventory
+                    box={box}
+                    handleClose={handleClose}
+                    show={show}
+                />)
+                : null
+            } */}
+            
           </td>
         </tr>
       </>    

@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CreateInventory from './CreateInventory.jsx';
 import InventoryTable from './InventoryTable.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 const Inventory = () => {
-    //put any API requests here (if possible)
+  const [sortByOption, setSortByOption] = useState('Box Number');
+
     return (
         <div id="inventory">
+            <Form.Group controlId="formPrioritySelect">
+                <Form.Label>Box Priority Level</Form.Label>
+                <Form.Control as="select" onChange={(event) => setPriorityLevel(event.target.value)}>
+                    <option>Box Number</option>
+                    <option>Origin Room</option>
+                    <option>Destination Room</option>
+                    <option>Priority Level</option>
+                </Form.Control>
+            </Form.Group>
             <CreateInventory />
             <InventoryTable />
         </div>

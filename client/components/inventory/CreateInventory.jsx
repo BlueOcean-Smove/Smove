@@ -16,7 +16,7 @@ const CreateInventory = () => {
     let boxNumber = null;
     const [originRoom, setOriginRoom] = useState('');
     const [destinationRoom, setDestinationRoom] = useState('');
-    const [priorityLevel, setPriorityLevel] = useState('');
+    const [priorityLevel, setPriorityLevel] = useState('Normal');
     const [notes, setNotes] = useState('');
     //Display modal state
     const [show, setShow] = useState(false);

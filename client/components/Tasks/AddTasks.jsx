@@ -13,7 +13,7 @@ height: 1000px;
 width: 100%;
 `;
 
-const AddTasks = ({rerenderCalendar, rerenderData}) => {
+const AddTasks = ({rerenderData}) => {
   const { userData, setUserData } = useContext(UserDataContext);
   const [show, setShow] = useState(false);
   const [taskName, setTaskName] = useState('');
@@ -86,7 +86,6 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
       })
       .then(() => handleClose())
       .then(() => clearForm())
-      .then(() => rerenderCalendar())
       .catch((err) => console.log('error in patch request to add task: ', err));
 
   }

@@ -10,7 +10,6 @@ import { UserDataContext } from '../Data.jsx';
 
 const Inventory = () => {
   const { userData, setUserData } = useContext(UserDataContext);
-  console.log('data import in inventory: ', userData);
   const [sortByOption, setSortByOption] = useState('Box Number');
 
     return (

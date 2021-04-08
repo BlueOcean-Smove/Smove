@@ -17,12 +17,6 @@ const TaskList = () => {
     setUserData(data);
   }
 
-
-  //was supposed to rerender the Calendar, but this is currently not doing anything
-  const rerenderCalendar = () => {
-    setCurrentCalendar();
-  }
-
   const currentSmoveFromDb = userData.smoves.filter(smove => smove.isCurrentSmove)[0]
   const tasksFromDb = currentSmoveFromDb.tasks
 
@@ -69,7 +63,7 @@ const TaskList = () => {
           </tbody>
         </Table>
         <Calendar />
-        <AddTasks rerenderCalendar={rerenderCalendar} rerenderData={rerenderData}/>
+        <AddTasks rerenderData={rerenderData}/>
       </div>
     </div>
     

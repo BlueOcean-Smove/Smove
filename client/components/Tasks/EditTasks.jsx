@@ -14,7 +14,6 @@ width: 100%;
 `;
 
 const EditTasks = ({
-  rerenderCalendar, 
   rerenderData, 
   show, 
   handleClose, 

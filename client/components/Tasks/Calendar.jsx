@@ -1,17 +1,21 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import { UserDataContext } from '../Data.jsx';
 
 const Calendar = () => {
   const { userData, setUserData } = useContext(UserDataContext);
 
   const email = userData.email;
 
+  //makes a link to retrieve the user's google calendar
   const createCalendarLink = () => {
     const firstSection = "https://calendar.google.com/calendar/embed?src="
-    const emailAddress = userData.email.slice('@').join('%40')
+    const emailAddress = email.split('@').join('%40')
     const secondSection = "&ctz=America%2FLos_Angeles"
-    console.log(firstSection + emailAddress + secondSection);
+    return firstSection + emailAddress + secondSection;
   }
+  createCalendarLink();
+  //I kept this here just in case
 //`https://calendar.google.com/calendar/embed?src=blueoceansmove%40gmail.com&ctz=America%2FLos_Angeles`
   return (
     <div>

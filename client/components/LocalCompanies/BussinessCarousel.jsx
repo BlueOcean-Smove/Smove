@@ -39,7 +39,6 @@ const BussinessCarousel = (props) => {
     <CarouselStyle>
       <Carousel responsive={responsive} containerClass="height: 600px;">
         {props.searchResult.map((business) =>(
-          console.log(business),
           <BussinessCard data={business} key={business.id}/>
         ))}
       </Carousel>

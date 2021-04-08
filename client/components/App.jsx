@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import styled from 'styled-components';
 import LocalMovingServices from './LocalCompanies/LocalMovingServices';
 import Login from './login/Login';
 import Logout from './login/Logout';
@@ -15,10 +16,17 @@ import { UserDataContextProvider } from './Data';
 // you will also need to define useContext in your import react
 // const { userData } = useContext(UserDataContext);
 
+const GeneralStyle = styled.div`
+  background: rgba(62, 130, 140, 0.9);
+  font-family: calibri,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+`;
+
 const App = () => {
 
   return (
-    <div>
+    <GeneralStyle>
       <UserDataContextProvider>
         <BrowserRouter>
           <Header />
@@ -34,7 +42,7 @@ const App = () => {
           {/* <Route exact path="/Login" component={ Add in your component file } /> */}
         </BrowserRouter>
       </UserDataContextProvider>
-    </div>
+    </GeneralStyle>
   )
 }
 

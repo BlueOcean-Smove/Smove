@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand>Smove</Navbar.Brand>
+        <input type="image" src="https://i.ibb.co/7nGVFvC/smove-New-Big.png" alt="Smove" style={{width: 250 + 'px'}}/>
         <Nav className="mr-auto">
           <Link to="/">Profile</Link>
           <Link to="/TaskList">Task List</Link>

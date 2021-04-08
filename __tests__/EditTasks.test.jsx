@@ -6,7 +6,7 @@ import { UserDataContext } from '../client/components/Data.jsx';
 import sampleData from '../client/test-data.js';
 
 const sampleUserData={
-  userData:sampleData,
+  userData:sampleData.someUserEmail,
 setUserData: jest.fn()
 };
 

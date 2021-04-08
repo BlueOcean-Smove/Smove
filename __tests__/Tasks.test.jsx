@@ -6,26 +6,13 @@ import { UserDataContext } from '../client/components/Data.jsx';
 import sampleData from '../client/test-data.js';
 
 const sampleUserData={
-  userData:sampleData,
+  userData:sampleData.someUserEmail,
 setUserData: jest.fn()
 };
 
 
 const sampleTask={
-  task:
-    {
-        taskName: 'task1',
-        location: 'old house',
-        startDate: '2021-04-20T09:00:00-07:00',
-        endDate: '2021-04-20T09:00:00-07:00',
-        assignedTo: ["someUserEmail1", "someUserEmail2"],
-        category: "moving",
-        status: "not started",
-        company: {
-          companyName: "Great company 1",
-          url: "www.greatcompany1.com"
-        }
-    },
+  task: sampleData.someUserEmail.smoves[0].tasks[0],
   deleteTask: jest.fn(),
   editTask: jest.fn(),
   rerenderData: jest.fn()
@@ -42,3 +29,4 @@ describe('Tasks', () => {
     screen.getByTestId('taskRow');
   });
 });
+

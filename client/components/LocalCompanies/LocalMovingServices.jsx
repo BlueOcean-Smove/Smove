@@ -3,9 +3,6 @@ import MapContainer from './MapContainer';
 import BussinessCarousel from './BussinessCarousel';
 import axios from 'axios';
 
-
-
-
 const BusinessMap = () => {
 
   const [currentSearch, setCurrentSearch] = useState({location:'seattle',sort_by:'distance'});

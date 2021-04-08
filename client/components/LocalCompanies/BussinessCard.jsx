@@ -44,7 +44,7 @@ const BussinessCard = ({ data }) => {
   return(
     <CardStyle key={data.id}>
       <Card border="dark" style={{height: 500 + 'px'}}>
-        <Card.Img variant="top" style={{height: 210+'px'}} src={data.image_url} />
+        <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px'}} src={data.image_url} />
         <Card.Body>
           <Card.Title>{data.name}</Card.Title>
           <Badge variant={buttonColor} onClick={handleSubmit}>Favorite</Badge>

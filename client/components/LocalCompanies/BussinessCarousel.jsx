@@ -9,6 +9,7 @@ import BussinessCard from './BussinessCard';
 const CarouselStyle = styled.div`
   width: 60%;
   justify-self: center;
+  height: 600px;
 `;
 
 //* * Responsive Var needed for Carousel * *//
@@ -38,7 +39,7 @@ const BussinessCarousel = (props) => {
   return (
     <div>
     <CarouselStyle>
-      <Carousel responsive={responsive} >
+      <Carousel responsive={responsive} containerClass="height: 600px;">
         {props.searchResult.map((business) =>(
           <BussinessCard data={business} />
         ))}

@@ -13,7 +13,7 @@ height: 1000px;
 width: 100%;
 `;
 
-const AddTasks = ({rerenderCalendar, rerenderData}) => {
+const AddTasks = ({rerenderData}) => {
   const { userData, setUserData } = useContext(UserDataContext);
   const [show, setShow] = useState(false);
   const [taskName, setTaskName] = useState('');
@@ -25,8 +25,13 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
   const [company, setCompany] = useState('');
   const [category, setCategory] = useState('Moving');
 
+  //closes the modal
   const handleClose = () => setShow(false);
+
+  //shows the modal
   const handleShow = () => setShow(true);
+
+  //clears the form upon submission of an added task
   const clearForm = () => {
     setTaskDesignation([]);
     setTaskName('');
@@ -36,8 +41,7 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
     setCategory('');
   }
 
-  // console.log('User Data Outside', userData);
-
+  //submits a new task
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCalendarEvent = {
@@ -82,7 +86,6 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
       })
       .then(() => handleClose())
       .then(() => clearForm())
-      .then(() => rerenderCalendar())
       .catch((err) => console.log('error in patch request to add task: ', err));
 
   }

@@ -13,20 +13,31 @@ height: 1000px;
 width: 100%;
 `;
 
-const AddTasks = ({rerenderCalendar, rerenderData}) => {
+const EditTasks = ({
+  rerenderData, 
+  show, 
+  handleClose, 
+  taskNameEdit, 
+  locationEdit, 
+  startDateEdit, 
+  endDateEdit, 
+  assignedToEdit, 
+  statusEdit, 
+  companyEdit, 
+  categoryEdit
+}) => {
   const { userData, setUserData } = useContext(UserDataContext);
-  const [show, setShow] = useState(false);
-  const [taskName, setTaskName] = useState('');
-  const [location, setLocation] = useState('');
+  const [taskName, setTaskName] = useState(taskNameEdit);
+  const [oldName, setOldName] = useState(taskNameEdit);
+  const [location, setLocation] = useState(locationEdit);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const [taskDesignation, setTaskDesignation] = useState([]);
-  const [status, setStatus] = useState('Not started');
-  const [company, setCompany] = useState('');
-  const [category, setCategory] = useState('Moving');
+  const [taskDesignation, setTaskDesignation] = useState(assignedToEdit);
+  const [status, setStatus] = useState(statusEdit);
+  const [company, setCompany] = useState(companyEdit.companyName);
+  const [category, setCategory] = useState(categoryEdit);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //clears the form upon submission of an edited task
   const clearForm = () => {
     setTaskDesignation([]);
     setTaskName('');
@@ -36,8 +47,7 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
     setCategory('');
   }
 
-  // console.log('User Data Outside', userData);
-
+  //Edit Task in the task list
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCalendarEvent = {
@@ -63,10 +73,11 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
     }
     console.log(newTask);
     
-    if (userData.smoves.length === 0) {
-      console.log('No current smoves!');
-    } else {
-      userData.smoves.filter(smove => smove.isCurrentSmove)[0].tasks.push(newTask);
+    const currentSmove = userData.smoves.filter(smove => smove.isCurrentSmove)[0];
+    for (let i = 0; i < currentSmove.tasks.length; i++) {
+      if (currentSmove.tasks[i].taskName === oldName) {
+        currentSmove.tasks[i] = newTask;
+      }
     }
 
     axios.patch(`/user/${userData.email}`, {data: userData.smoves})
@@ -74,16 +85,9 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
         console.log('new task added: ', data)
         rerenderData(data);
       })
-      .then(() => {
-        axios.post('/api/newEvent', newCalendarEvent)
-          .then(() => {
-            console.log('Successully posted a new Event to the Calendar')
-          })
-          .catch((err) => console.log('error: ', err))
-      })
+      
       .then(() => handleClose())
       .then(() => clearForm())
-      .then(() => rerenderCalendar())
       .catch((err) => console.log('error in patch request to add task: ', err));
 
   }
@@ -91,10 +95,6 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Add a new Task
-      </Button>
-      
         <Modal size='lg' show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
@@ -108,7 +108,7 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
               </Form.Group>
               <Form.Group controlId="formLocation">
                 <Form.Label>Location</Form.Label>
-                <Form.Control type="text" name={location} onChange={({target}) => setLocation(target.value)} placeholder="Location"/>
+                <Form.Control value={location} type="text" name={location} onChange={({target}) => setLocation(target.value)} placeholder="Location"/>
               </Form.Group>
               
               <p>Start Date/Time</p>
@@ -127,11 +127,11 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
 
               <Form.Group controlId="taskDesignation">
                 <Form.Label>Who's doing this?</Form.Label>
-                <Form.Control required="required" type="text" name={taskDesignation} onChange={({target}) => setTaskDesignation([target.value])} placeholder="Me"/>
+                <Form.Control value={taskDesignation} required="required" type="text" name={taskDesignation} onChange={({target}) => setTaskDesignation([target.value])} placeholder="Me"/>
               </Form.Group>
               <Form.Group controlId="status">
                 <Form.Label>Status</Form.Label>
-                <Form.Control as="select" name={status} onChange={({target}) => setStatus(target.value)}>
+                <Form.Control value={status} as="select" name={status} onChange={({target}) => setStatus(target.value)}>
                   <option value="Not started">Not started</option>
                   <option value="In progress">In Progress</option>
                   <option value="Complete">Complete</option>
@@ -139,7 +139,7 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
               </Form.Group>
               <Form.Group controlId="taskCompany">
                 <Form.Label>Company</Form.Label>
-                <Form.Control as="select" type="text" name={company} onChange={({target}) => setCompany(target.value)}>
+                <Form.Control value={company} as="select" type="text" name={company} onChange={({target}) => setCompany(target.value)}>
                   <option>Company 1</option>
                   <option>Company 2</option>
                   <option>Company 3</option>
@@ -147,7 +147,7 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
               </Form.Group>
                <Form.Group controlId="category">
                 <Form.Label>Category</Form.Label>
-                <Form.Control as="select" type="text" name={category} onChange={({target}) => setCategory(target.value)}>
+                <Form.Control value={category} as="select" type="text" name={category} onChange={({target}) => setCategory(target.value)}>
                   <option>Moving</option>
                   <option>Storage</option>
                   <option>Cleaning</option>
@@ -170,4 +170,4 @@ const AddTasks = ({rerenderCalendar, rerenderData}) => {
   );
 }
 
-export default AddTasks;
+export default EditTasks;

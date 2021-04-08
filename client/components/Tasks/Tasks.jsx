@@ -3,24 +3,28 @@ import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import moment from 'moment';
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+import EditTasks from './EditTasks';
+
+
 import { UserDataContext } from '../Data.jsx';
 
-const Tasks = ({task, deleteTask, editTask}) => {
+const Tasks = ({task, deleteTask, editTask, rerenderData}) => {
   const { taskName, location, startDate, endDate, assignedTo, category, status, company } = task;
   const [selected, setSelected] = useState(false);
+  const [show, setShow] = useState(false);
   const { userData, setUserData } = useContext(UserDataContext);
-  const selectedTask = (task) => {
-    setSelected(!selected);
-  }
+
+  //closes the edit task modal
+  const handleClose = () => setShow(false);
+
+  //opens the edit task modal
+  const handleShow = () => setShow(true);
 
   return (
     <>
 
           <tr>
-            <td>
-              <Form.Check aria-label="option 2" onClick={selectedTask} />
-            </td>
             <td>
               {taskName}
             </td>
@@ -44,12 +48,27 @@ const Tasks = ({task, deleteTask, editTask}) => {
               <a href={company.url} rel="external" target="_self" target="_blank">{company.companyName}</a>
             </td>
             <td>
+              {category}
+            </td>
+            <td>
               {status}
             </td>
             <td>
               <FaTrashAlt onClick={() => deleteTask(taskName, assignedTo)}/>
-              {/* <AiFillEdit /> */}
-              {/* <Button onClick={editTask} >Edit</Button> */}
+              <FaEdit onClick={handleShow}/>
+              <EditTasks 
+                rerenderData={rerenderData}
+                taskNameEdit={taskName} 
+                locationEdit={location} 
+                startDateEdit={startDate}
+                endDateEdit={endDate}
+                assignedToEdit={assignedTo}
+                statusEdit={status}
+                companyEdit={company}
+                categoryEdit={category}
+                handleClose={handleClose} 
+                show={show}
+              />
             </td>
           </tr>
     </>

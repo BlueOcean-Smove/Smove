@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar'
-import Logout from './login/Logout'
+import Navbar from 'react-bootstrap/Navbar';
+import Logout from './login/Logout';
+import { UserDataContext } from './Data';
 
 const Header = () => {
+  const { userData, setUserData } = useContext(UserDataContext);
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand>Smove</Navbar.Brand>
+        <input type="image" src="https://i.ibb.co/7nGVFvC/smove-New-Big.png" alt="Smove" style={{width: 250 + 'px'}}/>
         <Nav className="mr-auto">
-          <Nav.Link><Link to="/"><div>Profile</div></Link></Nav.Link>
-          <Nav.Link><Link to="/TaskList"><div>Task List</div></Link></Nav.Link>
-          <Nav.Link><Link to="/Inventory"><div>Inventory</div></Link></Nav.Link>
-          <Nav.Link><Link to="/LocalMovingServices"><div>Local Moving Services</div></Link></Nav.Link>
+          <Link to="/">Profile</Link>
+          {userData.smoves && userData.smoves.length !== 0 && (
+            <>
+              <Link to="/TaskList">Task List</Link>
+              <Link to="/Inventory">Inventory</Link>
+              <Link to="/LocalMovingServices">Local Moving Services</Link>
+            </>
+          )}
         </Nav>
         <Form inline>
           <Logout />

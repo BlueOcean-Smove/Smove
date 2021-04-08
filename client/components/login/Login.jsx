@@ -46,6 +46,7 @@ const Login = () => {
   const { userData, setUserData } = useContext(UserDataContext);
   const [showModal, setShowModal] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [userLoginNoSmoves, setUserLoginNoSmoves] = useState(false);
 
   useEffect(() => {
     window.gapi.load('auth2', () => {
@@ -55,7 +56,7 @@ const Login = () => {
         .then(() => {
           window.gapi.signin2.render('g-signin2', {
             'scope': 'profile email',
-            'width': 250,
+            'width': 150,
             'height': 50,
             'longtitle': false,
             'theme': 'dark',
@@ -86,6 +87,12 @@ const Login = () => {
             email: email,
             image: image
           })
+            .then(({ data }) => {
+              setUserObj(data)
+              setUserData(data)
+              window.location.reload(false);
+            })
+            .catch((err) => console.log('error in posting data: ', err))
         } else {
           setUserObj(data)
           setUserData(data)

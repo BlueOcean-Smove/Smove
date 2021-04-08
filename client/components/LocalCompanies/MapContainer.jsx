@@ -9,44 +9,6 @@ const MapStars = styled.span`
   margin: 5px;
 `;
 
-const locations = [
-  {
-    name: "Location 1",
-    location: {
-      lat: 47.844151,
-      lng: -122.220109
-    },
-  },
-  {
-    name: "Location 2",
-    location: {
-      lat: 47.69806,
-      lng: -122.32703
-    },
-  },
-  {
-    name: "Location 3",
-    location: {
-      lat: 47.6572148,
-      lng: -122.385458
-    },
-  },
-  {
-    name: "Location 4",
-    location: {
-      lat: 47.7245292663574,
-      lng: -122.294776916504
-    },
-  },
-  {
-    name: "Location 5",
-    location: {
-      lat: 47.53109815129322,
-      lng: -122.32351290165549
-    },
-  }
-];
-
 const MapContainer = ({searchResult}) => {
 
   const [ selected, setSelected ] = useState({});

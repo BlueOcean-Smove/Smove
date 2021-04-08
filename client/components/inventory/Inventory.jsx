@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import CreateInventory from './CreateInventory.jsx';
 import InventoryTable from './InventoryTable.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { UserDataContext } from '../Data.jsx';
+
 
 
 const Inventory = () => {
+  const { userData, setUserData } = useContext(UserDataContext);
   const [sortByOption, setSortByOption] = useState('Box Number');
 
     return (

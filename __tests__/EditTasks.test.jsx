@@ -37,23 +37,6 @@ const sampleEditTask={
 }
 
 
-
-// const sampleTask= {
-//     taskName: 'task1',
-//     location: 'old house',
-//     startDate: '2021-04-20T09:00:00-07:00',
-//     endDate: '2021-04-20T09:00:00-07:00',
-//     assignedTo: ["someUserEmail1", "someUserEmail2"],
-//     category: "moving",
-//     status: "not started",
-//     company: {
-//       companyName: "Great company 1",
-//       url: "www.greatcompany1.com"
-//     }
-//   }
-
-
-
 describe('Tasks', () => {
   test('renders Task Table:', () => {
 

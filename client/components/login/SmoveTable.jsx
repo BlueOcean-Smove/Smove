@@ -23,8 +23,8 @@ const SmoveTable = () => {
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
-                <th width='25%' className='text-center'>Smoves</th>
-                <th className='text-center'>Team Members</th>
+                <th width='25%' class='text-center'>Smoves</th>
+                <th class='text-center'>Team Members</th>
               </tr>
             </thead>
             <tbody>

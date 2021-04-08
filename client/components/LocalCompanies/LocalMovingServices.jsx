@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import MapContainer from './MapContainer';
 import BussinessCarousel from './BussinessCarousel';
 import axios from 'axios';
+import styled from 'styled-components';
 
+const BussinessStyle = styled.div`
 
-
+`;
 
 const BusinessMap = () => {
 
@@ -45,7 +47,7 @@ const BusinessMap = () => {
       </form>
       <MapContainer searchResult={searchResult}/>
       <BussinessCarousel searchResult={searchResult}/>
-      </div>
+    </div>
   )
 }
 

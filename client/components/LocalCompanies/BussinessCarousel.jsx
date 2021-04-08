@@ -8,7 +8,6 @@ import BussinessCard from './BussinessCard';
 
 const CarouselStyle = styled.div`
   width: 60%;
-  justify-self: center;
   height: 600px;
 `;
 

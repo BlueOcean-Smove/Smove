@@ -16,7 +16,7 @@ const CreateInventory = () => {
     let boxNumber = null;
     const [originRoom, setOriginRoom] = useState('');
     const [destinationRoom, setDestinationRoom] = useState('');
-    const [priorityLevel, setPriorityLevel] = useState('');
+    const [priorityLevel, setPriorityLevel] = useState('Normal');
     const [notes, setNotes] = useState('');
     //Display modal state
     const [show, setShow] = useState(false);
@@ -31,13 +31,12 @@ const CreateInventory = () => {
     //Calculate the largest box number to display in modal/assign to new inventory item
     const largestBoxNum = () => {
         const currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
-        const currentInventoryArr = currentSmoveArr[0];
+        const currentInventoryArr = currentSmoveArr[0].inventory;
         if (currentInventoryArr.length === 0) {
             return 1;
         } else {
             let largestNum = 0;
             for (var i = 0; i < currentInventoryArr.length; i++) {
-                console.log(currentInventoryArr[i])
                 if (currentInventoryArr[i].boxNum > largestNum) {
                     largestNum = currentInventoryArr[i].boxNum;
                 }
@@ -64,11 +63,12 @@ const CreateInventory = () => {
                 notes: notes,
               });
             axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-            .then(() => {
+            .then(({ data }) => {
                 handleClose();
+                setUserData(data);
                 setOriginRoom('');
                 setDestinationRoom('');
-                setPriorityLevel('');
+                setPriorityLevel('Normal');
                 setNotes('');
             })
             .catch((err) => console.log('error in patch request to add inventory arr: ', err))

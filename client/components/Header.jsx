@@ -13,10 +13,10 @@ const Header = () => {
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>Smove</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link><Link to="/"><div>Profile</div></Link></Nav.Link>
-          <Nav.Link><Link to="/TaskList"><div>Task List</div></Link></Nav.Link>
-          <Nav.Link><Link to="/Inventory"><div>Inventory</div></Link></Nav.Link>
-          <Nav.Link><Link to="/LocalMovingServices"><div>Local Moving Services</div></Link></Nav.Link>
+          <Link to="/">Profile</Link>
+          <Link to="/TaskList">Task List</Link>
+          <Link to="/Inventory">Inventory</Link>
+          <Link to="/LocalMovingServices">Local Moving Services</Link>
         </Nav>
         <Form inline>
           <Logout />

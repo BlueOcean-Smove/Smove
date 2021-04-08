@@ -24,7 +24,7 @@ const Tasks = ({task, deleteTask, editTask, rerenderData}) => {
   return (
     <>
 
-          <tr>
+          <tr data-testid="taskRow">
             <td>
               {taskName}
             </td>
@@ -38,7 +38,7 @@ const Tasks = ({task, deleteTask, editTask, rerenderData}) => {
               {moment(endDate).format("MMMM Do YYYY, h:mm:ss a")}
             </td>
             <td>
-              {assignedTo.map((user, idx) => 
+              {assignedTo.map((user, idx) =>
                 <div key={idx}>
                   {user}
                 </div>
@@ -56,17 +56,17 @@ const Tasks = ({task, deleteTask, editTask, rerenderData}) => {
             <td>
               <FaTrashAlt onClick={() => deleteTask(taskName, assignedTo)}/>
               <FaEdit onClick={handleShow}/>
-              <EditTasks 
+              <EditTasks
                 rerenderData={rerenderData}
-                taskNameEdit={taskName} 
-                locationEdit={location} 
+                taskNameEdit={taskName}
+                locationEdit={location}
                 startDateEdit={startDate}
                 endDateEdit={endDate}
                 assignedToEdit={assignedTo}
                 statusEdit={status}
                 companyEdit={company}
                 categoryEdit={category}
-                handleClose={handleClose} 
+                handleClose={handleClose}
                 show={show}
               />
             </td>

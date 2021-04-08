@@ -79,6 +79,7 @@ const Profile = ({ smovesArr }) => {
   const [currentSmove, setCurrentSmove] = useState(null);
   const [otherSmoves, setOtherSmoves] = useState([]);
   const [teamEmail, setTeamEmail] = useState('');
+  // const [newSmoveToggle, setNewSmoveToggle] = useState(true);
   const { userData, setUserData } = useContext(UserDataContext);
   const img1 = "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&ixid=MXwxM[…]0by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=701&q=80";
   const img2 = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/brewster-mcleod-architects-1486154143.jpg?crop=1.00xw:1.00xh;0,0&resize=980:*";
@@ -94,7 +95,7 @@ const Profile = ({ smovesArr }) => {
       }
     })
   }
-  useEffect(findCurrentSmove, [])
+  useEffect(findCurrentSmove, [showModal])
 
   const handleChange = (event) => {
     setTeamEmail(event.target.value);

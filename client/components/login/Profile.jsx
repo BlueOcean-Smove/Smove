@@ -53,6 +53,7 @@ const Profile = () => {
         .catch((err) => console.log('error in patch request to add user: ', err))
       })
       .then(() => setNewSmoveToggle(!newSmoveToggle))
+      .then(() => setTeamEmail(''))
       .catch((err) => console.log('error in get /auth/:email ', err))
     }
 
@@ -80,7 +81,7 @@ const Profile = () => {
           <SmovesWrapper>
             <label>
               Add team member's email to current Smove:
-              <input type="text" name="add" onChange={handleChange}/>
+              <input type="text" name="add" value={teamEmail} onChange={handleChange}/>
             </label>
             <button id="addteam" onClick={handleClick}>
               ADD

@@ -33,6 +33,7 @@ const CreateInventory = () => {
         const currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
         const currentInventoryArr = currentSmoveArr[0].inventory;
         if (currentInventoryArr.length === 0) {
+            boxNumber = 1;
             return 1;
         } else {
             let largestNum = 0;

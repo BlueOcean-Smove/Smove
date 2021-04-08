@@ -67,7 +67,7 @@ const CreateInventory = () => {
                 handleClose();
                 setOriginRoom('');
                 setDestinationRoom('');
-                setPriorityLevel('');
+                setPriorityLevel('Normal');
                 setNotes('');
             })
             .catch((err) => console.log('error in patch request to add inventory arr: ', err))

@@ -74,7 +74,7 @@ const SmovesWrapper = styled.div`
   display: block;
 `
 
-const Profile = ({ smovesArr }) => {
+const Profile = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentSmove, setCurrentSmove] = useState(null);
   const [otherSmoves, setOtherSmoves] = useState([]);
@@ -99,7 +99,6 @@ const Profile = ({ smovesArr }) => {
 
   const handleChange = (event) => {
     setTeamEmail(event.target.value);
-    console.log('team email: ', teamEmail)
   }
 
   const handleClick = () => {

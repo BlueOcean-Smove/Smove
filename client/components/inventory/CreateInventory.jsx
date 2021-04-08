@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { UserDataContext } from '../Data.jsx';
 import axios from 'axios';
+import _, { where } from 'underscore';
+import { UserDataContext } from '../Data.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,23 +9,70 @@ import Modal from 'react-bootstrap/Modal';
 
 
 const CreateInventory = () => {
-    //Saving state for POST obj
-    const [userData, setUserData] = useContext(UserDataContext);
-    const [boxNumber, setBoxNumber] = useState(null);
+    //userData import
+    const { userData, setUserData } = useContext(UserDataContext);
+
+    //Modal info state
+    let boxNumber = null;
     const [originRoom, setOriginRoom] = useState('');
     const [destinationRoom, setDestinationRoom] = useState('');
     const [priorityLevel, setPriorityLevel] = useState('');
     const [notes, setNotes] = useState('');
+    //Display modal state
     const [show, setShow] = useState(false);
 
+    //Can submit Inventory Object status
+    const [isComplete, setIsComplete] = useState(true);
+
+    //Display modal status
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const inventoryPost = () => {
-        //push new inventory object into userData.smoves.inventory 
-        axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-        .then(({ data }) => console.log('new team member added: ', data))
-        .catch((err) => console.log('error in patch request to add user: ', err))
+    //Calculate the largest box number to display in modal/assign to new inventory item
+    const largestBoxNum = () => {
+        const currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
+        const currentInventoryArr = currentSmoveArr[0];
+        if (currentInventoryArr.length === 0) {
+            return 1;
+        } else {
+            let largestNum = 0;
+            for (var i = 0; i < currentInventoryArr.length; i++) {
+                console.log(currentInventoryArr[i])
+                if (currentInventoryArr[i].boxNum > largestNum) {
+                    largestNum = currentInventoryArr[i].boxNum;
+                }
+            }
+            largestNum = (largestNum + 1);
+            boxNumber = largestNum;
+            return largestNum;
+        }    
+    }
+
+    //On submit, validates data. If data is validated for originRoom, destinationRoom, and priorityLevel, will make a patch request to changed inventory array in the database 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if(!originRoom || !destinationRoom || !priorityLevel) {
+            setIsComplete(false);
+        } else {
+            const currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
+            const currentInventoryArr = currentSmoveArr[0].inventory;
+            currentInventoryArr.push({
+                boxNum: boxNumber,
+                originRoom: originRoom,
+                destinationRoom: destinationRoom,
+                boxPriority: priorityLevel,
+                notes: notes,
+              });
+            axios.patch(`/user/${userData.email}`, {data: userData.smoves})
+            .then(() => {
+                handleClose();
+                setOriginRoom('');
+                setDestinationRoom('');
+                setPriorityLevel('');
+                setNotes('');
+            })
+            .catch((err) => console.log('error in patch request to add inventory arr: ', err))
+        }
     }
 
     return (
@@ -36,7 +84,8 @@ const CreateInventory = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        {/* MISSING BOX NUMBER */}
+                        <div>Box Number: {largestBoxNum()}</div>
+                        <br></br>
                         <Form.Group controlId="formOriginRoom">
                             <Form.Label>Origin Room</Form.Label>
                             <Form.Control type="text" placeholder="Enter Origin Room Name" onChange={(event) => setOriginRoom(event.target.value)}/>
@@ -56,15 +105,16 @@ const CreateInventory = () => {
                             </Form.Control>
                         </Form.Group>
                         <Form.Group controlId="formNotes">
-                            <Form.Label>Additional Notes</Form.Label>
+                            <Form.Label>Additional Notes - optional</Form.Label>
                             <Form.Control type="text" placeholder="Enter Notes" onChange={(event) => setNotes(event.target.value)}/>
                             <Form.Text className="text-muted">Examples: Fragile, Contains Silverware, etc.</Form.Text>
                         </Form.Group>
                     </Form>
+                    {!isComplete && <span id="warning">Please complete all the fields before submit</span>}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-                    <Button variant="primary" onClick={handleClose}>Save New Inventory Box</Button>
+                    <Button variant="primary" onClick={handleSubmit}>Save New Inventory Box</Button>
                 </Modal.Footer>
             </Modal>
         </React.Fragment>

@@ -22,7 +22,7 @@ const CurrentSmoveWrapper = styled.div`
 `
 const SmoveButton = styled.button`
   display: block;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   margin-top: 50px;
   margin-left: 100px;
   border-style: solid;
@@ -60,8 +60,8 @@ const Figure = styled.figure`
   margin-right: 100px;
 `
 const Divider = styled.hr`
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   border-width: 1px;
   border-style: solid;
   border-color: darkgray;

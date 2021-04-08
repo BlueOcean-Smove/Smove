@@ -113,7 +113,6 @@ const Profile = ({ smovesArr }) => {
       })
       .then(() => {
         userData.smoves.forEach((smove) => {
-          console.log('userdata smove: ', smove)
           if (smove.isCurrentSmove) {
             smove.moveTeam.push(teamEmail)
           };

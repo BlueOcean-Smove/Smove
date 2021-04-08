@@ -16,12 +16,9 @@ const SmoveTable = () => {
     console.log(smove);
   }
 
-  console.log('userdata: ', userData)
-  console.log('smoves: ', userData.smoves)
-
   return (
     <>
-      {!!userData.smoves && userData.smoves.length !== 0 && (
+      {userData && userData.smoves.length !== 0 && (
         <SmoveTableWrapper>
           <Table striped bordered hover size="sm">
             <thead>
@@ -34,11 +31,15 @@ const SmoveTable = () => {
             {userData.smoves.map((smove, index) => (
               <tr key={index}>
                 <td width='45%' onClick={() => handleMakeCurrent(smove)}>{smove.smoveName}</td>
-                <td>{smove.moveTeam.map((teamMember, index) => (
-                  <p>&bull; {teamMember}
-                    <br></br>
-                  </p>
-                ))}</td>
+                {smove.moveTeam && smove.moveTeam.length !== 0 ? (
+                  <td>{smove.moveTeam.map((teamMember, index) => (
+                    <p>&bull; {teamMember}
+                      <br></br>
+                    </p>
+                  ))}</td>
+                ) : (
+                  <td>There are no team members currently on this Smove</td>
+                )}
               </tr>
             ))}
             </tbody>

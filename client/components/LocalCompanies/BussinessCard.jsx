@@ -19,6 +19,7 @@ const BussinessCard = ({ data }) => {
   const [buttonColor, setButtonColor] = useState('secondary');
   const { userData, setUserData } = useContext(UserDataContext);
 
+
   //* * onClick handler * *//
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,13 +47,13 @@ const BussinessCard = ({ data }) => {
       <Card border="dark" style={{height: 500 + 'px'}}>
         <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px'}} src={data.image_url} />
         <Card.Body>
-          <Card.Title>{data.name}</Card.Title>
-          <Badge variant={buttonColor} onClick={handleSubmit}>Favorite</Badge>
-          <Card.Text>
+          <Card.Title data-testid="businessName" >{data.name}</Card.Title>
+          <Badge data-testid="favorite" variant={buttonColor} onClick={handleSubmit}>Favorite</Badge>
+          <Card.Text data-testid="businessAddress" >
             {data.location.display_address}
           </Card.Text>
-          <Card.Text>{data.display_phone}</Card.Text>
-          <a href={data.url} target="_blank">Website</a>
+          <Card.Text data-testid="businessPhone" >{data.display_phone}</Card.Text>
+          <a href={data.url} target="_blank" data-testid="businessUrl" >Website</a>
           <StarRatings
           rating={data.rating}
           starRatedColor="yellow"

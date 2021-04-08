@@ -20,7 +20,7 @@ const Inventory = () => {
                     <option>Priority Level</option>
                 </Form.Control>
             </Form.Group>
-            
+
             <CreateInventory />
             <InventoryTable />
         </div>

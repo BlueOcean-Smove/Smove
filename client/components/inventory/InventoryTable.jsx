@@ -36,7 +36,10 @@ const InventoryTable = () => {
             </thead>
             <tbody>
                 {inventoryFromDb ? inventoryFromDb.map((box, idx) => (
-                    <InventoryTableRow />
+                    <InventoryTableRow 
+                      key={box.boxNum + idx}
+                    
+                    />
                 )) : null}
             </tbody>
         </Table>

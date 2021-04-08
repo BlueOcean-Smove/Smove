@@ -31,7 +31,7 @@ const CreateInventory = () => {
     //Calculate the largest box number to display in modal/assign to new inventory item
     const largestBoxNum = () => {
         const currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
-        const currentInventoryArr = currentSmoveArr[0];
+        const currentInventoryArr = currentSmoveArr[0].inventory;
         if (currentInventoryArr.length === 0) {
             return 1;
         } else {
@@ -63,8 +63,9 @@ const CreateInventory = () => {
                 notes: notes,
               });
             axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-            .then(() => {
+            .then(({ data }) => {
                 handleClose();
+                setUserData(data);
                 setOriginRoom('');
                 setDestinationRoom('');
                 setPriorityLevel('Normal');

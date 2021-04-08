@@ -13,13 +13,14 @@ const Inventory = () => {
         <div id="inventory">
             <Form.Group controlId="formPrioritySelect">
                 <Form.Label>Box Priority Level</Form.Label>
-                <Form.Control as="select" onChange={(event) => setPriorityLevel(event.target.value)}>
+                <Form.Control as="select" onChange={(event) => setSortByOption(event.target.value)}>
                     <option>Box Number</option>
                     <option>Origin Room</option>
                     <option>Destination Room</option>
                     <option>Priority Level</option>
                 </Form.Control>
             </Form.Group>
+            
             <CreateInventory />
             <InventoryTable />
         </div>

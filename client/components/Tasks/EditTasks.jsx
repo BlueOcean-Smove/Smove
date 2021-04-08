@@ -34,17 +34,17 @@ const EditTasks = ({
   const [endDate, setEndDate] = useState(new Date());
   const [taskDesignation, setTaskDesignation] = useState(assignedToEdit);
   const [status, setStatus] = useState(statusEdit);
-  const [company, setCompany] = useState(companyEdit.companyName);
   const [category, setCategory] = useState(categoryEdit);
-
-  //clears the form upon submission of an edited task
-  const clearForm = () => {
-    setTaskDesignation([]);
-    setTaskName('');
-    setLocation('')
-    setStatus('Not started');
-    setCompany('');
-    setCategory('');
+  const favCompany = userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies;
+  const [company, setCompany] = useState(favCompany[0]);
+  
+  //gets the url for the company to be sent to db
+  const getUrlForCompany= (name) => {
+    for (let i = 0; i < favCompany.length; i++) {
+      if (favCompany[i].companyName === name) {
+        return favCompany[i].url;
+      }
+    }
   }
 
   //Edit Task in the task list
@@ -67,10 +67,12 @@ const EditTasks = ({
       category: category,
       status: status,
       company: {
-        companyName: company,
-        url: 'www.google.com'
+        companyName: company.companyName,
+        url: company.url
       },
     }
+
+    //needed to display newTask 
     console.log(newTask);
 
     const currentSmove = userData.smoves.filter(smove => smove.isCurrentSmove)[0];
@@ -87,11 +89,9 @@ const EditTasks = ({
       })
 
       .then(() => handleClose())
-      .then(() => clearForm())
       .catch((err) => console.log('error in patch request to add task: ', err));
 
   }
-
 
   return (
     <>
@@ -139,20 +139,20 @@ const EditTasks = ({
               </Form.Group>
               <Form.Group controlId="taskCompany">
                 <Form.Label>Company</Form.Label>
-                <Form.Control value={company} as="select" type="text" name={company} onChange={({target}) => setCompany(target.value)}>
-                  <option>Company 1</option>
-                  <option>Company 2</option>
-                  <option>Company 3</option>
+                <Form.Control as="select" type="text" name={company} onChange={({target}) => setCompany({companyName: target.value, url: getUrlForCompany(target.value)})}>
+                  {favCompany.map((company, idx) => 
+                    <option key={idx} value={company.companyName}>{company.companyName}</option>
+                  )}
                 </Form.Control>
               </Form.Group>
                <Form.Group controlId="category">
                 <Form.Label>Category</Form.Label>
                 <Form.Control value={category} as="select" type="text" name={category} onChange={({target}) => setCategory(target.value)}>
-                  <option>Moving</option>
-                  <option>Storage</option>
-                  <option>Cleaning</option>
-                  <option>Packing</option>
-                  <option>Other</option>
+                  <option value="Moving">Moving</option>
+                  <option value="Storage">Storage</option>
+                  <option value="Cleaning">Cleaning</option>
+                  <option value="Packing">Packing</option>
+                  <option value="Other">Other</option>
                 </Form.Control>
               </Form.Group>
             </Form>

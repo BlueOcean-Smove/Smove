@@ -2,6 +2,29 @@ import React, {useEffect, useState} from 'react';
 import MapContainer from './MapContainer';
 import BussinessCarousel from './BussinessCarousel';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const LocalCompaniesContainer = styled.div`
+  margin: auto;
+  width: 80%;
+`;
+
+const SearchBars = styled.form`
+  margin-top: 5px;
+  margin-bottom: 5px;
+`;
+
+const SearchButton = styled.button`
+  margin-left: 20px;
+  border-style: solid;
+  border-color: darkgray;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  &:hover{
+    background-color: darkgray;
+    color: white;
+  }`;
 
 const BusinessMap = () => {
 
@@ -25,9 +48,9 @@ const BusinessMap = () => {
   }
 
   return (
-    <div>
-      <h2>Search for Business </h2>
-      <form className="search-service" onSubmit={handleSubmit}>
+    <LocalCompaniesContainer>
+      <h3>Search for Local Business </h3>
+      <SearchBars className="search-service" onSubmit={handleSubmit}>
         <input type="text" name="term" placeholder="moving, mover..." onChange={handleChange}></input>
         <input type="text" name="location" placeholder="Zip code" onChange={handleChange}></input>
         <label>Sort by</label>
@@ -38,11 +61,11 @@ const BusinessMap = () => {
           <option value="review_count">R`eviews</option>
 
         </select>
-        <button>SEARCH</button>
-      </form>
+        <SearchButton>SEARCH</SearchButton>
+      </SearchBars>
       <MapContainer searchResult={searchResult}/>
       <BussinessCarousel searchResult={searchResult}/>
-      </div>
+      </LocalCompaniesContainer>
   )
 }
 

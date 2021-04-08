@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
+
+const SignOutButton = styled.button`
+  background-color: #4285F4;
+  border-style: solid;
+  border-color: #4285F4;
+  border-width: 1px;
+  padding: 5px 10px;
+`
+const SignOutText = styled.a`
+  color: white;
+`
 
 const Logout = () => {
   const history = useHistory();
@@ -13,9 +25,9 @@ const Logout = () => {
   }
 
   return (
-    <button>
-      <a className="logout-btn" onClick={() => onSignOut()}>Sign Out</a>
-    </button>
+    <SignOutButton>
+      <SignOutText className="logout-btn" onClick={() => onSignOut()}>Sign Out</SignOutText>
+    </SignOutButton>
   )
 }
 

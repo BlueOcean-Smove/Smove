@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 
 const SmoveTableWrapper = styled.div`
   margin-left: 100px;
-  width: 50%;
+  width: 60%;
   border-bottom: 25px;
 `
 const SmoveTable = () => {
@@ -18,20 +18,28 @@ const SmoveTable = () => {
 
   return (
     <>
-      {userData.smoves.length !== 0 && (
+      {userData && userData.smoves.length !== 0 && (
         <SmoveTableWrapper>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
-                <th width='25%' class='text-center'>Smoves</th>
+                <th width='45%' class='text-center'>Smoves</th>
                 <th class='text-center'>Team Members</th>
               </tr>
             </thead>
             <tbody>
             {userData.smoves.map((smove, index) => (
               <tr key={index}>
-                <td width='25%' onClick={() => handleMakeCurrent(smove)}>{smove.smoveName}</td>
-                <td>{smove.moveTeam}</td>
+                <td width='45%' onClick={() => handleMakeCurrent(smove)}>{smove.smoveName}</td>
+                {smove.moveTeam && smove.moveTeam.length !== 0 ? (
+                  <td>{smove.moveTeam.map((teamMember, index) => (
+                    <p>&bull; {teamMember}
+                      <br></br>
+                    </p>
+                  ))}</td>
+                ) : (
+                  <td>There are no team members currently on this Smove</td>
+                )}
               </tr>
             ))}
             </tbody>

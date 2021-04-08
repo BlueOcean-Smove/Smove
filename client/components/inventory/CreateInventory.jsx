@@ -110,7 +110,7 @@ const CreateInventory = () => {
                             <Form.Text className="text-muted">Examples: Fragile, Contains Silverware, etc.</Form.Text>
                         </Form.Group>
                     </Form>
-                    {!isComplete && <span id="warning">Please complete all the fields before submit</span>}
+                    {!isComplete && <span id="createInventory_warning">Please complete all the fields before submit</span>}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Cancel</Button>

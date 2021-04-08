@@ -33,15 +33,15 @@ const responsive = {
   }
 };
 
-//* * Functionality * *//
-
+//* * Renders Carousel on Search * *//
 const BussinessCarousel = (props) => {
   return (
     <div>
     <CarouselStyle>
       <Carousel responsive={responsive} containerClass="height: 600px;">
         {props.searchResult.map((business) =>(
-          <BussinessCard data={business} />
+          console.log(business),
+          <BussinessCard data={business} key={business.id}/>
         ))}
       </Carousel>
     </CarouselStyle>

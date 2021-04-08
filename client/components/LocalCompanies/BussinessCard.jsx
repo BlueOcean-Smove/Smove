@@ -6,7 +6,7 @@ import StarRatings from 'react-star-ratings';
 import axios from 'axios';
 import { UserDataContext } from '../Data.jsx';
 
-
+//* * Styling Guides * *//
 const CardStyle = styled.div`
   display: inline-block;
   width: 18rem;
@@ -23,27 +23,32 @@ const BussinessCard = ({ data }) => {
   //* * onClick handler * *//
   const handleSubmit = (event) => {
     event.preventDefault();
+    //* * Sets Button Color onClick * *//
     if (buttonColor === 'secondary') {
       setButtonColor('success');
     } else {
       setButtonColor('secondary');
     }
 
+    //* * var to shorten typing in next part * *//
     const searchTerm = userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies;
 
+    //* * Determines if company clicked on is in favCompanies, if is deletes it, if not adds it * *//
     if (searchTerm.filter(company => company.companyName === data.name).length === 0) {
       searchTerm.push({ companyName: data.name, url: data.url });
     } else {
       userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies = searchTerm.filter(company => company.companyName !== data.name);
     }
 
+    //* * axios to update smoves with fav companies * *//
     axios.patch(`/user/${userData.email}`, {data: userData.smoves})
       .then((data) => console.log('FavCompany successfully updated: ', data))
       .catch((err) => console.log(err));
   }
 
+  //* * renders carousel cards * *//
   return(
-    <CardStyle key={data.id}>
+    <CardStyle >
       <Card border="dark" style={{height: 500 + 'px'}}>
         <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px'}} src={data.image_url} />
         <Card.Body>

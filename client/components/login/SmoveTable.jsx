@@ -35,7 +35,6 @@ const SmoveTable = () => {
     })
     axios.patch(`/user/${userData.email}`, {data: userData.smoves})
       .then(({ data }) => {
-        console.log('new smove added: ', data);
         setUserData(data);
       })
       .catch((err) => console.log('error in patch request to create new smove: ', err))

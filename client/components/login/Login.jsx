@@ -88,7 +88,6 @@ const Login = () => {
             image: image
           })
             .then(({ data }) => {
-              console.log('user obj from database after post: ', data);
               setUserObj(data)
               setUserData(data)
               window.location.reload(false);

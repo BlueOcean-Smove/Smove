@@ -28,7 +28,7 @@ const exampleData = {
         ],
         tasks: [
           {
-            name: 'task1',
+            taskName: 'task1',
             location: 'old house',
             startDate: '2021-04-20T09:00:00-07:00',
             endDate: '2021-04-20T09:00:00-07:00',
@@ -41,7 +41,7 @@ const exampleData = {
             }
           },
           {
-            name: 'task2',
+            taskName: 'task2',
             location: 'old house',
             startDate: '2021-04-21T09:00:00-07:00',
             endDate: '2021-04-21T09:00:00-07:00',
@@ -54,7 +54,7 @@ const exampleData = {
             }
           },
           {
-            name: 'task3',
+            taskName: 'task3',
             location: 'old house',
             startDate: '2021-04-20T09:00:00-07:00',
             endDate: '2021-04-20T09:00:00-07:00',
@@ -107,7 +107,7 @@ const exampleData = {
         ],
         tasks: [
           {
-            name: 'task1',
+            taskName: 'task1',
             location: 'old house',
             startDate: '2021-04-20T09:00:00-07:00',
             endDate: '2021-04-20T09:00:00-07:00',
@@ -120,7 +120,7 @@ const exampleData = {
             }
           },
           {
-            name: 'task2',
+            taskName: 'task2',
             location: 'old house',
             startDate: '2021-04-21T09:00:00-07:00',
             endDate: '2021-04-21T09:00:00-07:00',
@@ -133,7 +133,7 @@ const exampleData = {
             }
           },
           {
-            name: 'task3',
+            taskName: 'task3',
             location: 'old house',
             startDate: '2021-04-20T09:00:00-07:00',
             endDate: '2021-04-20T09:00:00-07:00',
@@ -167,3 +167,5 @@ const exampleData = {
     ]
   }
 }
+
+export default exampleData;

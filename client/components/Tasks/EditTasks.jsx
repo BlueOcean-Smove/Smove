@@ -14,16 +14,16 @@ width: 100%;
 `;
 
 const EditTasks = ({
-  rerenderData, 
-  show, 
-  handleClose, 
-  taskNameEdit, 
-  locationEdit, 
-  startDateEdit, 
-  endDateEdit, 
-  assignedToEdit, 
-  statusEdit, 
-  companyEdit, 
+  rerenderData,
+  show,
+  handleClose,
+  taskNameEdit,
+  locationEdit,
+  startDateEdit,
+  endDateEdit,
+  assignedToEdit,
+  statusEdit,
+  companyEdit,
   categoryEdit
 }) => {
   const { userData, setUserData } = useContext(UserDataContext);
@@ -72,7 +72,7 @@ const EditTasks = ({
       },
     }
     console.log(newTask);
-    
+
     const currentSmove = userData.smoves.filter(smove => smove.isCurrentSmove)[0];
     for (let i = 0; i < currentSmove.tasks.length; i++) {
       if (currentSmove.tasks[i].taskName === oldName) {
@@ -85,7 +85,7 @@ const EditTasks = ({
         console.log('new task added: ', data)
         rerenderData(data);
       })
-      
+
       .then(() => handleClose())
       .then(() => clearForm())
       .catch((err) => console.log('error in patch request to add task: ', err));
@@ -95,7 +95,7 @@ const EditTasks = ({
 
   return (
     <>
-        <Modal size='lg' show={show} onHide={handleClose}>
+        <Modal data-testid="editTaskModal" size='lg' show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
@@ -110,19 +110,19 @@ const EditTasks = ({
                 <Form.Label>Location</Form.Label>
                 <Form.Control value={location} type="text" name={location} onChange={({target}) => setLocation(target.value)} placeholder="Location"/>
               </Form.Group>
-              
+
               <p>Start Date/Time</p>
-              <DatePicker 
+              <DatePicker
                 showTimeSelect
-                className="pickDate" 
-                selected={startDate} 
-                onChange={date => setStartDate(date)} 
+                className="pickDate"
+                selected={startDate}
+                onChange={date => setStartDate(date)}
               />
-              <DatePicker 
+              <DatePicker
                 showTimeSelect
-                className="pickDate" 
-                selected={endDate} 
-                onChange={date => setEndDate(date)} 
+                className="pickDate"
+                selected={endDate}
+                onChange={date => setEndDate(date)}
               />
 
               <Form.Group controlId="taskDesignation">

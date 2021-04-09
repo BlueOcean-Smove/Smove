@@ -40,9 +40,13 @@ export default App;
 var GeneralStyle = styled.div`
   height: 100%;
 <<<<<<< HEAD
+<<<<<<< HEAD
   background: #fff;
 =======
 >>>>>>> main
+=======
+  background: #fff;
+>>>>>>> final file cleanup
   font-family: calibri,sans-serif;
   font-weight: 700;
   font-style: normal;

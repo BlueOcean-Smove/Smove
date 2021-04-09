@@ -21,7 +21,7 @@ const Calendar = ({ uniqueKey }) => {
   //`https://calendar.google.com/calendar/embed?src=blueoceansmove%40gmail.com&ctz=America%2FLos_Angeles`
   return (
     <div>
-      <iframe key={uniqueKey} src={createCalendarLink()} style={{border: 0, width:"800px", height:"600px", frameborder:"0", scrolling:"no"}}></iframe>
+      <iframe key={uniqueKey} src={createCalendarLink()} style={{border: 0, width:"600px", height:"400px", frameborder:"0", scrolling:"no"}}></iframe>
     </div>
   )
 }

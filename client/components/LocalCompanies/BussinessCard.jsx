@@ -17,7 +17,6 @@ const CardStyle = styled.div`
 const BussinessCard = ({ data }) => {
   //* * States * *//
   const { userData, setUserData } = useContext(UserDataContext);
-  console.log(userData);
 
   //* * onClick handler * *//
   const handleSubmit = (event) => {
@@ -58,7 +57,7 @@ const BussinessCard = ({ data }) => {
             {data.location.display_address}
           </Card.Text>
           <Card.Text data-testid="businessPhone">{data.display_phone}</Card.Text>
-          <a href={data.url} target="_blank" data-testid="businessUrl" >Website</a><br />
+          <a href={data.url} target="_blank" data-testid="businessUrl">Website</a><br />
           <StarRatings
           rating={data.rating}
           starRatedColor="yellow"

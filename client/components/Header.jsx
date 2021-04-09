@@ -9,16 +9,6 @@ import Logout from './login/Logout';
 import { UserDataContext } from './Data';
 import styled from 'styled-components';
 
-const Logo = styled.h1`
-  color: white;
-  margin-left: 50px;
-  margin-right: 150px;
-`;
-
-// const tempFunc = () => (2 + 2);
-
-// useEffect(tempFunc, (userData));
-
 const Header = () => {
   const { userData, setUserData } = useContext(UserDataContext);
   return (
@@ -26,12 +16,12 @@ const Header = () => {
       <Navbar bg="dark" variant="dark">
         <Logo>Smove</Logo>
         <Nav className="mr-auto">
-          <Link style={{fontSize: 24+'px', margin: 10+'px'}} to="/">Profile</Link>
+          <StyledLink to="/" >Profile</StyledLink>
           {userData.smoves && userData.smoves.length !== 0 && (
             <>
-              <Link style={{fontSize: 24+'px', margin: 10+'px'}} to="/TaskList">Task List</Link>
-              <Link style={{fontSize: 24+'px', margin: 10+'px'}} to="/Inventory">Inventory</Link>
-              <Link style={{fontSize: 24+'px', margin: 10+'px'}} to="/LocalMovingServices">Local Moving Services</Link>
+              <StyledLink to="/TaskList" >Task List</StyledLink>
+              <StyledLink to="/Inventory">Inventory</StyledLink>
+              <StyledLink to="/LocalMovingServices">Local Moving Services</StyledLink>
             </>
           )}
         </Nav>
@@ -44,6 +34,20 @@ const Header = () => {
 }
 
 export default Header;
+
+// adding styled components
+var Logo = styled.h1`
+  color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+`;
+
+var StyledLink = styled(Link)`
+  color: #ccc;
+  font-size: 24px;
+  margin: 0 10px;
+  font-family: calibri,sans-serif;
+`;
 
 //OG Format
 {/* <div>

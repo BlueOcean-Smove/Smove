@@ -16,13 +16,6 @@ import { UserDataContextProvider } from './Data';
 // you will also need to define useContext in your import react
 // const { userData } = useContext(UserDataContext);
 
-const GeneralStyle = styled.div`
-  height: 100%;
-  background: white;
-  font-family: calibri,sans-serif;
-  font-weight: 700;
-  font-style: normal;
-`;
 
 const App = () => {
 
@@ -42,3 +35,12 @@ const App = () => {
 }
 
 export default App;
+
+// adding styled components
+var GeneralStyle = styled.div`
+  height: 100%;
+  background: beige;
+  font-family: calibri,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+`;

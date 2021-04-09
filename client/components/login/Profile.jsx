@@ -5,7 +5,99 @@ import SmoveTable from './SmoveTable';
 import { UserDataContext } from '../Data.jsx';
 import styled from 'styled-components';
 
-// render the user profile data
+// styled components
+
+const CurrentSmoveTitle = styled.h3`
+  font-size: 1em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  color: darkgray;
+`
+const CurrentSmoveName = styled.h3`
+  font-size: 2em;
+  margin-left: 100px;
+  margin-bottom: 20px;
+`
+const CurrentSmoveWrapper = styled.div`
+  display: flex;
+`
+const SmoveButton = styled.button`
+  display: block;
+  margin-bottom: 25px;
+  margin-top: 50px;
+  margin-left: 100px;
+  border-style: solid;
+  border-color: ming;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  &:hover{
+    background-color: darkgray;
+    color: white;
+  }
+`
+const AddFriendButton = styled.button`
+  margin-left: 5px;
+  border-style: solid;
+  border-color: ming;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 2px 10px;
+  &:hover{
+    background-color: darkgray;
+    color: white;
+  }
+`
+const AddFriendInput = styled.input`
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  width: 300px;
+  display: block;
+  margin-top: 2px;
+  padding: 3px 6px;
+`
+const HomeImage = styled.img`
+  height: 200px;
+  width: 200px;
+  border-style: solid;
+  border-weight: 1px;
+  border-radius: 50px;
+  border-color: white;
+  object-fit: cover;
+  display: inline-block;
+`
+const HomeFigCaption = styled.figcaption`
+  text-align: center;
+`
+const Arrow = styled.h3`
+  font-size: 3em;
+  display: inline-flex;
+  align-items: center;
+`
+const Figure = styled.figure`
+  display: inline-block;
+  margin-left: 100px;
+  margin-right: 100px;
+`
+const Divider = styled.hr`
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: ming;
+  margin-left: 100px;
+  margin-right: 100px;
+`
+const SmovesWrapper = styled.div`
+  margin-left: 100px;
+  margin-top: 40px;
+  display: block;
+`
+
 const Profile = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentSmove, setCurrentSmove] = useState(null);
@@ -81,11 +173,11 @@ const Profile = () => {
           <SmovesWrapper>
             <label>
               Add team member's email to current Smove:
-              <input type="text" name="add" value={teamEmail} onChange={handleChange}/>
+              <AddFriendInput type="text" name="add" value={teamEmail} onChange={handleChange}/>
             </label>
-            <button id="addteam" onClick={handleClick}>
+            <AddFriendButton id="addteam" onClick={handleClick}>
               ADD
-            </button>
+            </AddFriendButton>
           </SmovesWrapper>
         </>
       ) : (
@@ -102,72 +194,3 @@ const Profile = () => {
 
 export default Profile;
 
-// add styled components
-var CurrentSmoveTitle = styled.h3`
-  font-size: 1em;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: 100px;
-  color: darkgrey;
-`
-var CurrentSmoveName = styled.h3`
-  font-size: 2em;
-  margin-left: 100px;
-  margin-bottom: 20px;
-`
-var CurrentSmoveWrapper = styled.div`
-  display: flex;
-`
-var SmoveButton = styled.button`
-  display: block;
-  margin-bottom: 25px;
-  margin-top: 50px;
-  margin-left: 100px;
-  border-style: solid;
-  border-color: ming;
-  border-radius: 5px;
-  background-color: white;
-  color: black;
-  padding: 5px 10px;
-  &:hover{
-    background-color: #ccc;
-    color: white;
-  }
-`
-var HomeImage = styled.img`
-  height: 200px;
-  width: 200px;
-  border-style: solid;
-  border-weight: 1px;
-  border-radius: 50px;
-  border-color: ming;
-  object-fit: cover;
-  display: inline-block;
-`
-var HomeFigCaption = styled.figcaption`
-  text-align: center;
-`
-var Arrow = styled.h3`
-  font-size: 3em;
-  display: inline-flex;
-  align-items: center;
-`
-var Figure = styled.figure`
-  display: inline-block;
-  margin-left: 100px;
-  margin-right: 100px;
-`
-var Divider = styled.hr`
-  margin-top: 25px;
-  margin-bottom: 25px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: ming;
-  margin-left: 100px;
-  margin-right: 100px;
-`
-var SmovesWrapper = styled.div`
-  margin-left: 100px;
-  margin-top: 40px;
-  display: block;
-`

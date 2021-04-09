@@ -47,9 +47,9 @@ const Tasks = ({task, deleteTask, editTask, rerenderData}) => {
         <td>
           {status}
         </td>
-        <td>
-          <FaTrashAlt onClick={() => deleteTask(taskName, assignedTo)} role="button" tabindex="0"/>
-          <FaEdit onClick={handleShow} role="button" tabindex="0" />
+        <td >
+          <FaEdit style={{marginRight: '2px', marginLeft: '2px'}} onClick={handleShow} role="button" tabindex="0" />
+          <FaTrashAlt style={{marginLeft: '2px'}} onClick={() => deleteTask(taskName, assignedTo)} role="button" tabindex="0"/>
           <EditTasks
             rerenderData={rerenderData}
             taskNameEdit={taskName}

@@ -50,7 +50,7 @@ const TaskList = () => {
     }
   }
 
-  const TaskWrapper = styled.div`
+  const TaskWrapper = styled.h2`
     font-size: 25px;
     margin: 25px;
     display: flex; 
@@ -65,16 +65,20 @@ const TaskList = () => {
     margin-top: 20px;
   `
 
+  const CalendarWrapper = styled.div`
+    margin-top: 10%;
+  `
+
   return (
     <div>
-      <Container fluid={true}>
+      <Container style={{paddingLeft: '100px', paddingRight: '100px'}} fluid={true}>
         <Row>
           <Col xs={12} md={8}>
           <TaskWrapper>
-            Your Task List Items 
+            Task List For: {currentSmoveFromDb.smoveName}
           </TaskWrapper>
             <div>
-              <Table bordered hover size="lg">
+              <Table striped bordered hover size="lg">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -85,7 +89,7 @@ const TaskList = () => {
                     <th>Company</th>
                     <th>Category</th>
                     <th>Status</th>
-                    <th></th>
+                    <th>Edit/Delete Task</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -97,12 +101,12 @@ const TaskList = () => {
             </div>
           </Col>
           <Col xs={6} md={4}>
-            <div style={{ marginTop: '10%' }}>
+            <CalendarWrapper>
               <Calendar uniqueKey={uniqueKey}/>
               <AddTaskWrapper>
                 <AddTasks rerenderData={rerenderData}/>
               </AddTaskWrapper>
-            </div>
+            </CalendarWrapper>
           </Col>
         </Row>
       </Container>

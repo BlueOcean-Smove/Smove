@@ -27,8 +27,10 @@ const SmoveTable = () => {
 
   // render the table
   return (
-    <>
-      <SmoveHelpText>Click on a Smove below to update your current Smove</SmoveHelpText>
+    <TopTableWrapper>
+      <HelpTextWrapper>
+        <SmoveHelpText>Click on a Smove below to update your current Smove</SmoveHelpText>
+      </HelpTextWrapper>
       <SmoveTableWrapper>
         <StyledTable striped bordered hover size="sm">
           <thead>
@@ -53,29 +55,41 @@ const SmoveTable = () => {
           </tbody>
         </StyledTable>
       </SmoveTableWrapper>
-    </>
+    </TopTableWrapper>
   )
 }
 
 export default SmoveTable;
 
 // add styled components
+var TopTableWrapper = styled.div`
+
+`
+var HelpTextWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
+var SmoveHelpText = styled.p`
+
+`;
 var StyledTable = styled(Table)`
   margin-bottom: 30px;
+  width: 80%;
 `;
 var SmoveTableWrapper = styled.div`
-  margin-left: 100px;
-  width: 80%;
   border-bottom: 25px;
   padding-bottom: 15px;
+<<<<<<< HEAD
+=======
+  display: flex;
+  justify-content: center;
+>>>>>>> main
 `;
-var SmoveHelpText = styled.p`
-  margin-left: 100px;
-`;
+
 var SmoveTitleCell = styled.td`
   cursor: pointer;
   :hover{
-    color: blue;
+    color: rgb(56, 119, 128);
   }
 `;
 var SmoveFriendsCell = styled.p`

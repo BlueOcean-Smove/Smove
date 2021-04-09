@@ -39,7 +39,10 @@ export default App;
 // adding styled components
 var GeneralStyle = styled.div`
   height: 100%;
+<<<<<<< HEAD
   background: #fff;
+=======
+>>>>>>> main
   font-family: calibri,sans-serif;
   font-weight: 700;
   font-style: normal;

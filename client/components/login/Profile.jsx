@@ -95,7 +95,7 @@ const Profile = () => {
       }
     })
   }
-  useEffect(findCurrentSmove, [showModal])
+  useEffect(findCurrentSmove, [showModal, userData])
 
   const handleChange = (event) => {
     setTeamEmail(event.target.value);

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { render, cleanup, fireEvent, screen } from '@testing-library/react';
 import BussinessCard from '../client/components/LocalCompanies/BussinessCard';
 import { UserDataContext } from '../client/components/Data.jsx';
+import sampleData from '../client/test-data.js';
 
 
 const sampleBusinessList={
@@ -18,16 +19,7 @@ const sampleBusinessList={
 }
 
 const sampleUserData={
-  userData:{
-    email:'aa',
-    image:'aa',
-    name: 'aa',
-    smoves:[
-      {
-        isCurrentSmove: true
-      }
-    ]
-},
+  userData:sampleData.someUserEmail,
 setUserData: jest.fn()
 };
 
@@ -103,4 +95,5 @@ describe('Business Card', () => {
     screen.getByTestId('businessUrl');
   });
 });
+
 

@@ -7,13 +7,20 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logout from './login/Logout';
 import { UserDataContext } from './Data';
+import styled from 'styled-components';
+
+const Logo = styled.h1`
+  color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+`;
 
 const Header = () => {
   const { userData, setUserData } = useContext(UserDataContext);
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark">
-        <input type="image" src="https://i.ibb.co/7nGVFvC/smove-New-Big.png" alt="Smove" style={{width: 250 + 'px'}}/>
+        <Logo>Smove</Logo>
         <Nav className="mr-auto">
           <Link to="/">Profile</Link>
           {userData.smoves && userData.smoves.length !== 0 && (

@@ -59,7 +59,7 @@ const BussinessCard = ({ data }) => {
           <a href={data.url} target="_blank" data-testid="businessUrl">Website</a><br />
           <StarRatings
           rating={data.rating}
-          starRatedColor="yellow"
+          starRatedColor="#FE5F55"
           numberOfStars={5}
           name='rating'
           starDimension= "30px"

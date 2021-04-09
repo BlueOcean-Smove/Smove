@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark">
-        <Logo type="image" src="https://i.ibb.co/VJ9TnCm/smove2-01.png" />
+        <Logo type="image" src="https://i.ibb.co/zRRJ0fF/smove2-01.png" />
         <Nav className="mr-auto">
           <StyledLink to="/" >Profile</StyledLink>
           {userData.smoves && userData.smoves.length !== 0 && (

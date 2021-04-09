@@ -38,7 +38,7 @@ const InventoryTable = () => {
                   <th>Origin Room</th>
                   <th>Destination Room</th>
                   <th>Box Priority</th>
-                  <th>Notes</th>
+                  <th style={{maxWidth: '25%'}}>Notes</th>
                   <th>Edit/Delete Box</th>
               </tr>
           </thead>

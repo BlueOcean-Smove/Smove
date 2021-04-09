@@ -9,6 +9,17 @@ const MapStars = styled.span`
   margin: 5px;
 `;
 
+const ImageContainer = styled.div`
+  height: 200px;
+  width: 200px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
 const MapContainer = ({searchResult}) => {
 
   const [ selected, setSelected ] = useState({});
@@ -72,7 +83,9 @@ const MapContainer = ({searchResult}) => {
 
             >
               <div>
-                <img src={selected.image_url} height="200" width="200"></img>
+                <ImageContainer>
+                  <Image src={selected.image_url} />
+                </ImageContainer>
                 <Card.Title>{selected.name}</Card.Title>
                 <StarRatings
                   rating={selected.rating}

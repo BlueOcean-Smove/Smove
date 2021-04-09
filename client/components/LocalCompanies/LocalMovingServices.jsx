@@ -73,7 +73,7 @@ const BusinessMap = () => {
           <option value="distance">Distance</option>
           <option value="best_match">Best Match</option>
           <option value="rating">Rating</option>
-          <option value="review_count">R`eviews</option>
+          <option value="review_count">Reviews</option>
 
         </SearchSelect>
         <SearchButton>SEARCH</SearchButton>

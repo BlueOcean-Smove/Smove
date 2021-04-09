@@ -13,7 +13,7 @@ height: 1000px;
 width: 100%;
 `;
 
-const AddTasks = ({rerenderData}) => {
+const AddTasks = ({rerenderData }) => {
   const { userData, setUserData } = useContext(UserDataContext);
   const [show, setShow] = useState(false);
   const [taskName, setTaskName] = useState('');
@@ -50,6 +50,7 @@ const AddTasks = ({rerenderData}) => {
       description: taskName,
       eventStartTime: startDate,
       eventEndTime: endDate,
+      email: userData.email
     };
 
     const newTask = {
@@ -163,9 +164,9 @@ const AddTasks = ({rerenderData}) => {
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="primary" onClick={handleSubmit}>
-              Add
-            </Button>
+              <Button variant="primary" onClick={handleSubmit}>
+                Add
+              </Button>
           </Modal.Footer>
         </Modal>
     </>
@@ -173,40 +174,3 @@ const AddTasks = ({rerenderData}) => {
 }
 
 export default AddTasks;
-
-
-// import axios from 'axios';
-// // import { google } from 'googleapis';
-
-// const Calendar = ({text}) => {
-  
-//   const [clickText, setClickText] = useState('');
-//   const [changeText, setChangeText] = useState('');
-
-//   const makeEvent = () => {
-//     axios.post('/api/newEvent')
-//   }
-
-//   const handleChange = ({target}) => {
-//     const { value } = target;
-//     setChangeText(value);
-//     // console.log('test fired')
-//   }
-
-//   return (
-//     <div>
-//       <button data-testid="button" onClick={makeEvent}>
-//         Make an Event!
-//       </button>
-//       <input data-testid="input" value={changeText} onChange={handleChange}>
-//       </input>
-//       <p data-testid="displayText">
-//         {changeText}
-//         {text}
-//       </p>
-//     </div>
-//   )
-// }
-
-// export default Calendar
-

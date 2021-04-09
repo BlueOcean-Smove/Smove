@@ -150,7 +150,6 @@ const Profile = () => {
           };
         })
         axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-        .then(({ data }) => console.log('new team member added: ', data))
         .catch((err) => console.log('error in patch request to add user: ', err))
       })
       .then(() => setNewSmoveToggle(!newSmoveToggle))

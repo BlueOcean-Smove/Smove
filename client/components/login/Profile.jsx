@@ -11,44 +11,46 @@ const CurrentSmoveTitle = styled.h3`
   font-size: 1em;
   margin-top: 20px;
   margin-bottom: 10px;
-  margin-left: 100px;
+  text-align: center;
   color: darkgray;
 `
 const CurrentSmoveName = styled.h3`
   font-size: 2em;
-  margin-left: 100px;
+  text-align: center;
   margin-bottom: 20px;
 `
 const CurrentSmoveWrapper = styled.div`
   display: flex;
+  justify-content: center;
 `
 const SmoveButton = styled.button`
   display: block;
   margin-bottom: 25px;
-  margin-top: 50px;
-  margin-left: 100px;
+  margin-top: 20px;
   border-style: solid;
-  border-color: ming;
+  border-color: #4285F4;
   border-radius: 5px;
-  background-color: white;
-  color: black;
+  background-color: #4285F4;
+  color: white;
   padding: 5px 10px;
   &:hover{
-    background-color: darkgray;
-    color: white;
+    background-color: white;
+    color: #4285F4;
   }
 `
 const AddFriendButton = styled.button`
   margin-left: 5px;
   border-style: solid;
-  border-color: ming;
+  border-color: #4285F4;
   border-radius: 5px;
-  background-color: white;
-  color: black;
+  background-color: #4285F4;
+  color: white;
   padding: 2px 10px;
+  height: 33px;
+  margin-top: 25px;
   &:hover{
-    background-color: darkgray;
-    color: white;
+    background-color: white;
+    color: #4285F4;
   }
 `
 const AddFriendInput = styled.input`
@@ -93,9 +95,16 @@ const Divider = styled.hr`
   margin-right: 100px;
 `
 const SmovesWrapper = styled.div`
-  margin-left: 100px;
   margin-top: 40px;
-  display: block;
+  display: flex;
+  justify-content: center;
+`
+const SmoveButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
+const ProfileTableWrapper = styled.div`
+
 `
 
 const Profile = () => {
@@ -141,7 +150,6 @@ const Profile = () => {
           };
         })
         axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-        .then(({ data }) => console.log('new team member added: ', data))
         .catch((err) => console.log('error in patch request to add user: ', err))
       })
       .then(() => setNewSmoveToggle(!newSmoveToggle))
@@ -173,7 +181,7 @@ const Profile = () => {
           <SmovesWrapper>
             <label>
               Add team member's email to current Smove:
-              <AddFriendInput type="text" name="add" value={teamEmail} onChange={handleChange}/>
+              <AddFriendInput type="email" name="add" value={teamEmail} onChange={handleChange}/>
             </label>
             <AddFriendButton id="addteam" onClick={handleClick}>
               ADD
@@ -184,10 +192,14 @@ const Profile = () => {
         <SmovesWrapper>You do not have any Smoves to display. Create one below!</SmovesWrapper>
       )}
       <Divider />
-      <SmoveButton id="newsmove" onClick={() => setShowModal(true)}>Create New Smove</SmoveButton>
-      {!!userData && userData.smoves.length !== 0 && (
-        <SmoveTable smoves={newSmoveToggle} />
-      )}
+      <SmoveButtonWrapper>
+        <SmoveButton id="newsmove" onClick={() => setShowModal(true)}>Create New Smove</SmoveButton>
+      </SmoveButtonWrapper>
+      <ProfileTableWrapper>
+        {!!userData && userData.smoves.length !== 0 && (
+          <SmoveTable smoves={newSmoveToggle} />
+        )}
+      </ProfileTableWrapper>
     </div>
   )
 }

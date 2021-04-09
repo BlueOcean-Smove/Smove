@@ -50,6 +50,10 @@ var StyledLink = styled(Link)`
   font-size: 24px;
   margin: 0 10px;
   font-family: calibri,sans-serif;
+  &:hover {
+    text-decoration: none;
+    color: rgb(56, 119, 128);
+  }
 `;
 
 //OG Format

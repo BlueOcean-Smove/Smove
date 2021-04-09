@@ -86,7 +86,7 @@ var SmoveTableWrapper = styled.div`
 var SmoveTitleCell = styled.td`
   cursor: pointer;
   :hover{
-    color: blue;
+    color: rgb(56, 119, 128);
   }
 `;
 var SmoveFriendsCell = styled.p`

@@ -34,22 +34,27 @@ const ProfilePic = styled.img`
   float: left;
 `
 const WelcomeMessage = styled.p`
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   display: block;
   text-align: center;
   margin-left: -100px;
   margin-top: 70px;
 `
 const GettingStarted = styled.h1`
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
   text-align: center;
+  margin-top: 100px;
   margin-left: -100px;
 `
 const Tagline = styled.h4`
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   text-align: center;
   margin-left: -100px;
   margin-top: 100px;
+`
+const UserInfo = styled.p`
+  display: block;
 `
 const Divider = styled.hr`
   margin-top: 20px;
@@ -138,7 +143,7 @@ const Login = () => {
               Getting Started
             </GettingStarted>
             <Tagline>
-              Welcome to your one stop shop for turning your <em>move</em> into a <em>Smove</em>
+              Welcome to your one-stop-shop to turn your <em>move</em> into a <em>Smove</em>
             </Tagline>
             <WelcomeMessage id="welcome-no-name">
               Welcome GUEST. Please sign in!
@@ -148,12 +153,12 @@ const Login = () => {
         {!!name && (
           <>
             <ProfilePic id="welcome-img" src={image} alt="Your user profile picture" />
-            <WelcomeMessage id="welcome-name">
+            <UserInfo id="welcome-name">
               Welcome {name}!
-            </WelcomeMessage>
-            <WelcomeMessage id="welcome-email">
+            </UserInfo>
+            <UserInfo id="welcome-email">
               Currently signed in as {email}
-            </WelcomeMessage>
+            </UserInfo>
           </>
         )}
       </IntroWrapper>

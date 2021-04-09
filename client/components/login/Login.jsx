@@ -5,6 +5,67 @@ import InfoModal from './Modal';
 import Profile from './Profile';
 import styled from 'styled-components';
 
+// styled components
+
+const IntroWrapper = styled.div`
+  font-family: 'Roboto', sans-serif;
+  margin-left: 100px;
+  margin-top: 20px;
+  display: block;
+`
+const LoginWrapper = styled.div`
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  display: flex;
+`
+const LoginButtonDiv = styled.div`
+  margin-top: 20px;
+  display: block;
+`
+const ProfilePic = styled.img`
+  height: 63px;
+  width: 63px;
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: ming;
+  margin-right: 20px;
+  float: left;
+`
+const WelcomeMessage = styled.p`
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
+  text-align: center;
+  margin-left: -100px;
+  margin-top: 70px;
+`
+const GettingStarted = styled.h1`
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: -100px;
+`
+const Tagline = styled.h4`
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  margin-left: -100px;
+  margin-top: 100px;
+`
+const UserInfo = styled.p`
+  display: block;
+`
+const Divider = styled.hr`
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: ming;
+  margin-left: 100px;
+  margin-right: 100px;
+`
+
 const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -77,24 +138,34 @@ const Login = () => {
     <div>
       <IntroWrapper>
         {!name && (
-          <WelcomeMessage id="welcome-no-name">
-            Welcome GUEST. Please sign in!
-          </WelcomeMessage>
+          <>
+            <GettingStarted>
+              Getting Started
+            </GettingStarted>
+            <Tagline>
+              Welcome to your one-stop-shop to turn your <em>move</em> into a <em>Smove</em>
+            </Tagline>
+            <WelcomeMessage id="welcome-no-name">
+              Welcome GUEST. Please sign in!
+            </WelcomeMessage>
+          </>
         )}
         {!!name && (
           <>
             <ProfilePic id="welcome-img" src={image} alt="Your user profile picture" />
-            <WelcomeMessage id="welcome-name">
+            <UserInfo id="welcome-name">
               Welcome {name}!
-            </WelcomeMessage>
-            <WelcomeMessage id="welcome-email">
+            </UserInfo>
+            <UserInfo id="welcome-email">
               Currently signed in as {email}
-            </WelcomeMessage>
+            </UserInfo>
           </>
         )}
       </IntroWrapper>
       {!showProfile && (
-        <LoginButtonDiv id="g-signin2"></LoginButtonDiv>
+        <LoginWrapper>
+          <LoginButtonDiv id="g-signin2"></LoginButtonDiv>
+        </LoginWrapper>
       )}
       {showProfile && (
         <>
@@ -108,36 +179,3 @@ const Login = () => {
 
 export default Login;
 
-// add styled components
-var IntroWrapper = styled.div`
-  margin-left: 100px;
-  margin-top: 20px;
-  display: block;
-`
-var LoginButtonDiv = styled.div`
-  margin-top: 20px;
-  margin-left: 100px;
-  display: block;
-`
-var ProfilePic = styled.img`
-  height: 63px;
-  width: 63px;
-  border-style: solid;
-  border-radius: 50%;
-  border-width: 2px;
-  border-color: ming;
-  margin-right: 20px;
-  float: left;
-`
-var WelcomeMessage = styled.p`
-  display: block;
-`
-var Divider = styled.hr`
-  margin-top: 20px;
-  margin-bottom: 50px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: ming;
-  margin-left: 100px;
-  margin-right: 100px;
-`

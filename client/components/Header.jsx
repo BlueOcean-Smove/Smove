@@ -11,6 +11,7 @@ import styled from 'styled-components';
 
 const Header = () => {
   const { userData, setUserData } = useContext(UserDataContext);
+
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark">

@@ -10,11 +10,12 @@ const Title = styled.h3`
 
 const SearchInput = styled.input`
   margin: 10px;
-  height: 26px;
+  height: 38px;
 `;
 
 const SearchSelect = styled.select`
   margin-left: 10px;
+  height: 38px;
 `;
 
 const LocalCompaniesContainer = styled.div`
@@ -32,13 +33,15 @@ const SearchButton = styled.button`
   margin-left: 20px;
   margin-right: 10px;
   border-style: solid;
-  border-color: darkgray;
+  border-color: #4285F4;
   border-radius: 5px;
-  background-color: white;
-  color: black;
+  background-color: #4285F4;
+  color: white;
+  padding: 5px 10px;
   &:hover{
-    background-color: darkgray;
-    color: white;
+    background-color: white;
+    color: #4285F4;
+  }
   }`;
 
 const BusinessMap = () => {

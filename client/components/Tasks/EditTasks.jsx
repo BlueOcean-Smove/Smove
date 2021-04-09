@@ -98,7 +98,7 @@ const EditTasks = ({
     <>
         <Modal data-testid="editTaskModal" size='lg' show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Edit Task</Modal.Title>
           </Modal.Header>
           <Modal.Body>
 

@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const SignOutButton = styled.button`
   background-color: #4285F4;
   border-style: solid;
+  border-radius: 5px;
   border-color: #4285F4;
   border-width: 1px;
   padding: 5px 10px;

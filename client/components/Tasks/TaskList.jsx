@@ -27,7 +27,7 @@ const TaskList = () => {
     console.log('RERENDERING BITCH')
     setTimeout(() => {
       setUniqueKey(uniqueKey + 1)
-    }, 1000)
+    }, 500)
   }, [userData])
 
   const currentSmoveFromDb = userData.smoves.filter(smove => smove.isCurrentSmove)[0]

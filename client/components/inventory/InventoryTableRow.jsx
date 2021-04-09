@@ -3,7 +3,7 @@ import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import EditInventory from './EditInventory.jsx';
 
 
-const InventoryTableRow = ({ box, rerenderData, deleteBox }) => {
+const InventoryTableRow = ({ box, deleteBox }) => {
     const [show, setShow] = useState(false);
 
 

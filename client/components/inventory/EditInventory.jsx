@@ -34,7 +34,6 @@ const EditInventory = ({ box, handleClose, show }) => {
         }
         axios.patch(`/user/${userData.email}`, {data: userData.smoves})
         .then(({ data }) => {
-            console.log('edited inventory: ', data);
             setUserData(data);
         })
         .then(() => handleClose())
@@ -58,7 +57,7 @@ const EditInventory = ({ box, handleClose, show }) => {
                         </Form.Group>
                         <Form.Group controlId="formEditDestinationRoom">
                             <Form.Label>Edit Destination Room Name</Form.Label>
-                            <Form.Control type="text" placeholder={box.destinationRoom} onChange={(event) => setDestinationRoom(event.target.value)} />
+                            <Form.Control type="text" placeholder={box.destinationRoom} onChange={(event) => setDestinationRoom(event.target.value)}/>
                             <Form.Text className="text-muted">Examples: Kitchen, Office, Living Room, etc.</Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formEditPrioritySelect">

@@ -15,9 +15,7 @@ const InventoryTable = () => {
   }
 
   const currentSmoveFromDb = userData.smoves.filter(smove => smove.isCurrentSmove)[0];
-  console.log('current smove: ', currentSmoveFromDb);
   const inventoryFromDb = currentSmoveFromDb.inventory;
-  console.log('current smove inventory: ', inventoryFromDb);
 
   const deleteBox = (boxNum, assignedTo) => {
     for (let i = 0; i < userData.smoves.length; i++) {
@@ -26,7 +24,6 @@ const InventoryTable = () => {
         currentSmove.inventory = currentSmove.inventory.filter(singleBox => singleBox.boxNum !== boxNum)
         axios.patch(`/user/${userData.email}`, {data: userData.smoves})
           .then(({ data }) => {
-            console.log('Box Deleted: ', data);
             return data;
           })
           .then((data) => setUserData(data))
@@ -53,7 +50,6 @@ const InventoryTable = () => {
                     <InventoryTableRow 
                       key={box.boxNum + idx}
                       box={box}
-                      rerenderData={rerenderData}
                       deleteBox={deleteBox} 
                     />
                 )) : null}

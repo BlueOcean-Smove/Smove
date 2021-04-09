@@ -44,8 +44,11 @@ const BussinessCard = ({ data }) => {
   //* * renders carousel cards * *//
   return(
     <CardStyle >
-      <Card border="dark" style={{height: 500 + 'px'}}>
-        <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px'}} src={data.image_url} />
+      <Card style={{height: 500 + 'px', border: 'solid rgb(56, 119, 128) 2px'}}>
+        {data.image_url === ''
+        ? <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px', objectFit: 'cover'}} src='https://i.ibb.co/BPvGb99/No-Image-01.png' />
+        : <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px', objectFit: 'cover'}} src={data.image_url} />
+        }
         <Card.Body>
           <Card.Title data-testid="businessName">{data.name}</Card.Title>
           {userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies.filter(company => company.companyName === data.name).length === 0

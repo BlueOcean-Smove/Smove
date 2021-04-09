@@ -38,16 +38,7 @@ const InventoryTableRow = ({ box, rerenderData, deleteBox }) => {
                 box={box}
                 handleClose={handleClose}
                 show={show}
-            />
-            {/* {setShow 
-                ? (<EditInventory
-                    box={box}
-                    handleClose={handleClose}
-                    show={show}
-                />)
-                : null
-            } */}
-            
+            />            
           </td>
         </tr>
       </>    

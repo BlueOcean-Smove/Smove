@@ -4,9 +4,22 @@ import BussinessCarousel from './BussinessCarousel';
 import axios from 'axios';
 import styled from 'styled-components';
 
+const Title = styled.h3`
+  margin-top: 20px;
+`;
+
+const SearchInput = styled.input`
+  margin: 10px;
+`;
+
+const SearchSelect = styled.select`
+  margin-left: 10px;
+`;
+
 const LocalCompaniesContainer = styled.div`
   margin: auto;
   width: 80%;
+  text-align: center;
 `;
 
 const SearchBars = styled.form`
@@ -49,18 +62,18 @@ const BusinessMap = () => {
 
   return (
     <LocalCompaniesContainer>
-      <h3>Search for Local Business </h3>
+      <Title>Search for Local Business </Title>
       <SearchBars className="search-service" onSubmit={handleSubmit}>
-        <input type="text" name="term" placeholder="moving, mover..." onChange={handleChange}></input>
-        <input type="text" name="location" placeholder="Zip code" onChange={handleChange}></input>
+        <SearchInput type="text" name="term" placeholder="moving, mover..." onChange={handleChange}></SearchInput>
+        <SearchInput type="text" name="location" placeholder="Zip code" onChange={handleChange}></SearchInput>
         <label>Sort by</label>
-        <select name="sort_by" onChange={handleChange}>
+        <SearchSelect name="sort_by" onChange={handleChange}>
           <option value="distance">Distance</option>
           <option value="best_match">Best Match</option>
           <option value="rating">Rating</option>
           <option value="review_count">R`eviews</option>
 
-        </select>
+        </SearchSelect>
         <SearchButton>SEARCH</SearchButton>
       </SearchBars>
       <MapContainer searchResult={searchResult}/>

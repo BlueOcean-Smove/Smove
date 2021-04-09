@@ -16,19 +16,12 @@ const CardStyle = styled.div`
 
 const BussinessCard = ({ data }) => {
   //* * States * *//
-  const [buttonColor, setButtonColor] = useState('secondary');
   const { userData, setUserData } = useContext(UserDataContext);
-
+  console.log(userData);
 
   //* * onClick handler * *//
   const handleSubmit = (event) => {
     event.preventDefault();
-    //* * Sets Button Color onClick * *//
-    if (buttonColor === 'secondary') {
-      setButtonColor('success');
-    } else {
-      setButtonColor('secondary');
-    }
 
     //* * var to shorten typing in next part * *//
     const searchTerm = userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies;
@@ -42,7 +35,11 @@ const BussinessCard = ({ data }) => {
 
     //* * axios to update smoves with fav companies * *//
     axios.patch(`/user/${userData.email}`, {data: userData.smoves})
-      .then((data) => console.log('FavCompany successfully updated: ', data))
+      .then(({ data }) => {
+        console.log('FavCompany successfully updated: ', data);
+        return data;
+      })
+      .then((data) => setUserData(data))
       .catch((err) => console.log(err));
   }
 
@@ -53,12 +50,15 @@ const BussinessCard = ({ data }) => {
         <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px'}} src={data.image_url} />
         <Card.Body>
           <Card.Title data-testid="businessName">{data.name}</Card.Title>
-          <Badge data-testid="favorite" variant={buttonColor} onClick={handleSubmit}>Favorite</Badge>
+          {userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies.filter(company => company.companyName === data.name).length === 0
+          ? <Badge data-testid="favorite" variant="secondary" style={{marginBottom: 10+"px"}} onClick={handleSubmit}>Favorite</Badge>
+          : <Badge data-testid="favorite" variant="success" style={{marginBottom: 10+"px"}} onClick={handleSubmit}>Favorite</Badge>
+          }
           <Card.Text data-testid="businessAddress">
             {data.location.display_address}
           </Card.Text>
           <Card.Text data-testid="businessPhone">{data.display_phone}</Card.Text>
-          <a href={data.url} target="_blank" data-testid="businessUrl">Website</a>
+          <a href={data.url} target="_blank" data-testid="businessUrl" >Website</a><br />
           <StarRatings
           rating={data.rating}
           starRatedColor="yellow"

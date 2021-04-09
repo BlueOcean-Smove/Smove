@@ -77,13 +77,9 @@ var StyledTable = styled(Table)`
   width: 80%;
 `;
 var SmoveTableWrapper = styled.div`
+  margin-left: 100px;
   border-bottom: 25px;
   padding-bottom: 15px;
-<<<<<<< HEAD
-=======
-  display: flex;
-  justify-content: center;
->>>>>>> main
 `;
 
 var SmoveTitleCell = styled.td`

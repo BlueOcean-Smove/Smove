@@ -18,7 +18,7 @@ import { UserDataContextProvider } from './Data';
 
 const GeneralStyle = styled.div`
   height: 100%;
-  background: white;
+  background: beige;
   font-family: calibri,sans-serif;
   font-weight: 700;
   font-style: normal;

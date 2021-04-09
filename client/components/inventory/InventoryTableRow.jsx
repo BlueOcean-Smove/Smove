@@ -6,7 +6,6 @@ import EditInventory from './EditInventory.jsx';
 const InventoryTableRow = ({ box, deleteBox }) => {
     const [show, setShow] = useState(false);
 
-
     //closes the edit task modal
     const handleClose = () => setShow(false);
 

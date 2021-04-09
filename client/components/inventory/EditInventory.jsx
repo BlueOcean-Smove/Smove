@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import _, { where } from 'underscore';
 import axios from 'axios';
 import { UserDataContext } from '../Data.jsx';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -10,12 +9,14 @@ import Modal from 'react-bootstrap/Modal'
 
 const EditInventory = ({ box, handleClose, show }) => {
     const { userData, setUserData } = useContext(UserDataContext);
+    //Base state on the incoming object's original properties
     let boxNumber = box.boxNum;
     const [originRoom, setOriginRoom] = useState(box.originRoom);
     const [destinationRoom, setDestinationRoom] = useState(box.destinationRoom);
     const [priorityLevel, setPriorityLevel] = useState(box.boxPriority);
     const [notes, setNotes] = useState(box.notes);
 
+    //Make PATCH request with edited info
     const handleSubmit = (event) => {
         event.preventDefault();
         const editedBox = {
@@ -24,7 +25,7 @@ const EditInventory = ({ box, handleClose, show }) => {
             destinationRoom: destinationRoom,
             boxPriority: priorityLevel,
             notes: notes,
-          };
+        };
         const currentSmoveArr = _.where(userData.smoves, {isCurrentSmove: true});
         const currentInventoryArr = currentSmoveArr[0].inventory;
         for (let i = 0; i < currentInventoryArr.length; i++){

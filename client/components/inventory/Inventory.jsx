@@ -4,8 +4,6 @@ import InventoryTable from './InventoryTable.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Inventory = () => {
-
-
     return (
         <div id="inventory">
             <CreateInventory />

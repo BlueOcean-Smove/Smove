@@ -8,16 +8,13 @@ import Table from 'react-bootstrap/Table';
 
 const InventoryTable = () => {
   const { userData, setUserData } = useContext(UserDataContext);
-
-  //rerenders the data on the task list 
-  const rerenderData = (data) => {
-      setUserData(data);
-  }
-
+  
+  //Establish inventory information for current smove
   const currentSmoveFromDb = userData.smoves.filter(smove => smove.isCurrentSmove)[0];
   const inventoryFromDb = currentSmoveFromDb.inventory;
 
-  const deleteBox = (boxNum, assignedTo) => {
+  //Delete box from the inventory list
+  const deleteBox = (boxNum) => {
     for (let i = 0; i < userData.smoves.length; i++) {
       let currentSmove = userData.smoves[i];
       if (currentSmove.isCurrentSmove) {
@@ -32,31 +29,31 @@ const InventoryTable = () => {
     }
   }
 
-    return (
-        <React.Fragment>
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>Box Number</th>
-                    <th>Origin Room</th>
-                    <th>Destination Room</th>
-                    <th>Box Priority</th>
-                    <th>Notes</th>
-                    <th>Edit/Delete Box</th>
-                </tr>
-            </thead>
-            <tbody>
-                {inventoryFromDb ? inventoryFromDb.map((box, idx) => (
-                    <InventoryTableRow 
-                      key={box.boxNum + idx}
-                      box={box}
-                      deleteBox={deleteBox} 
-                    />
-                )) : null}
-            </tbody>
-        </Table>
-        </React.Fragment>
-    )
+  return (
+      <React.Fragment>
+      <Table striped bordered hover>
+          <thead>
+              <tr>
+                  <th>Box Number</th>
+                  <th>Origin Room</th>
+                  <th>Destination Room</th>
+                  <th>Box Priority</th>
+                  <th>Notes</th>
+                  <th>Edit/Delete Box</th>
+              </tr>
+          </thead>
+          <tbody>
+              {inventoryFromDb ? inventoryFromDb.map((box, idx) => (
+                  <InventoryTableRow 
+                    key={box.boxNum + idx}
+                    box={box}
+                    deleteBox={deleteBox} 
+                  />
+              )) : null}
+          </tbody>
+      </Table>
+      </React.Fragment>
+  )
 }
 
 export default InventoryTable;

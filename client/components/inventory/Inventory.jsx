@@ -6,13 +6,15 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const Inventory = () => {
     return (
-        <div id="inventory">
+        <div id="inventory" >
             <Container>
                 <br></br>
-                <Row>
-                    <h2>Inventory</h2>   
-                    <CreateInventory inline/>
+                <Row style={{justifyContent: 'center'}}>
+                    <h2>Inventory</h2>  
                 </Row>
+                <Row style={{justifyContent: 'center'}}>
+                    <CreateInventory/>
+                </Row> 
                 <br></br>
                 <Row>
                     <InventoryTable />

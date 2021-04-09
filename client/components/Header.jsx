@@ -26,11 +26,9 @@ const Header = () => {
             </>
           )}
         </Nav>
-        {userData === {} && (
-          <Form inline>
-            <Logout />
-          </Form>
-        )}
+        <Form inline>
+          <Logout />
+        </Form>
       </Navbar>
     </React.Fragment>
   )

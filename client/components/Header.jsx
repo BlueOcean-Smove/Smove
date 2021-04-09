@@ -12,7 +12,7 @@ import styled from 'styled-components';
 const Logo = styled.h1`
   color: white;
   margin-left: 50px;
-  margin-right: 50px;
+  margin-right: 150px;
 `;
 
 const Header = () => {
@@ -22,12 +22,12 @@ const Header = () => {
       <Navbar bg="dark" variant="dark">
         <Logo>Smove</Logo>
         <Nav className="mr-auto">
-          <Link to="/">Profile</Link>
+          <Link style={{fontSize: 24+'px', margin: 10+'px'}} to="/">Profile</Link>
           {userData.smoves && userData.smoves.length !== 0 && (
             <>
-              <Link to="/TaskList">Task List</Link>
-              <Link to="/Inventory">Inventory</Link>
-              <Link to="/LocalMovingServices">Local Moving Services</Link>
+              <Link style={{fontSize: 24+'px', margin: 10+'px'}} to="/TaskList">Task List</Link>
+              <Link style={{fontSize: 24+'px', margin: 10+'px'}} to="/Inventory">Inventory</Link>
+              <Link style={{fontSize: 24+'px', margin: 10+'px'}} to="/LocalMovingServices">Local Moving Services</Link>
             </>
           )}
         </Nav>

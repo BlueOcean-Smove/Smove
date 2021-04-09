@@ -36,7 +36,10 @@ const EditTasks = ({
   const [status, setStatus] = useState(statusEdit);
   const [category, setCategory] = useState(categoryEdit);
   const favCompany = userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies;
-  const [company, setCompany] = useState(favCompany[0]);
+  const [company, setCompany] = useState({
+    companyName: 'No Company',
+    url: undefined, 
+  });
   
   //gets the url for the company to be sent to db
   const getUrlForCompany= (name) => {
@@ -68,7 +71,7 @@ const EditTasks = ({
       status: status,
       company: {
         companyName: company.companyName,
-        url: company.url
+        url: company.url || undefined
       },
     }
 
@@ -87,10 +90,8 @@ const EditTasks = ({
         console.log('new task added: ', data)
         rerenderData(data);
       })
-
       .then(() => handleClose())
       .catch((err) => console.log('error in patch request to add task: ', err));
-
   }
 
   return (
@@ -140,6 +141,7 @@ const EditTasks = ({
               <Form.Group controlId="taskCompany">
                 <Form.Label>Company</Form.Label>
                 <Form.Control as="select" type="text" name={company} onChange={({target}) => setCompany({companyName: target.value, url: getUrlForCompany(target.value)})}>
+                  <option value={'No Company'}>No Company</option>
                   {favCompany.map((company, idx) => 
                     <option key={idx} value={company.companyName}>{company.companyName}</option>
                   )}

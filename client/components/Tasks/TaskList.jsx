@@ -24,10 +24,9 @@ const TaskList = () => {
 
   //the most amazing rerendering functionality you will ever see in your life EVER
   useEffect(() => {
-    console.log('RERENDERING BITCH')
     setTimeout(() => {
       setUniqueKey(uniqueKey + 1)
-    }, 500)
+    }, 1000)
   }, [userData])
 
   const currentSmoveFromDb = userData.smoves.filter(smove => smove.isCurrentSmove)[0]
@@ -60,19 +59,20 @@ const TaskList = () => {
   `
 
   const AddTaskWrapper = styled.div`
-    justify-content: left;
+    display: flex;
+    justify-content: center;
     align-content: left;
-    margin-left: 15px;
+    margin-top: 20px;
   `
 
   return (
     <div>
-      <TaskWrapper>
-        Your Task List Items 
-      </TaskWrapper>
       <Container fluid={true}>
         <Row>
           <Col xs={12} md={8}>
+          <TaskWrapper>
+            Your Task List Items 
+          </TaskWrapper>
             <div>
               <Table bordered hover size="lg">
                 <thead>
@@ -97,11 +97,13 @@ const TaskList = () => {
             </div>
           </Col>
           <Col xs={6} md={4}>
-            <Calendar uniqueKey={uniqueKey}/>
+            <div style={{ marginTop: '10%' }}>
+              <Calendar uniqueKey={uniqueKey}/>
+              <AddTaskWrapper>
+                <AddTasks rerenderData={rerenderData}/>
+              </AddTaskWrapper>
+            </div>
           </Col>
-          <AddTaskWrapper>
-            <AddTasks rerenderData={rerenderData}/>
-          </AddTaskWrapper>
         </Row>
       </Container>
     </div>

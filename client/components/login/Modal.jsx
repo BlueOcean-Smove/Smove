@@ -83,7 +83,7 @@ const InfoModal = ({ showModal, setShowModal }) => {
           {!isComplete && <span id="warning">Please complete all the fields before submit</span>}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button data-testid="loginModalButton"  variant="primary" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

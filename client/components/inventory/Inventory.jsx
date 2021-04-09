@@ -7,17 +7,15 @@ import { Container, Row, Col } from 'react-bootstrap';
 const Inventory = () => {
     return (
         <div id="inventory">
-            {/* <CreateInventory /> */}
-            {/* <InventoryTable /> */}
             <Container>
+                <br></br>
                 <Row>
-                    <Col sm={1}></Col>
-                    <Col>
-                        <h2>Inventory</h2>   
-                        <CreateInventory />
-                        <InventoryTable />
-                    </Col>
-                    <Col sm={1}></Col>
+                    <h2>Inventory</h2>   
+                    <CreateInventory inline/>
+                </Row>
+                <br></br>
+                <Row>
+                    <InventoryTable />
                 </Row>
             </Container>
         </div>

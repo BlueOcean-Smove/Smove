@@ -151,7 +151,7 @@ const Login = () => {
           </>
         )}
         {!!name && (
-          <>
+          <div>
             <ProfilePic id="welcome-img" src={image} alt="Your user profile picture" />
             <UserInfo id="welcome-name">
               Welcome {name}!
@@ -159,7 +159,7 @@ const Login = () => {
             <UserInfo id="welcome-email">
               Currently signed in as {email}
             </UserInfo>
-          </>
+          </div>
         )}
       </IntroWrapper>
       {!showProfile && (

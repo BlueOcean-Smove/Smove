@@ -45,7 +45,7 @@ const BussinessCard = ({ data }) => {
   return(
     <CardStyle >
       <Card border="dark" style={{height: 500 + 'px'}}>
-        <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px'}} src={data.image_url} />
+        <Card.Img data-testid="businessImage" variant="top" style={{height: 210+'px', objectFit: 'cover'}} src={data.image_url} />
         <Card.Body>
           <Card.Title data-testid="businessName">{data.name}</Card.Title>
           {userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies.filter(company => company.companyName === data.name).length === 0

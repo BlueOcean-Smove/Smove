@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark">
-        <Logo>Smove</Logo>
+        <Logo type="image" src="https://i.ibb.co/VJ9TnCm/smove2-01.png" />
         <Nav className="mr-auto">
           <StyledLink to="/" >Profile</StyledLink>
           {userData.smoves && userData.smoves.length !== 0 && (
@@ -39,8 +39,8 @@ const Header = () => {
 export default Header;
 
 // adding styled components
-var Logo = styled.h1`
-  color: white;
+var Logo = styled.input`
+  height: 100px;
   margin-left: 50px;
   margin-right: 50px;
 `;

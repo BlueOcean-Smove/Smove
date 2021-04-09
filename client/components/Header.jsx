@@ -27,7 +27,9 @@ const Header = () => {
           )}
         </Nav>
         <Form inline>
-          <Logout />
+          {Object.keys(userData).length !== 0 &&
+            <Logout />
+          }
         </Form>
       </Navbar>
     </React.Fragment>

@@ -13,7 +13,7 @@ height: 1000px;
 width: 100%;
 `;
 
-const AddTasks = ({rerenderData}) => {
+const AddTasks = ({rerenderData }) => {
   const { userData, setUserData } = useContext(UserDataContext);
   const [show, setShow] = useState(false);
   const [taskName, setTaskName] = useState('');
@@ -59,6 +59,7 @@ const AddTasks = ({rerenderData}) => {
       description: taskName,
       eventStartTime: startDate,
       eventEndTime: endDate,
+      email: userData.email
     };
 
     const newTask = {
@@ -170,9 +171,9 @@ const AddTasks = ({rerenderData}) => {
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="primary" onClick={handleSubmit}>
-              Add
-            </Button>
+              <Button variant="primary" onClick={handleSubmit}>
+                Add
+              </Button>
           </Modal.Footer>
         </Modal>
     </>

@@ -11,6 +11,7 @@ const config = require('../config.js');
 
 const app = express();
 const PORT = 3000;
+const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
 
 app.use(express.json());
 app.use(cors());
@@ -25,11 +26,11 @@ oAuth2Client.setCredentials({
   refresh_token: config.REFRESH_TOKEN
 })
 const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
-
+  
 //Post to the Google Calendar API
 app.post('/api/newEvent', (req, res) => {
   const { body } = req;
-  const { summary, location, description, eventStartTime, eventEndTime} = body;
+  const { email, summary, location, description, eventStartTime, eventEndTime} = body;
 
   const event = {
     summary: summary,
@@ -43,33 +44,20 @@ app.post('/api/newEvent', (req, res) => {
       dateTime: eventEndTime,
       timeZone: 'America/Denver'
     },
+    attendees: [
+      {
+        email: email
+      },
+    ],
     colorId: 1
   };
 
-  calendar.freebusy.query({
-    resource: {
-      timeMin: eventStartTime,
-      timeMax: eventEndTime,
-      timeZone: 'America/Denver',
-      items: [{ id: 'primary' }],
-    }
-  },
-  (err, res) => {
-    if (err) return console.error('Free Busy Query Error: ', err)
-
-    const eventsArr = res.data.calendars.primary.busy
-
-    if (eventsArr.length === 0) return calendar.events.insert({calendarId: 'primary', resource: event},
-      err => {
-        if (err) return console.error('Calendar Event Creation Error: ', err)
-
-        return console.log('Calendar Event Created!')
-    })
-    return console.log('Sorry I\'m Busy')
-  })
+  calendar.events.insert({calendarId: 'primary', resource: event})
+    .then(() => console.log('Calendar event inserted'))
+    .catch(err => console.log('error posting a calendar event', err));
 })
 
-const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
+
 app.use(express.static(PUBLIC_DIR));
 
 app.use('/', smoveRoutes);

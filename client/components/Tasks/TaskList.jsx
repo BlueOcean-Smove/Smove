@@ -7,15 +7,23 @@ import { UserDataContext } from '../Data.jsx';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 
+
 const TaskList = () => {
   const [sampleData, setSampleData] = useState(exampleData.smoves);
   const { userData, setUserData } = useContext(UserDataContext);
-  
+  const [uniqueKey, setUniqueKey] = useState(0);
 
   //rerenders the data on the task list
   const rerenderData = (data) => {
     setUserData(data);
   }
+
+  //the most amazing rerendering functionality you will ever see in your life EVER
+  useEffect(() => {
+    setTimeout(() => {
+      setUniqueKey(uniqueKey + 1)
+    }, 500)
+  }, [userData])
 
   const currentSmoveFromDb = userData.smoves.filter(smove => smove.isCurrentSmove)[0]
   const tasksFromDb = currentSmoveFromDb.tasks
@@ -62,7 +70,7 @@ const TaskList = () => {
               ) : null}
           </tbody>
         </Table>
-        <Calendar />
+        <Calendar uniqueKey={uniqueKey}/>
         <AddTasks rerenderData={rerenderData}/>
       </div>
     </div>

@@ -26,10 +26,10 @@ const Tasks = ({task, deleteTask, editTask, rerenderData}) => {
           {location}
         </td>
         <td>
-          {moment(startDate).format("MMMM Do YYYY, h:mm:ss a")}
+          {moment(startDate).format("L")}
         </td>
         <td>
-          {moment(endDate).format("MMMM Do YYYY, h:mm:ss a")}
+          {moment(endDate).format("L")}
         </td>
         <td>
           {assignedTo.map((user, idx) =>

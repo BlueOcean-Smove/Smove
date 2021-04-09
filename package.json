@@ -43,7 +43,6 @@
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
     "bootstrap": "^4.6.0",
-    "connect-mongo": "^4.4.1",
     "cors": "^2.8.5",
     "css-loader": "^5.2.0",
     "eslint": "^7.23.0",

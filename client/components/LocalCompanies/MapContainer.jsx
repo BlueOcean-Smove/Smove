@@ -36,7 +36,7 @@ const MapContainer = ({searchResult}) => {
 
   const mapStyles = {
     height: "500px",
-    width: "60%"};
+    width: "100%"};
 
   const defaultCenter = {
     lat: 47.6062, lng: -122.3321

@@ -22,7 +22,8 @@ const AddTasks = ({rerenderData }) => {
   const [endDate, setEndDate] = useState(new Date());
   const [taskDesignation, setTaskDesignation] = useState([]);
   const [status, setStatus] = useState('Not started');
-  const [company, setCompany] = useState('');
+  const favCompany = userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies;
+  const [company, setCompany] = useState(favCompany[0]);
   const [category, setCategory] = useState('Moving');
 
   //closes the modal
@@ -31,14 +32,22 @@ const AddTasks = ({rerenderData }) => {
   //shows the modal
   const handleShow = () => setShow(true);
 
+  //gets the url for the company to be sent to db
+  const getUrlForCompany= (name) => {
+    for (let i = 0; i < favCompany.length; i++) {
+      if (favCompany[i].companyName === name) {
+        return favCompany[i].url;
+      }
+    }
+  }
+
   //clears the form upon submission of an added task
   const clearForm = () => {
     setTaskDesignation([]);
     setTaskName('');
     setLocation('')
     setStatus('Not started');
-    setCompany('');
-    setCategory('');
+    setCategory('Moving');
   }
 
   //submits a new task
@@ -62,8 +71,8 @@ const AddTasks = ({rerenderData }) => {
       category: category,
       status: status,
       company: {
-        companyName: company,
-        url: 'www.google.com'
+        companyName: company.companyName,
+        url: company.url
       },
     }
     
@@ -88,9 +97,7 @@ const AddTasks = ({rerenderData }) => {
       .then(() => handleClose())
       .then(() => clearForm())
       .catch((err) => console.log('error in patch request to add task: ', err));
-
   }
-
 
   return (
     <>
@@ -142,20 +149,20 @@ const AddTasks = ({rerenderData }) => {
               </Form.Group>
               <Form.Group controlId="taskCompany">
                 <Form.Label>Company</Form.Label>
-                <Form.Control as="select" type="text" name={company} onChange={({target}) => setCompany(target.value)}>
-                  <option>Company 1</option>
-                  <option>Company 2</option>
-                  <option>Company 3</option>
+                <Form.Control as="select" type="text" name={company} onChange={({target}) => setCompany({companyName: target.value, url: getUrlForCompany(target.value)})}>
+                  {favCompany.map((company, idx) => 
+                    <option key={idx} value={company.companyName}>{company.companyName}</option>
+                  )}
                 </Form.Control>
               </Form.Group>
                <Form.Group controlId="category">
                 <Form.Label>Category</Form.Label>
                 <Form.Control as="select" type="text" name={category} onChange={({target}) => setCategory(target.value)}>
-                  <option>Moving</option>
-                  <option>Storage</option>
-                  <option>Cleaning</option>
-                  <option>Packing</option>
-                  <option>Other</option>
+                  <option value="Moving">Moving</option>
+                  <option value="Storage">Storage</option>
+                  <option value="Cleaning">Cleaning</option>
+                  <option value="Packing">Packing</option>
+                  <option value="Other">Other</option>
                 </Form.Control>
               </Form.Group>
             </Form>
@@ -174,3 +181,4 @@ const AddTasks = ({rerenderData }) => {
 }
 
 export default AddTasks;
+

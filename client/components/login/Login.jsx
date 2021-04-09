@@ -90,7 +90,7 @@ const Login = () => {
             .then(({ data }) => {
               setUserObj(data)
               setUserData(data)
-              window.location.reload(false);
+              //window.location.reload(false);
             })
             .catch((err) => console.log('error in posting data: ', err))
         } else {

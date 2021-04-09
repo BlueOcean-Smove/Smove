@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -14,6 +14,10 @@ const Logo = styled.h1`
   margin-left: 50px;
   margin-right: 50px;
 `;
+
+// const tempFunc = () => (2 + 2);
+
+// useEffect(tempFunc, (userData));
 
 const Header = () => {
   const { userData, setUserData } = useContext(UserDataContext);

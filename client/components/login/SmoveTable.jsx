@@ -67,6 +67,7 @@ var SmoveTableWrapper = styled.div`
   margin-left: 100px;
   width: 80%;
   border-bottom: 25px;
+  padding-bottom: 15px;
 `;
 var SmoveHelpText = styled.p`
   margin-left: 100px;

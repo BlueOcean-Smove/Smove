@@ -5,49 +5,16 @@ import InfoModal from './Modal';
 import Profile from './Profile';
 import styled from 'styled-components';
 
-const IntroWrapper = styled.div`
-  margin-left: 100px;
-  margin-top: 20px;
-  display: block;
-`
-const LoginButtonDiv = styled.div`
-  margin-top: 20px;
-  margin-left: 100px;
-  display: block;
-`
-const ProfilePic = styled.img`
-  height: 63px;
-  width: 63px;
-  border-style: solid;
-  border-radius: 50%;
-  border-width: 2px;
-  border-color: darkgray;
-  margin-right: 20px;
-  float: left;
-`
-const WelcomeMessage = styled.p`
-  display: block;
-`
-const Divider = styled.hr`
-  margin-top: 20px;
-  margin-bottom: 50px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: darkgray;
-  margin-left: 100px;
-  margin-right: 100px;
-`
-
 const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
-  const [userObj, setUserObj] = useState({});
   const { userData, setUserData } = useContext(UserDataContext);
   const [showModal, setShowModal] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [userLoginNoSmoves, setUserLoginNoSmoves] = useState(false);
 
+  // logging in a user with Google email
   useEffect(() => {
     window.gapi.load('auth2', () => {
       window.gapi.auth2.init({
@@ -61,12 +28,12 @@ const Login = () => {
             'longtitle': false,
             'theme': 'dark',
             'onsuccess': onSignIn,
-            // 'onfailure': this.onFailure
           })
         })
     })
   }, [])
 
+  // after sign in get user data
   const onSignIn = (googleUser) => {
     var profile = googleUser.getBasicProfile();
 
@@ -78,9 +45,11 @@ const Login = () => {
     setEmail(email);
     setImage(image);
 
+    // get the user document from the database
     axios.get(`/auth/${email}`)
       .then(({ data }) => {
         console.log('user obj from database: ', data);
+        // if there is no document, create a blank
         if (!data || !data.name) {
           axios.post(`/auth/`, {
             name: name,
@@ -88,13 +57,15 @@ const Login = () => {
             image: image
           })
             .then(({ data }) => {
-              setUserObj(data)
               setUserData(data)
-              //window.location.reload(false);
+              window.location.reload(false);
             })
             .catch((err) => console.log('error in posting data: ', err))
         } else {
-          setUserObj(data)
+          if (name === '') {
+            data.name = name,
+            data.image = image
+          }
           setUserData(data)
         }
         setShowProfile(true);
@@ -128,7 +99,7 @@ const Login = () => {
       {showProfile && (
         <>
           <Divider />
-          <Profile smovesArr={userObj.smoves} />
+          <Profile smovesArr={userData.smoves} />
         </>
       )}
     </div>
@@ -136,3 +107,37 @@ const Login = () => {
 }
 
 export default Login;
+
+// add styled components
+var IntroWrapper = styled.div`
+  margin-left: 100px;
+  margin-top: 20px;
+  display: block;
+`
+var LoginButtonDiv = styled.div`
+  margin-top: 20px;
+  margin-left: 100px;
+  display: block;
+`
+var ProfilePic = styled.img`
+  height: 63px;
+  width: 63px;
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: ming;
+  margin-right: 20px;
+  float: left;
+`
+var WelcomeMessage = styled.p`
+  display: block;
+`
+var Divider = styled.hr`
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: ming;
+  margin-left: 100px;
+  margin-right: 100px;
+`

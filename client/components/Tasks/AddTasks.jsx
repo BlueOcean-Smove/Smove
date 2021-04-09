@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import { UserDataContext } from '../Data.jsx';
+
 const CalendarStyle = styled.div`
 height: 1000px;
 width: 100%;
@@ -22,9 +23,12 @@ const AddTasks = ({rerenderData }) => {
   const [endDate, setEndDate] = useState(new Date());
   const [taskDesignation, setTaskDesignation] = useState([]);
   const [status, setStatus] = useState('Not started');
-  const favCompany = userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies;
-  const [company, setCompany] = useState(favCompany[0]);
   const [category, setCategory] = useState('Moving');
+  const favCompany = userData.smoves.filter(smove => smove.isCurrentSmove)[0].favCompanies;
+  const [company, setCompany] = useState({
+    companyName: 'No Company',
+    url: undefined, 
+  });
 
   //closes the modal
   const handleClose = () => setShow(false);
@@ -72,7 +76,7 @@ const AddTasks = ({rerenderData }) => {
       status: status,
       company: {
         companyName: company.companyName,
-        url: company.url
+        url: company.url || undefined
       },
     }
     
@@ -150,8 +154,9 @@ const AddTasks = ({rerenderData }) => {
               <Form.Group controlId="taskCompany">
                 <Form.Label>Company</Form.Label>
                 <Form.Control as="select" type="text" name={company} onChange={({target}) => setCompany({companyName: target.value, url: getUrlForCompany(target.value)})}>
+                  <option value={'No Company'}>No Company</option>
                   {favCompany.map((company, idx) => 
-                    <option key={idx} value={company.companyName}>{company.companyName}</option>
+                      <option key={idx} value={company.companyName}>{company.companyName}</option>
                   )}
                 </Form.Control>
               </Form.Group>

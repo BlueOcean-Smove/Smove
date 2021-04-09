@@ -6,6 +6,10 @@ import AddTasks from './AddTasks';
 import { UserDataContext } from '../Data.jsx';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import styled from 'styled-components';
 
 
 const TaskList = () => {
@@ -20,6 +24,7 @@ const TaskList = () => {
 
   //the most amazing rerendering functionality you will ever see in your life EVER
   useEffect(() => {
+    console.log('RERENDERING BITCH')
     setTimeout(() => {
       setUniqueKey(uniqueKey + 1)
     }, 500)
@@ -40,41 +45,66 @@ const TaskList = () => {
             console.log('Task Deleted: ', data);
             return data;
           })
-          .then((data) => setUserData(data))
+          .then((data) => rerenderData(data))
           .catch((err) => console.log('Error deleting a task', err));
       }
     }
   }
 
+  const TaskWrapper = styled.div`
+    font-size: 25px;
+    margin: 25px;
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+  `
+
+  const AddTaskWrapper = styled.div`
+    justify-content: left;
+    align-content: left;
+    margin-left: 15px;
+  `
+
   return (
     <div>
-      Your Task List Items 
-      <div>
-        <Table bordered hover>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Location</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Users</th>
-              <th>Company</th>
-              <th>Category</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-          {tasksFromDb ? tasksFromDb.map((task, idx) => 
-              <Tasks rerenderData={rerenderData} deleteTask={deleteTask} key={idx} task={task} />
-              ) : null}
-          </tbody>
-        </Table>
-        <Calendar uniqueKey={uniqueKey}/>
-        <AddTasks rerenderData={rerenderData}/>
-      </div>
+      <TaskWrapper>
+        Your Task List Items 
+      </TaskWrapper>
+      <Container fluid={true}>
+        <Row>
+          <Col xs={12} md={8}>
+            <div>
+              <Table bordered hover size="lg">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Users</th>
+                    <th>Company</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {tasksFromDb ? tasksFromDb.map((task, idx) => 
+                    <Tasks rerenderData={rerenderData} deleteTask={deleteTask} key={idx} task={task} />
+                    ) : null}
+                </tbody>
+              </Table>
+            </div>
+          </Col>
+          <Col xs={6} md={4}>
+            <Calendar uniqueKey={uniqueKey}/>
+          </Col>
+          <AddTaskWrapper>
+            <AddTasks rerenderData={rerenderData}/>
+          </AddTaskWrapper>
+        </Row>
+      </Container>
     </div>
-    
   )
 }
 

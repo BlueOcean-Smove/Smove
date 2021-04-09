@@ -1,7 +1,7 @@
 import React, { useState, createContext } from 'react';
 import ReactDOM from 'react-dom';
 import { render, cleanup, fireEvent, screen } from '@testing-library/react';
-import Profile from '../client/components/Login/Profile';
+import Profile from '../client/components/login/Profile';
 import { UserDataContext } from '../client/components/Data.jsx';
 import sampleData from '../client/test-data.js';
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import LocalMovingServices from './LocalCompanies/LocalMovingServices';
 import Login from './login/Login';
 import Logout from './login/Logout';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import Inventory from './inventory/Inventory';
 import TaskList from './Tasks/TaskList';
@@ -16,13 +16,6 @@ import { UserDataContextProvider } from './Data';
 // you will also need to define useContext in your import react
 // const { userData } = useContext(UserDataContext);
 
-const GeneralStyle = styled.div`
-  height: 100%;
-  background: white;
-  font-family: calibri,sans-serif;
-  font-weight: 700;
-  font-style: normal;
-`;
 
 const App = () => {
 
@@ -32,15 +25,9 @@ const App = () => {
         <BrowserRouter>
           <Header />
           <Route exact path="/" component={Login} />
-          {/* <Route exact path="/" component={ Add in your component file } />
-          <Route exact path="/TaskList" component={ Add in your component file } /> */}
           <Route exact path="/Inventory" component={Inventory} />
-          {/* <Route exact path="/LocalMovingServices" component={ Add in your component file } />
-          {/* <Route exact path="/" component={ Add in your component file } /> */}
           <Route exact path="/TaskList" component={TaskList} />
-          {/* <Route exact path="/Inventory" component={ Add in your component file } /> */}
           <Route exact path="/LocalMovingServices" component={LocalMovingServices} />
-          {/* <Route exact path="/Login" component={ Add in your component file } /> */}
         </BrowserRouter>
       </UserDataContextProvider>
     </GeneralStyle>
@@ -48,3 +35,12 @@ const App = () => {
 }
 
 export default App;
+
+// adding styled components
+var GeneralStyle = styled.div`
+  height: 100%;
+  background: beige;
+  font-family: calibri,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+`;

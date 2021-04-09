@@ -35,7 +35,6 @@ const BussinessCard = ({ data }) => {
     //* * axios to update smoves with fav companies * *//
     axios.patch(`/user/${userData.email}`, {data: userData.smoves})
       .then(({ data }) => {
-        console.log('FavCompany successfully updated: ', data);
         return data;
       })
       .then((data) => setUserData(data))

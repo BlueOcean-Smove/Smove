@@ -39,7 +39,7 @@ const Tasks = ({task, deleteTask, editTask, rerenderData}) => {
           )}
         </td>
         <td>
-          <a href={company.url} rel="external" target="_self" target="_blank">{company.companyName}</a>
+          {company.url === undefined ? <div>{company.companyName}</div> : <a href={company.url} style={{ textDecoration: 'none' }} rel="external" target="_self" target="_blank">{company.companyName}</a> }
         </td>
         <td>
           {category}
@@ -48,8 +48,8 @@ const Tasks = ({task, deleteTask, editTask, rerenderData}) => {
           {status}
         </td>
         <td>
-          <FaTrashAlt onClick={() => deleteTask(taskName, assignedTo)}/>
-          <FaEdit onClick={handleShow}/>
+          <FaTrashAlt onClick={() => deleteTask(taskName, assignedTo)} role="button" tabindex="0"/>
+          <FaEdit onClick={handleShow} role="button" tabindex="0" />
           <EditTasks
             rerenderData={rerenderData}
             taskNameEdit={taskName}

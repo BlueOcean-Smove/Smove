@@ -35,6 +35,9 @@ const MapContainer = ({searchResult}) => {
   }
 
   const mapStyles = {
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 10+"px",
     height: "500px",
     width: "100%"};
 

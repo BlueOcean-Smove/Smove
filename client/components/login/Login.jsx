@@ -125,7 +125,7 @@ var ProfilePic = styled.img`
   border-style: solid;
   border-radius: 50%;
   border-width: 2px;
-  border-color: darkgray;
+  border-color: ming;
   margin-right: 20px;
   float: left;
 `
@@ -137,7 +137,7 @@ var Divider = styled.hr`
   margin-bottom: 50px;
   border-width: 1px;
   border-style: solid;
-  border-color: darkgray;
+  border-color: ming;
   margin-left: 100px;
   margin-right: 100px;
 `

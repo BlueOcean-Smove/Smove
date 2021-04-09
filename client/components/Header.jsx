@@ -26,7 +26,7 @@ const Header = () => {
           )}
         </Nav>
         <Form inline>
-          {!!userData && <Logout />}
+          <Logout />
         </Form>
       </Navbar>
     </React.Fragment>
@@ -43,9 +43,10 @@ var Logo = styled.h1`
 `;
 
 var StyledLink = styled(Link)`
-  color: ming;
+  color: #ccc;
   font-size: 24px;
   margin: 0 10px;
+  font-family: calibri,sans-serif;
 `;
 
 //OG Format

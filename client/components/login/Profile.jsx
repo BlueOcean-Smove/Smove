@@ -107,7 +107,7 @@ var CurrentSmoveTitle = styled.h3`
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 100px;
-  color: darkgray;
+  color: darkgrey;
 `
 var CurrentSmoveName = styled.h3`
   font-size: 2em;
@@ -123,13 +123,13 @@ var SmoveButton = styled.button`
   margin-top: 50px;
   margin-left: 100px;
   border-style: solid;
-  border-color: darkgray;
+  border-color: ming;
   border-radius: 5px;
   background-color: white;
   color: black;
   padding: 5px 10px;
   &:hover{
-    background-color: darkgray;
+    background-color: #ccc;
     color: white;
   }
 `
@@ -139,7 +139,7 @@ var HomeImage = styled.img`
   border-style: solid;
   border-weight: 1px;
   border-radius: 50px;
-  border-color: white;
+  border-color: ming;
   object-fit: cover;
   display: inline-block;
 `
@@ -161,7 +161,7 @@ var Divider = styled.hr`
   margin-bottom: 25px;
   border-width: 1px;
   border-style: solid;
-  border-color: darkgray;
+  border-color: ming;
   margin-left: 100px;
   margin-right: 100px;
 `

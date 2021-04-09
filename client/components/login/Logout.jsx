@@ -3,7 +3,18 @@ import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 
-
+// styled components
+const SignOutButton = styled.button`
+  background-color: #4285F4;
+  border-style: solid;
+  border-color: #4285F4;
+  border-width: 1px;
+  padding: 5px 10px;
+`
+const SignOutText = styled.a`
+  color: white;
+  font-family: 'Roboto', sans-serif;
+`
 const Logout = () => {
   const history = useHistory();
   const onSignOut = (googleUser) => {
@@ -23,14 +34,3 @@ const Logout = () => {
 
 export default Logout;
 
-// add styled components
-var SignOutButton = styled.button`
-  background-color: #4285F4;
-  border-style: solid;
-  border-color: #4285F4;
-  border-width: 1px;
-  padding: 5px 10px;
-`
-var SignOutText = styled.a`
-  color: white;
-`

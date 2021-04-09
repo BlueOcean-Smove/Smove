@@ -10,6 +10,7 @@ const Title = styled.h3`
 
 const SearchInput = styled.input`
   margin: 10px;
+  height: 26px;
 `;
 
 const SearchSelect = styled.select`
@@ -29,6 +30,7 @@ const SearchBars = styled.form`
 
 const SearchButton = styled.button`
   margin-left: 20px;
+  margin-right: 10px;
   border-style: solid;
   border-color: darkgray;
   border-radius: 5px;
@@ -71,7 +73,7 @@ const BusinessMap = () => {
           <option value="distance">Distance</option>
           <option value="best_match">Best Match</option>
           <option value="rating">Rating</option>
-          <option value="review_count">R`eviews</option>
+          <option value="review_count">Reviews</option>
 
         </SearchSelect>
         <SearchButton>SEARCH</SearchButton>

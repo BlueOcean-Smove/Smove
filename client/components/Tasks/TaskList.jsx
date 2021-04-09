@@ -24,6 +24,7 @@ const TaskList = () => {
 
   //the most amazing rerendering functionality you will ever see in your life EVER
   useEffect(() => {
+    console.log('RERENDERING BITCH')
     setTimeout(() => {
       setUniqueKey(uniqueKey + 1)
     }, 500)
@@ -44,7 +45,7 @@ const TaskList = () => {
             console.log('Task Deleted: ', data);
             return data;
           })
-          .then((data) => setUserData(data))
+          .then((data) => rerenderData(data))
           .catch((err) => console.log('Error deleting a task', err));
       }
     }
@@ -96,7 +97,7 @@ const TaskList = () => {
             </div>
           </Col>
           <Col xs={6} md={4}>
-            <Calendar />
+            <Calendar uniqueKey={uniqueKey}/>
           </Col>
           <AddTaskWrapper>
             <AddTasks rerenderData={rerenderData}/>

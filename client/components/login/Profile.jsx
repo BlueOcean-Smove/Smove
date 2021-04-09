@@ -95,7 +95,6 @@ const Divider = styled.hr`
   margin-right: 100px;
 `
 const SmovesWrapper = styled.div`
-  margin-left: 100px;
   margin-top: 40px;
   display: flex;
   justify-content: center;

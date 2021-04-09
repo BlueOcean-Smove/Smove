@@ -53,6 +53,11 @@ const Tagline = styled.h4`
   margin-left: -100px;
   margin-top: 100px;
 `
+const WelcomeInfo = styled.p`
+  font-size: 1.5em;
+  display: block;
+  margin-bottom: 0;
+`
 const UserInfo = styled.p`
   display: block;
 `
@@ -153,9 +158,9 @@ const Login = () => {
         {!!name && (
           <div>
             <ProfilePic id="welcome-img" src={image} alt="Your user profile picture" />
-            <UserInfo id="welcome-name">
+            <WelcomeInfo id="welcome-name">
               Welcome {name}!
-            </UserInfo>
+            </WelcomeInfo>
             <UserInfo id="welcome-email">
               Currently signed in as {email}
             </UserInfo>

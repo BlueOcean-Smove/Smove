@@ -10,7 +10,7 @@ const Inventory = () => {
             <Container>
                 <br></br>
                 <Row style={{justifyContent: 'center'}}>
-                    <h2>Inventory</h2>  
+                    <h1>Inventory</h1>  
                 </Row>
                 <Row style={{justifyContent: 'center'}}>
                     <CreateInventory/>

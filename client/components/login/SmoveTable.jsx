@@ -30,7 +30,7 @@ const SmoveTable = () => {
     <>
       <SmoveHelpText>Click on a Smove below to update your current Smove</SmoveHelpText>
       <SmoveTableWrapper>
-        <Table striped bordered hover size="sm">
+        <StyledTable striped bordered hover size="sm">
           <thead>
             <tr>
               <th width='40%' className='text-center'>Smoves</th>
@@ -51,7 +51,7 @@ const SmoveTable = () => {
             </tr>
           ))}
           </tbody>
-        </Table>
+        </StyledTable>
       </SmoveTableWrapper>
     </>
   )
@@ -60,21 +60,24 @@ const SmoveTable = () => {
 export default SmoveTable;
 
 // add styled components
+var StyledTable = styled(Table)`
+  margin-bottom: 30px;
+`;
 var SmoveTableWrapper = styled.div`
   margin-left: 100px;
   width: 80%;
   border-bottom: 25px;
-`
+`;
 var SmoveHelpText = styled.p`
   margin-left: 100px;
-`
+`;
 var SmoveTitleCell = styled.td`
   cursor: pointer;
   :hover{
     color: blue;
   }
-`
+`;
 var SmoveFriendsCell = styled.p`
   margin-bottom: 0;
   margin-block-end: 0;
-`
+`;

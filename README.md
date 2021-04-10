@@ -43,14 +43,15 @@ To run webpack watch<br>
 To run tests<br>
 `npm test`
 
-# Demo
+Demo
 =============
-**User Authentication:**
+
+**User Authentication:**<br>
 Sign In with Google
 
 <image>
 
-**Profile Page:**
+**Profile Page:**<br>
 From the user's Profile page, the user can:
 - Create a new Smove
 - View current Smove
@@ -60,7 +61,7 @@ From the user's Profile page, the user can:
 
 <image>
 
-**Task List**
+**Task List**<br>
 From the Task List page, the user can:
 - Create, Edit, or Delete any Task
 - View the user's Google Calendar
@@ -69,7 +70,7 @@ From the Task List page, the user can:
 
 <image>
 
-**Inventory**
+**Inventory**<br>
 From the Inventory page, the user can:
 - Add a "box" to the move inventory, with auto-incrementing box number
 - Edit any box in the inventory
@@ -77,7 +78,7 @@ From the Inventory page, the user can:
 
 <image>
 
-**Local Moving Services**
+**Local Moving Services**<br>
 From the Local Moving Services page, the user can:
 - Use keywords to search for businesses
 - Sort search results

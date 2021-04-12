@@ -23,7 +23,7 @@ APIs
 Team
 =============
 <b>User Profile & Auth</b>
-* [Pete Cowell](https://github.com/KilgoreTrout9)
+* [Pete Cowles](https://github.com/KilgoreTrout9)
 * [Dani Tian](https://github.com/danitian)
 
 <b>Task List & Calendar</b>

@@ -27,7 +27,7 @@ Team
 * [Dani Tian](https://github.com/danitian)
 
 <b>Task List & Calendar</b>
-* [Jesse Smith]()
+* [Jesse Smith](https://github.com/jessesmith-13)
 * [John Kwak](https://github.com/johnkwak08)
 
 <b>Inventory & Nav</b>

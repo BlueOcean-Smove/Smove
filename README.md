@@ -22,7 +22,7 @@ APIs
 
 Team
 =============
-<b>User Profile & Auth</b>
+<b>Landing Page, User Profile & login Authorization</b>
 * [Pete Cowles](https://github.com/KilgoreTrout9)
 * [Dani Tian](https://github.com/danitian)
 
@@ -34,7 +34,7 @@ Team
 * [Greta Schock](https://github.com/grsc0529)
 * [Bryan Clark](https://github.com/bryancWA)
 
-<b>Local Moving Services</b>
+<b>Google Maps & Local Moving Services</b>
 * [Ming Wen](https://github.com/level1man)
 * [Alex Duncan](https://github.com/monkeymedic26)
 

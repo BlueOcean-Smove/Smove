@@ -22,7 +22,7 @@ APIs
 
 Team
 =============
-<b>Landing Page, User Profile & login Authorization</b>
+<b>Landing Page, User Profile & Login Authorization</b>
 * [Pete Cowles](https://github.com/KilgoreTrout9)
 * [Dani Tian](https://github.com/danitian)
 

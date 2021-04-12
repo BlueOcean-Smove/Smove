@@ -20,6 +20,24 @@ APIs
 * [Google Calendar](https://developers.google.com/calendar)
 * [Google Sign In](https://developers.google.com/maps)
 
+Team
+=============
+<b>User Profile & Auth</b>
+* [Pete Cowell](https://github.com/KilgoreTrout9)
+* [Dani Tian](https://github.com/danitian)
+
+<b>Task List & Calendar</b>
+* [Jesse Smith]()
+* [John Kwak](https://github.com/johnkwak08)
+
+<b>Inventory & Nav</b>
+* [Greta Schock](https://github.com/grsc0529)
+* [Bryan Clark](https://github.com/bryancWA)
+
+<b>Local Moving Services</b>
+* [Ming Wen](https://github.com/level1man)
+* [Alex Duncan](https://github.com/monkeymedic26)
+
 Requirements
 =============
 <h3>Installing Dependencies</h3>

@@ -35,7 +35,7 @@ Team
 * [Bryan Clark](https://github.com/bryancWA)
 
 <b>Google Maps & Local Moving Services</b>
-* [Ming Wen](https://github.com/level1man)
+* [Ming Wen](https://github.com/mingwencode)
 * [Alex Duncan](https://github.com/monkeymedic26)
 
 Requirements

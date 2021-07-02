@@ -86,7 +86,7 @@ From the Task List page, the user can:
 - View the user's Google Calendar
 - Add a task to the user's Google Calendar
 ![Screenshot of Task List Page](https://github.com/BlueOcean-Smove/Smove/blob/1d6e9640a81e79b44197d39e9d18646f260cb528/SmoveScreenshots/Screen%20Shot%202021-04-10%20at%2010.16.09%20AM.png)
-- Navigate to the webpage of a designated task vendor
+- Navigate to the webpage of a designated vendor for a certain task
 
 
 ## Inventory<br>
